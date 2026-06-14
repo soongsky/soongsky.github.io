@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原底层的方法" />
+<meta name="Keywords" content="魔方, 二阶, 缺角层先法, Keyhole LBL, 还原底层" />
+<title>还原底层 - 二阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube2.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">二阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>二阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top.html">还原顶层</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原底层</h1>
+<p>我们首先要还原二阶魔方的底层，但在底层留了一个角块暂不还原（图1）；留着的缺角位置将作为后续还原的工作区。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxfx","xxbb","xxll","xxxr","xxxx","dxdd", "", "d", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图1</td>
+	</tr>
+</table>
+<p>二阶魔方没有中心块，我们可以任选一个面作为底面。当我们将某一角块带底面颜色的一面朝下时，底层第一个角块就“自动”归位了（图2-1）。由于少了棱块的束缚，还原底层角块的自由度很大，很多时候不必严格按照三阶魔方的方法进行还原。比如在图2-1中，只需逆转右面（图2-2），就可以将第二个角块归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+	  <td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xdfx","xxxx","xxxl","rxxx","xxxf","dxxx", "", "ud", 2)</script></td>
+	  <td><script>cube("xdfx","xxxx","xxxl","rxxx","xxxf","dxxx", "R'", "ud", 2)</script></td>
+		<td><script>animcube("xdfx", "xxxx", "xxxl", "rxxx", "xxxf", "dxxx", "R'", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+	</tr>
+</table>
+<p>我们在还原底层第二个角块时，一般应优先还原与第一个角块相邻的角块。比如在图3-1中，虽然直接逆转后面可以将<span>红蓝黄<script>get_color("rbd")</script></span>角块归位，但是两个已还原的角块在底面形成对角位置状态，不利于<span>红绿黄<script>get_color("rfd")</script></span>角块的还原。我们可以逆转顶面（图3-2）、转动右面180°（图3-3），先将<span>红绿黄<script>get_color("rfd")</script></span>角块归位；再顺转顶面（图3-4）、逆转后面（图3-5），将<span>红蓝黄<script>get_color("rbd")</script></span>角块归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>U'</td>
+		<td>R²</td>
+		<td>U</td>
+		<td>B'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xrfx","bxxx","xxxl","fdxx","xrxd","dxxx", "", "bud", 2)</script></td>
+		<td><script>cube("xrfx","bxxx","xxxl","fdxx","xrxd","dxxx", "U'", "bud", 2)</script></td>
+		<td><script>cube("xrfx","bxxx","xxxl","fdxx","xrxd","dxxx", "U'R2", "bud", 2)</script></td>
+		<td><script>cube("xrfx","bxxx","xxxl","fdxx","xrxd","dxxx", "U'R2U", "bud", 2)</script></td>
+		<td><script>cube("xrfx","bxxx","xxxl","fdxx","xrxd","dxxx", "U'R2UB'", "bud", 2)</script></td>
+		<td><script>animcube("xrfx", "bxxx", "xxxl", "fdxx", "xrxd", "dxxx", "U'R2'.UB'", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+		<td>图3-6</td>
+	</tr>
+</table>
+<p>当然，如果没有便捷的还原方法，我们还是需要使用三阶魔方中还原底层角块的方法，这里就不再赘述。</p>
+<div class="back_to_top"><a href="index.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="top.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

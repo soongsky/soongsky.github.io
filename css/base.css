@@ -1,0 +1,130 @@
+header, main, footer, nav, aside, section, article, figure {
+	display: block; 
+	/* 自动撑开高度、滚动宽表格 */
+	overflow: auto;
+}
+
+header, footer {
+	/*border: 1px solid #336699;*/
+	border-top: 1px solid #ADADAD;
+	border-bottom: 1px solid #ADADAD;
+	background-color: #F0F7FF;
+	/* 内边距 */
+	padding: 0.25em;
+	/* 外边距 */
+	margin: 0.25em;
+}
+
+footer {
+	text-align: center;
+}
+
+nav ul {
+	margin: 0em;
+	padding: 0em;
+}
+
+nav li {
+	display: inline;
+	/*margin: 0.25em;*/
+}
+
+nav .sidebar {
+	float: right;
+}
+
+main nav {
+	width: 10em;
+	margin: 0.25em;
+	float: left;
+}
+
+nav dl {
+	/*border: 1px solid #6699CC;*/
+	border: 1px solid #336699;
+	margin: 0px;
+}
+
+nav dt {
+	color: white;
+	/*background-color: #6699CC;*/
+	background-color: #336699;
+	font-weight: bold;
+}
+
+nav dd {
+	margin-left: 0.5em;
+}
+
+section {
+	padding: 0.5em;
+}
+
+body {
+	font-size: 90%;
+	/*filter: Gray;*/
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+h4, h5 {
+	margin-top: 0px;
+}
+
+p {
+	/* 首行缩进2格 */
+	text-indent: 2em;
+	/* 1.5倍行距 */
+	line-height: 1.5;
+	/* 段前后行距不变 */
+	margin: 0em;
+}
+
+hr {
+	height: 1px;
+}
+
+img {
+	border-style: hidden;
+	vertical-align: top;
+	margin: 0.5em;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.more, .byline {
+	text-align: right;
+	margin-right: 1em;
+}
+
+.new {
+	font-weight: bold;
+	color: #FF0000;
+	vertical-align: text-top;
+	font-size: x-small;
+	text-decoration: blink;
+}
+
+/* 重要姓名 */
+.name {
+	font-weight: bold;
+}
+
+/* 世系表 */
+.family tr {
+	text-align: center;
+	vertical-align: top;
+}
+
+.back_to_top {
+	text-align: center;
+}
+
+.note {
+	font-size: 80%;
+	opacity: 0.5;
+}

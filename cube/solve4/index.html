@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="四阶魔方解法的简介" />
+<meta name="Keywords" content="魔方, 四阶, 缺角层先法, Keyhole LBL, 简介" />
+<title>简介 - 四阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube4.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">四阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>四阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="center.html">合并中心块</a></dd>
+	<dd><a href="edge.html">合并棱边</a></dd>
+	<dd><a href="solve.html">降阶还原</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>简 介</h1>
+<p>四阶魔方的结构比三阶魔方复杂，它的每个面有四个中心块，每条棱边有两个棱块。不过我们可以使用“降阶法”，即先将每个面的四个中心块拼成同色、每条棱边的两个棱块也拼成同色，这样四阶魔方就相当于三阶魔方，然后就可以使用三阶魔方的还原方法。我们将在<a href="../solve/">缺角层先法</a>的基础上，对四阶魔方解法加以介绍。</p>
+<p>四阶魔方的一般还原步骤如下：</p>
+<ol>
+	<li><a href="center.html">合并中心块，即将每个面的四个中心块拼成相同颜色</a>（图1-1）</li>
+	<li><a href="edge.html">合并棱边，即将每条棱边的两个棱块拼成相同颜色，但各棱边的位置和朝向尚未还原</a>（图1-2）</li>
+	<li><a href="solve.html">降阶还原，按照三阶魔方进行还原</a>（图1-3）</li>
+</ol>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxxffxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxuuxxuuxxxxx","xxxxxddxxddxxxxx", "", "", 4)</script></td>
+		<td><script>cube("xffxlffdlffdxrrx","xuuxubbfubbfxllx","xbbxdllfdllfxbbx","xffxbrrrbrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "", "", 4)</script></td>
+		<td><script>cube("ffffffffffffffff","bbbbbbbbbbbbbbbb","llllllllllllllll","rrrrrrrrrrrrrrrr","uuuuuuuuuuuuuuuu","dddddddddddddddd", "", "", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+		<td>图1-3</td>
+	</tr>
+</table>
+<p>由于四阶魔方没有固定的中心块，这就给颜色定位带来麻烦。一般我们应记住魔方配色：<span>绿<script>get_color("f")</script></span>前、<span>蓝<script>get_color("b")</script></span>后、<span>橙<script>get_color("l")</script></span>左、<span>红<script>get_color("r")</script></span>右、<span>白<script>get_color("u")</script></span>顶、<span>黄<script>get_color("d")</script></span>底；而角块三个面的颜色关系也能帮助我们确定魔方的配色。</p>
+<p>同时，因为四阶魔方中间层转动的固有特点，有可能出现“单边翻色”（见图2-1）和“两角互换”（见图2-2）等特殊情况。这需单独进行调整，而非魔方安装错误。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xffxfffrfffrxffx","xbbxbbbbbbbbxbbx","xllxllllllllxllx","xrrxfrrrfrrrxrrx","xuuxuuuuuuuuxuux","xddxddddddddxddx", "", "", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "", "", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+	</tr>
+</table>
+<p>为了叙述上的方便，文中采用魔方公式所常用的标记法：</p>
+<ul>
+	<li><strong>TF</strong>（或者<strong>Ft</strong>）、<strong>TB</strong>（或者<strong>Bt</strong>）、<strong>TL</strong>（或者<strong>Lt</strong>）、<strong>TR</strong>（或者<strong>Rt</strong>）、<strong>TU</strong>（或者<strong>Ut</strong>）、<strong>TD</strong>（或者<strong>Dt</strong>）表示同时转动相应层面的第一层及第二层。</li>
+	<li><strong>T3F</strong>（或者<strong>3Fw</strong>）、<strong>T3B</strong>（或者<strong>3Bw</strong>）、<strong>T3L</strong>（或者<strong>3Lw</strong>）、<strong>T3R</strong>（或者<strong>3Rw</strong>）、<strong>T3U</strong>（或者<strong>3Uw</strong>）、<strong>T3D</strong>（或者<strong>3Dw</strong>）表示同时转动相应层面的第一层至第三层。</li>
+	<li><strong>MF</strong>（或者<strong>Fm</strong>）、<strong>MB</strong>（或者<strong>Bm</strong>）、<strong>ML</strong>（或者<strong>Lm</strong>）、<strong>MR</strong>（或者<strong>Rm</strong>）、<strong>MU</strong>（或者<strong>Um</strong>）、<strong>MD</strong>（或者<strong>Dm</strong>）表示按相应层面方向转动中间第二层。</li>
+	<li><strong>WF</strong>（或者<strong>Fw</strong>）、<strong>WB</strong>（或者<strong>Bw</strong>）、<strong>WL</strong>（或者<strong>Lw</strong>）、<strong>WR</strong>（或者<strong>Rw</strong>）、<strong>WU</strong>（或者<strong>Uw</strong>）、<strong>WD</strong>（或者<strong>Dw</strong>）表示按相应层面方向转动中间第二层、第三层。</li>
+</ul>
+<div class="back_to_top">&lt;&lt;上页 <a href="#">页首</a> <a href="center.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

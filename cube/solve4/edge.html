@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍合并棱边的方法" />
+<meta name="Keywords" content="魔方, 四阶, 缺角层先法, Keyhole LBL, 合并棱边" />
+<title>合并棱边 - 四阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube4.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">四阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>四阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="center.html">合并中心块</a></dd>
+	<dd><a href="edge.html">合并棱边</a></dd>
+	<dd><a href="solve.html">降阶还原</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>合并棱边</h1>
+<p>在前面的步骤中，我们已经合并好四阶魔方每个面的中心块（图1-1）。我们将合并每条棱边，即将每条棱边的两个棱块也拼成同色，但各棱边的位置和朝向暂无需还原（图1-2）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxxffxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxuuxxuuxxxxx","xxxxxddxxddxxxxx", "", "", 4)</script></td>
+		<td><script>cube("xffxlffdlffdxrrx","xuuxubbfubbfxllx","xbbxdllfdllfxbbx","xffxbrrrbrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "", "", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>至此，四阶魔方就降阶为三阶魔方。</p>
+<h3>基本方法</h3>
+<p>1、如图2-1所示，位于左前棱位下侧的<span>绿白<script>get_color("fu")</script></span>棱块和位于右前棱位上侧的<span>绿白<script>get_color("fu")</script></span>棱块颜色相同，当我们同时顺转底面及第二层时（图2-2），它们正好可以构成一组同色棱边。这时魔方的侧面看上去有点错乱，但我们可以简单应用“送出-带回”互逆操作的还原思路，即进行一次换棱，将所合并的<span>绿白<script>get_color("fu")</script></span>棱边替换到顶层（图2-3~图2-5）。最后同时逆转底面及第二层复原（图2-6），魔方的侧面恢复到原来归位状态。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TD</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>TD'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xulxbfffuffdxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffuffdxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffuffdxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(R", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffuffdxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffuffdxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'R')", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffuffdxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'R')TD'", "blr", 4)</script></td>
+		<td><script>animcube("xulxbfffuffdxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllrxllfxxxx", "xxxxurrxlrrxxxxx", "xxxxxuuxxuuxxlfx", "xxxxxddxxddxxxxx", "Dt.RU'R'.Dt'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+		<td>图2-6</td>
+		<td>图2-7</td>
+	</tr>
+</table>
+<p>值得注意的是，我们将所合并的<span>绿白<script>get_color("fu")</script></span>棱边替换到顶层时，顶层另一条棱边也被带回并拆分。因此我们应事先在顶层准备好一条尚未合并的棱边，以免破坏已合并的“成果”。</p>
+<p>2、如图3-1所示，位于左前棱位上侧的<span>绿白<script>get_color("fu")</script></span>棱块和位于右前棱位下侧的<span>绿白<script>get_color("fu")</script></span>棱块颜色相同。我们可以相应地先同时逆转顶面及第二层（图3-2），将同色棱边合并；再进行一次换棱，将所合并的<span>绿白<script>get_color("fu")</script></span>棱边替换到顶层（图3-3~图3-5）；最后同时顺转顶面及第二层复原（图3-6）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU'</td>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+		<td>TU</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xulxuffdbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "", "blr", 4)</script></td>
+		<td><script>cube("xulxuffdbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TU'", "blr", 4)</script></td>
+		<td><script>cube("xulxuffdbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TU'(F'", "blr", 4)</script></td>
+		<td><script>cube("xulxuffdbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TU'(F'U", "blr", 4)</script></td>
+		<td><script>cube("xulxuffdbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TU'(F'UF)", "blr", 4)</script></td>
+		<td><script>cube("xulxuffdbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TU'(F'UF)TU", "blr", 4)</script></td>
+		<td><script>animcube("xulxuffdbfffxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllfxllrxxxx", "xxxxlrrxurrxxxxx", "xxxxxuuxxuuxxlfx", "xxxxxddxxddxxxxx", "Ut'.F'UF.Ut", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+		<td>图3-6</td>
+		<td>图3-7</td>
+	</tr>
+</table>
+<p>3、如图4-1所示，位于前顶棱位右侧的<span>绿橙<script>get_color("fl")</script></span>棱块和位于右前棱位下侧的<span>绿橙<script>get_color("fl")</script></span>棱块颜色相同。我们当然可以通过简单的变换，先将前顶棱边换至左前棱位，再使用前面所介绍的方法进行合并棱边。更为便捷的方法是将前顶棱位的<span>绿橙<script>get_color("fl")</script></span>棱块换至右前棱位上侧，以实现棱边合并。但直接换棱将破坏右前棱位的<span>绿橙<script>get_color("fl")</script></span>棱块，因此我们先同时顺转底面及第二层（图4-2），将<span>绿橙<script>get_color("fl")</script></span>棱块移开避让；再根据顶层<span>绿橙<script>get_color("fl")</script></span>棱块的位置及朝向，选择以顺转右面开始棱法（图4-3~图4-5），将顶层的<span>绿橙<script>get_color("fl")</script></span>棱块带回；最后同时逆转底面及第二层复原（图4-6），两个<span>绿橙<script>get_color("fl")</script></span>棱块合并。</p>
+<table border="1" align="center">
+  <tr>
+    <td>原始状态</td>
+    <td>TD</td>
+    <td>R</td>
+    <td>U'</td>
+    <td>R'</td>
+    <td>TD'</td>
+    <td>动画演示</td>
+  </tr>
+  <tr>
+    <td><script>cube("xulxbfffdfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "", "blr", 4)</script></td>
+    <td><script>cube("xulxbfffdfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD", "blr", 4)</script></td>
+    <td><script>cube("xulxbfffdfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(R", "blr", 4)</script></td>
+    <td><script>cube("xulxbfffdfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'", "blr", 4)</script></td>
+    <td><script>cube("xulxbfffdfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'R')", "blr", 4)</script></td>
+    <td><script>cube("xulxbfffdfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'R')TD'", "blr", 4)</script></td>
+    <td><script>animcube("xulxbfffdfffxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllrxllfxxxx", "xxxxurrxlrrxxxxx", "xxxxxuuxxuuxxlfx", "xxxxxddxxddxxxxx", "Dt.RU'R'.Dt'", 4)</script></td>
+  </tr>
+  <tr>
+    <td>图4-1</td>
+    <td>图4-2</td>
+    <td>图4-3</td>
+    <td>图4-4</td>
+    <td>图4-5</td>
+    <td>图4-6</td>
+    <td>图4-7</td>
+  </tr>
+</table>
+<p>值得注意的是，在上述合并棱边的过程中，原先位于左前棱位的一条棱边将被拆分，因此这个位置上不应存放已合并的棱边。</p>
+<p>4、如图5-1所示，位于前顶棱位右侧的<span>绿橙<script>get_color("fl")</script></span>棱块和位于右前棱位上侧的<span>绿橙<script>get_color("fl")</script></span>棱块颜色相同。我们可以相应地先同时逆转顶面及第二层（图5-2），将<span>绿橙<script>get_color("fl")</script></span>棱块移开避让；再根据顶层<span>绿橙<script>get_color("fl")</script></span>棱块的位置及朝向，选择以逆转前面开始换棱（图5-3~图5-5），将顶层的<span>绿橙<script>get_color("fl")</script></span>棱块带回；最后同时顺转顶面及第二层复原（图5-6），两个<span>绿橙<script>get_color("fl")</script></span>棱块合并。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU'</td>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+		<td>TU</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xufxdfffbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxllx","xxxxxddxxddxxxxx", "", "blr", 4)</script></td>
+		<td><script>cube("xufxdfffbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxllx","xxxxxddxxddxxxxx", "TU'", "blr", 4)</script></td>
+		<td><script>cube("xufxdfffbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxllx","xxxxxddxxddxxxxx", "TU'(F'", "blr", 4)</script></td>
+		<td><script>cube("xufxdfffbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxllx","xxxxxddxxddxxxxx", "TU'(F'U", "blr", 4)</script></td>
+		<td><script>cube("xufxdfffbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxllx","xxxxxddxxddxxxxx", "TU'(F'UF)", "blr", 4)</script></td>
+		<td><script>cube("xufxdfffbfffxxxx","xxxxxbbxxbbxxxxx","xxxxxllfxllrxxxx","xxxxlrrxurrxxxxx","xxxxxuuxxuuxxllx","xxxxxddxxddxxxxx", "TU'(F'UF)TU", "blr", 4)</script></td>
+		<td><script>animcube("xufxdfffbfffxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllfxllrxxxx", "xxxxlrrxurrxxxxx", "xxxxxuuxxuuxxllx", "xxxxxddxxddxxxxx", "Ut'.F'UF.Ut", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图5-1</td>
+		<td>图5-2</td>
+		<td>图5-3</td>
+		<td>图5-4</td>
+		<td>图5-5</td>
+		<td>图5-6</td>
+		<td>图5-7</td>
+	</tr>
+</table>
+<h3>合并多条棱边</h3>
+<p>上述几种合并棱边基本方法的步骤顺序基本相似，如果事先规划好棱块的移动路径，完全有可能实现两条、甚至多条棱边的合并。</p>
+<p>如图6-1所示，位于左前棱位下侧的<span>绿白<script>get_color("fu")</script></span>棱块和位于右前棱位上侧的<span>绿白<script>get_color("fu")</script></span>棱块颜色相同，位于前顶棱位右侧的<span>绿橙<script>get_color("fl")</script></span>棱块和位于右前棱位下侧的<span>绿橙<script>get_color("fl")</script></span>棱块也颜色相同。我们先同时顺转底面及第二层（图6-2），将同色<span>绿白<script>get_color("fu")</script></span>棱块合并。而接下来的换棱只要将顶层<span>绿橙<script>get_color("fl")</script></span>棱块换至右前棱位上侧，就可以同时实现<span>绿橙<script>get_color("fl")</script></span>棱边的合并。根据其位置及朝向，我们选择以顺转右面开始换棱（图6-3~图6-5），将所合并的<span>绿白<script>get_color("fu")</script></span>棱边推到顶层，并带回将顶层<span>绿橙<script>get_color("fl")</script></span>棱块。最后同时逆转底面及第二层复原（图6-6），两个<span>绿橙<script>get_color("fl")</script></span>棱块也合并了。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TD</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>TD'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xulxbfffufffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffufffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffufffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(R", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffufffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffufffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'R')", "blr", 4)</script></td>
+		<td><script>cube("xulxbfffufffxxxx","xxxxxbbxxbbxxxxx","xxxxxllrxllfxxxx","xxxxurrxlrrxxxxx","xxxxxuuxxuuxxlfx","xxxxxddxxddxxxxx", "TD(RU'R')TD'", "blr", 4)</script></td>
+		<td><script>animcube("xulxbfffufffxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllrxllfxxxx", "xxxxurrxlrrxxxxx", "xxxxxuuxxuuxxlfx", "xxxxxddxxddxxxxx", "Dt.RU'R'.Dt'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图6-1</td>
+		<td>图6-2</td>
+		<td>图6-3</td>
+		<td>图6-4</td>
+		<td>图6-5</td>
+		<td>图6-6</td>
+		<td>图6-7</td>
+	</tr>
+</table>
+<p>我们注意到，在最后一步同时逆转底面及第二层的过程中，<span>橙白<script>get_color("lu")</script></span>棱块将回到左前棱位的下侧。如果我们在图6-5中不急着进行最后一步复原，而是继续通过换棱法将另一个<span>橙白<script>get_color("lu")</script></span>棱块换至左前棱位的上侧，那么当最后一步复原时，<span>橙白<script>get_color("lu")</script></span>棱边也将合并。如果条件允许，我们还可以进一步在左后棱位实现另一条棱边的合并，这样就可以一次合并四条棱边。</p>
+<h3>特殊情况</h3>
+<p>如图7-1所示，其他棱边均已合并，只剩下<span>蓝黄<script>get_color("bd")</script></span>和<span>橙绿<script>get_color("lf")</script></span>两条棱边尚未完成。如果我们按照上面所介绍的方法，那么在合并一条棱边的同时，又会拆开另一条已合并的棱边，从而陷入循环困境。这时我们不应急着去合并棱边，而是要将这两条棱边拆开。我们先同时顺转底面及第二层（图7-2），使拆开的棱边在右前棱位上并不处于合并状态。通过观察不难发现，如果目前能将位于右前棱位的<span>蓝黄<script>get_color("bd")</script></span>和<span>橙绿<script>get_color("lf")</script></span>棱块上下对调，那么这两条棱边就能在其后的复原中顺利合并。我们就先以顺转右面开始换棱（图7-3~图7-5），将这两个棱块推到顶层。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TD</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(R", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(RU'", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(RU'R')", "blr", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图7-1</td>
+		<td>图7-2</td>
+		<td>图7-3</td>
+		<td>图7-4</td>
+		<td>图7-5</td>
+	</tr>
+</table>
+<p>然后以逆转前面开始换棱（图7-6~图7-8），将其以另一朝向带回，<span>蓝黄<script>get_color("bd")</script></span>和<span>橙绿<script>get_color("lf")</script></span>棱块正好进行了对调；最后同时逆转底面及第二层复原（图7-9），两条棱边得以合并。</p>
+<table border="1" align="center">
+	<tr>
+		<td>F'</td>
+		<td>U²</td>
+		<td>F</td>
+		<td>TD'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(RU'R')(F'", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(RU'R')(F'U2", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(RU'R')(F'U2F)", "blr", 4)</script></td>
+		<td><script>cube("xffxdffdlfflxrrx","xuuxubbdubbdxllx","xbbxfllbfllfxbbx","xffxbrrrfrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "TD(RU'R')(F'U2F)TD'", "blr", 4)</script></td>
+		<td><script>animcube("xffxdffdlfflxrrx", "xuuxubbdubbdxllx", "xbbxfllbfllfxbbx", "xffxbrrrfrrrxddx", "xbbxruuuruuuxrrx", "xddxlddllddlxuux", "Dt.RU'R'.F'U2F.Dt'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图7-6</td>
+		<td>图7-7</td>
+		<td>图7-8</td>
+		<td>图7-9</td>
+		<td>图7-10</td>
+	</tr>
+</table>
+<div class="back_to_top"><a href="center.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="solve.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

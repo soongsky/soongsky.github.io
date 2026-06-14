@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原底层的方法" />
+<meta name="Keywords" content="魔方, 233, 缺角层先法, Keyhole LBL, 还原底层" />
+<title>还原底层 - 233魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">233魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>233魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原底层</h1>
+<p>我们首先要还原233魔方的底层，但在底层留了一个角块暂不还原（图1）；留着的缺角位置将作为后续还原的工作区。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxffx","xxxbbb","xxxlll","xxxxrr","xxxxuxxxx","ddxdddddd", "", "d", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图1</td>
+	</tr>
+</table>
+<p>在还原底层时，一般可以先还原底层棱块，即对好底层十字（图2）；再还原底层角块。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxfx","xxxxbx","xxxxlx","xxxxrx","xxxxuxxxx","xdxdddxdx", "", "d", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图2</td>
+	</tr>
+</table>
+<h3>还原底层棱块</h3>
+<p>还原底层棱块的方法十分简单。比如在图3-1中，我们只需先逆转顶面（图3-2），将<span>红黄<script>get_color("rd")</script></span>棱块对准底层目标位置；然后转动右面180°（图3-3），就能将棱块移至目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>U'</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xrxxfx","xxxxxx","xxxxxx","xxxxxx","xxxxuxxdx","xdxxdxxxx", "", "ud", 3,3,2)</script></td>
+		<td><script>cube("xrxxfx","xxxxxx","xxxxxx","xxxxxx","xxxxuxxdx","xdxxdxxxx", "U'", "ud", 3,3,2)</script></td>
+		<td><script>cube("xrxxfx","xxxxxx","xxxxxx","xxxxxx","xxxxuxxdx","xdxxdxxxx", "U'R2", "ud", 3,3,2)</script></td>
+		<td><script>animcube("xrxxxxxfx", "xxxxxxxxx", "xxxxxxxxx", "xxxxxxxxx", "xxxxuxxdx", "xdxxdxxxx", "U'R2")</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+	</tr>
+</table>
+<h3>还原底层角块</h3>
+<p>在还原底层角块时，我们可以使用三阶魔方中的方法。比如在图4-1中，<span>红绿黄<script>get_color("rfd")</script></span>角块已经对准其目标位置。由于233魔方结构的原因，角块的<span>黄<script>get_color("d")</script></span>色一面始终是朝上的，我们只使用一种还原方法（图4-2~图4-6），将角块带回底层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R²</td>
+		<td>U</td>
+		<td>R²</td>
+		<td>U'</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxrxfx","xxxxbx","xxxxlx","fxxxrx","xxxxuxxxd","xdxdddxdx", "", "bud", 3,3,2)</script></td>
+		<td><script>cube("xxrxfx","xxxxbx","xxxxlx","fxxxrx","xxxxuxxxd","xdxdddxdx", "R2", "bud", 3,3,2)</script></td>
+		<td><script>cube("xxrxfx","xxxxbx","xxxxlx","fxxxrx","xxxxuxxxd","xdxdddxdx", "R2U", "bud", 3,3,2)</script></td>
+		<td><script>cube("xxrxfx","xxxxbx","xxxxlx","fxxxrx","xxxxuxxxd","xdxdddxdx", "R2UR2", "bud", 3,3,2)</script></td>
+		<td><script>cube("xxrxfx","xxxxbx","xxxxlx","fxxxrx","xxxxuxxxd","xdxdddxdx", "R2UR2U'", "bud", 3,3,2)</script></td>
+		<td><script>cube("xxrxfx","xxxxbx","xxxxlx","fxxxrx","xxxxuxxxd","xdxdddxdx", "R2UR2U'R2", "bud", 3,3,2)</script></td>
+		<td><script>animcube("xxrxxxxfx", "xxxxxxxbx", "xxxxxxxlx", "fxxxxxxrx", "xxxxuxxxd", "xdxdddxdx", "R2UR2'U'R2")</script></td>
+	</tr>
+	<tr>
+		<td>图4-1</td>
+		<td>图4-2</td>
+		<td>图4-3</td>
+		<td>图4-4</td>
+		<td>图4-5</td>
+		<td>图4-6</td>
+		<td>图4-7</td>
+	</tr>
+</table>
+<div class="back_to_top"><a href="index.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="top_e.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

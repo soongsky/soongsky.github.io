@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../css/base.css" />
+<meta name="Description" content="词组编码" />
+<meta name="Keywords" content="天码, 输入法, 词组" />
+<title>词组编码 - 天码输入法</title>
+<script src="../java/base.js"></script>
+<link rel="stylesheet" href="../css/sky.css" />
+<script>
+"use strict";
+// 练习组
+var group = [
+	"",
+	["一个", "没有", "我们", "可以", "什么", "这个", "呵呵", "现在", "自己", "就是", "不是", "怎么", "还是", "如果", "他们", "知道", "时候", "问题", "这样", "已经", "哈哈", "因为", "公司", "那个", "今天", "工作", "但是", "中国", "不过", "可能", "应该", "所以", "你们", "一下", "都是", "时间", "还有", "进行", "觉得", "需要", "不能", "开始", "东西", "那么", "这么", "喜欢", "比较", "一些", "然后", "不会", "大家", "很多", "看到", "不要", "一样", "也是", "这些", "吃饭", "感觉", "看看", "其实", "朋友", "出来", "只是", "明天", "以后", "而且",  "这里", "一定", "系统",  "使用", "一起", "通过", "或者", "企业", "市场", "发展", "一直", "北京", "其他", "好像", "事情", "产品", "这种"],
+	["为什么", "是不是", "有没有", "服务器", "差不多", "第一次", "怎么样", "进一步", "消费者", "办公室", "没什么", "越来越", "数据库", "打电话", "计算机", "是一种", "更多的", "中国人", "最大的", "大部分"],
+	["有限公司", "不好意思", "什么时候", "工作人员", "社会主义", "没有什么", "上市公司", "这个问题", "有关部门", "最重要的", "股份有限公司", "有限责任公司", "人民共和国", "中华人民共和国", "笔记本电脑", "液晶显示器", "可持续发展", "中国共产党", "人大常委会", "律师事务所"]
+];
+</script>
+<script src="../java/sky/word.js"></script>
+<script src="../java/sky/train.js"></script>
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../index.html">首页</a></li>
+<li>»</li>
+<li><a href="index.html">天码输入法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>天码简介</dt>
+	<dd><a href="index.html">前言</a></dd>
+	<dd><a href="feature.html">方案特色</a></dd>
+	<dd><a href="root.html">字根编码</a></dd>
+	<dd><a href="div.html">汉字拆分</a></dd>
+	<dd><a href="code.html">汉字编码</a></dd>
+	<dd><a href="sc.html">汉字简码</a></dd>
+	<dd><a href="word.html">词组编码</a></dd>
+	<dd><a href="allroot.html">字根详解</a></dd>
+	<dd><a href="divrule.html">拆分细则</a></dd>
+	<dd><a href="rtb.html">字根总表</a></dd>
+	<dd><a href="postscript.html">后记</a></dd>
+	<dt>天码查询</dt>
+	<dd><a href="lookupbmp.html">基本天码查询</a></dd>
+	<dd><a href="lookup.html">超级天码查询</a></dd>
+	<dt>其他资源</dt>
+	<dd><a href="download.html">下载</a></dd>
+	<dd><a href="link.html">链接</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<h1>词组编码</h1>
+<p>天码方案不仅可以输入单字，还可以输入一些常用词组。词组编码一律为四码，其编码规则如下：</p>
+<h3>1、双字词</h3>
+<div class="train" style="float:right"><script>train(1)</script></div>
+<p>当一个词组由两个汉字组成时，其词组编码分别取首字的头两码、末字的头两码。如：</p>
+<p>词组“一个”，由汉字“一（hv）”和“个（aivr）”组成，词组编码分别取首字“一”的头两码“hv”、末字“个”的头两码“ai”，即“hvai”。</p>
+<p>词组“没有”，由汉字“没（cwvs）”和“有（fmy）”组成，词组编码为“cwfm”。</p>
+<p>词组“我们”，由汉字“我（gw）”和“们（vnmr）”组成，词组编码为“gwvn”。</p>
+<h3>2、三字词</h3>
+<div class="train" style="float:right"><script>train(2)</script></div>
+<p>当一个词组由三个汉字组成时，其词组编码分别取首字的首码、次字的首码、末字的头两码。如：</p>
+<p>词组“为什么”，由汉字“为（qxqv）”、“什（vfsr）”、“么（juv）”组成，词组编码分别取首字“为”的首码“q”、次字“什”的首码“v”、末字“么”的头两码“ju”，即“qvju”。</p>
+<p>词组“是不是”，由汉字“是（dhyv）”、“不（tb）”、“是（dhyv）”组成，词组编码为“dtdh”。</p>
+<p>词组“服务器”，由汉字“服（mpay）”、“务（dxl）”、“器（ooro）”组成，词组编码为“mdoo”。</p>
+<h3>3、多字词</h3>
+<div class="train" style="float:right"><script>train(3)</script></div>
+<p>当一个词组由四个及以上汉字组成时，其词组编码分别取首字、次字、三字、末字的首码。如：</p>
+<p>词组“有限公司”，由汉字“有（fmy）”、“限（ppge）”、“公（auvb）”、“司（zhok）”组成，词组编码分别取其首码，即“fpaz”。</p>
+<p>词组“不好意思”，由汉字“不（tb）”、“好（dzzn）”、“意（idux）”、“思（quxt）”组成，词组编码为“tdiq”。</p>
+<p>词组“笔记本电脑”，由汉字“笔（ktmz）”、“记（ijyy）”、“本（khvm）”、……“脑（mjuv）”等组成，词组编码分别取首字、次字、三字、末字的首码，即“kikm”。</p>
+<p>词组“股份有限公司”，由汉字“股（mwvy）”、“份（vapd）”、“有（fmy）”、……“司（zhok）”等组成，词组编码为“mvfz”。</p>
+<h3>4、综合练习</h3>
+<div class="train"><script>train(0)</script></div>
+<div>（注：以上练习仅起示范作用，并未涵盖所有常用词组）</div>
+<div class="back_to_top"><a href="sc.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="allroot.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

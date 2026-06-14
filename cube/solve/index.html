@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="缺角层先法的简介" />
+<meta name="Keywords" content="魔方, 缺角层先法, Keyhole LBL, 简介" />
+<title>简介 - 缺角层先法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">缺角层先法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>缺角层先法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="middle.html">还原中层棱块</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd><a href="top_cp.html">角块朝向补偿法</a></dd>
+	<dd><a href="top_co.html">调整顶层角块朝向</a></dd>
+	<dd><a href="other.html">左手版本</a></dd>
+	<dd><a href="faq.html">常见问题</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>缺角层先法简介</h1>
+<p>缺角层先法的还原顺序和一般层先法相类似，也是从底层、中层到顶层逐层还原的。只不过它在还原底层和中层时，并没有将整个层面的各个方块全部还原，而是在底层留一个角块、中层留一个棱块暂不还原。这也是“缺角”这一名称的由来；缺角位置将作为后续还原的工作区。因为我们一般惯用右手，所以将缺角工作区置于右前方。缺角层先法的一般还原步骤如下：</p>
+<ol>
+	<li><a href="bottom.html">还原底层，但留一个角块暂不还原</a>（图1-1）</li>
+	<li><a href="middle.html">还原中层棱块，但留一个棱块暂不还原</a>（图1-2）</li>
+	<li><a href="top_e.html">还原顶层棱块，包括中层所留的一个棱块</a>（图1-3）</li>
+	<li><a href="top_c.html">还原顶层角块，包括底层所留的一个角块</a>（图1-4）</li>
+</ol>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxfxffx","xxxxbxbbb","xxxxlxlll","xxxxrxxrr","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+		<td><script>cube("xxxffxffx","xxxbbbbbb","xxxllllll","xxxxrrxrr","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+		<td><script>cube("xfxfffffx","xbxbbbbbb","xlxllllll","xrxrrrxrr","xuxuuuxux","ddxdddddd")</script></td>
+		<td><script>cube("fffffffff","bbbbbbbbb","lllllllll","rrrrrrrrr","uuuuuuuuu","ddddddddd")</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+		<td>图1-3</td>
+		<td>图1-4</td>
+	</tr>
+</table>
+<p>文中使用魔方配色：<span>绿<script>get_color("f")</script></span>前、<span>蓝<script>get_color("b")</script></span>后、<span>橙<script>get_color("l")</script></span>左、<span>红<script>get_color("r")</script></span>右、<span>白<script>get_color("u")</script></span>顶、<span>黄<script>get_color("d")</script></span>底。图中<span>灰<script>get_color("x")</script></span>色部分表示任意的颜色，我们不必去关心该位置上具体是什么颜色。值得注意的是，魔方的状态千变万化，文中给出的只是一种示意图。在实际还原过程中，你不应拘泥于某种颜色，底层、中层和顶层的颜色也无需保持上下对应一致，你的还原过程完全有可能像象图2-1~图2-4所示的那样，最后通过转动底层和顶层还原至图2-5所示的最终状态。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxfxrrx","xxxxbxlll","xxxxlxfff","xxxxrxxbb","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+		<td><script>cube("xxxbbxrrx","xxxffflll","xxxrrrfff","xxxxllxbb","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+		<td><script>cube("xlxbbbrrx","xrxffflll","xbxrrrfff","xfxlllxbb","xuxuuuxux","ddxdddddd")</script></td>
+		<td><script>cube("fffbbbrrr","bbbffflll","lllrrrfff","rrrlllbbb","uuuuuuuuu","ddddddddd")</script></td>
+		<td><script>cube("bbbbbbbbb","fffffffff","rrrrrrrrr","lllllllll","uuuuuuuuu","ddddddddd")</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+	</tr>
+</table>
+<p>一般来说，各种层先法在还原中层和顶层时，都会不停地打乱已还原的层面，然后再重新将其复原。由于受到已还原层面的束缚，其公式不得不设计得很冗长，而且难以理解。而缺角层先法由于在底层和中层保留了一个工作区，移动方块的灵活度更大。它可以采用类似棱先法的方法，通过很简单的几步转动，就能完成这种打乱和再复原的过程，操作十分简洁、易懂。</p>
+<p>在还原顶层角块的步骤中，我们还可以使用同时兼顾角块位置和朝向的<a href="top_cp.html">角块朝向补偿法</a>，解决一般缺角法在此过程中步骤较繁琐的问题，从而提高还原效率。同时，我们也将从实用角度出发，构造出<a href="other.html">不同版本的还原操作方法</a>，以满足不同的需要。</p>
+<p>为了叙述上的方便，文中采用魔方公式所常用的标记法：</p>
+<ul>
+	<li>字母<strong>F</strong>表示魔方的前面、<strong>B</strong>表示后面、<strong>L</strong>表示左面、<strong>R</strong>表示右面、<strong>U</strong>表示顶面（上面）、<strong>D</strong>表示底面（下面）。</li>
+	<li>公式中单纯的字母表示将魔方的相应层面顺时针转动90°（文中简称“顺转”），字母后带'（或者i）表示逆时针转动90°（文中简称“逆转”），字母后带²（或者2）表示转动180°。</li>
+	<li><strong>TF</strong>（或者<strong>Ft</strong>、<strong>f</strong>）、<strong>TB</strong>（或者<strong>Bt</strong>、<strong>b</strong>）、<strong>TL</strong>（或者<strong>Lt</strong>、<strong>l</strong>）、<strong>TR</strong>（或者<strong>Rt</strong>、<strong>r</strong>）、<strong>TU</strong>（<strong>Ut</strong>、或者<strong>u</strong>）、<strong>TD</strong>（或者<strong>Dt</strong>、<strong>d</strong>）表示同时转动相应层面及中间层。</li>
+	<li><strong>CR</strong>（或者<strong>Rc</strong>、<strong>x</strong>）表示按右面方向转动整个魔方，<strong>CU</strong>（或者<strong>Uc</strong>、<strong>y</strong>）表示按顶面方向转动整个魔方，<strong>CF</strong>（或者<strong>Fc</strong>、<strong>z</strong>）表示按前面方向转动整个魔方。</li>
+	<li><strong>MF</strong>（或者<strong>Fm</strong>、<strong>S</strong>）表示按前面方向转动中间层，<strong>ML</strong>（或者<strong>Lm</strong>、<strong>M</strong>）表示按左面方向转动中间层，<strong>MD</strong>（或者<strong>Dm</strong>、<strong>E</strong>）表示按底面方向转动中间层。</li>
+</ul>
+<p>为了提高演示效果，文中除了图片外，还将进行相应动画演示。本站所用魔方动画演示，由<a href="http://animcubejs.cubing.net/" target="_blank">AnimCubeJS</a>提供支持。</p>
+<div class="back_to_top">&lt;&lt;上页 <a href="#">页首</a> <a href="bottom.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

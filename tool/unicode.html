@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>Unicode码位测试</title>
+<style>
+main, aside, section {
+	display: block; 
+	overflow: auto;
+}
+
+aside {
+	width: 20em;
+	float: left;
+}
+
+th {
+	width: 1em;
+	background-color: lightgray;
+}
+</style>
+<script>
+"use strict";
+function menu(ucs){
+	var node = document.currentScript.parentNode;
+	for (var i=0; i<ucs.length; ++i) {
+		var a = document.createElement("a");
+		node.appendChild(a);
+		var range = "（U+" + ucs[i][1].toString(16).toUpperCase() + "~" + ucs[i][2].toString(16).toUpperCase() + "）";
+		a.href = "javascript:show('" + ucs[i][0] + range + "'," + ucs[i][1] + "," + ucs[i][2] + ")";
+		if (ucs[i][3]) a.style.fontWeight = "bold";
+		a.innerHTML = ucs[i][0];
+		node.innerHTML += range + "<br />";
+	}
+}
+
+function show(title, lower, upper){
+	var uni = document.getElementById("uni");
+	uni.innerHTML = "<h1>" + title + "</h1>";
+	var table = document.createElement("table");
+	uni.appendChild(table);
+	var row = document.createElement("tr");
+	table.appendChild(row);
+	var cell = document.createElement("th");
+	row.appendChild(cell);
+	cell.innerHTML = "&nbsp;"
+	for (var j=0; j<16; ++j) {
+		cell = document.createElement("th");
+		row.appendChild(cell);
+		cell.innerHTML = j.toString(16).toUpperCase();
+	}
+	var ucs = (lower & ~0x0F);
+	for (var i=0; i<(upper>>4)-(lower>>4)+1; ++i) {
+		row = document.createElement("tr");
+		table.appendChild(row);
+		cell = document.createElement("th");
+		row.appendChild(cell);
+		cell.innerHTML = ucs.toString(16).toUpperCase();
+		for (j=0; j<16; ++j) {
+			var ch = String.fromCodePoint(ucs);
+			cell = document.createElement("td");
+			row.appendChild(cell);
+			if (lower <= ucs && ucs <= upper) {
+				var a = document.createElement("a");
+				cell.appendChild(a);
+				a.href = "http://zi.tools/zi/" + ch;
+				a.target = "_blank";
+				a.innerHTML = ch;
+			} else cell.innerHTML = "&nbsp;";
+			++ucs;
+		}
+	}
+	uni.innerHTML += "<a href='#'>页首</a>";
+}
+</script>
+</head>
+<body>
+<main>
+<aside>
+<div><script>menu([
+	["基本拉丁字母", 0x0020, 0x007F],
+	["拉丁字母补遗", 0x00A0, 0x00FF],
+	["西文字母", 0x0100, 0x10FF],
+	["谚文字母", 0x1100, 0x11FF],
+	["西文字母", 0x1200, 0x1FFF],
+	["标点符号", 0x2000, 0x2BFF],
+	["西文字母", 0x2C00, 0x2E7F],
+	["汉字部首补遗", 0x2E80, 0x2EF3, 1],
+	["康熙部首", 0x2F00, 0x2FD5, 1],
+	["表意描述符", 0x2FF0, 0x2FFF, 1],
+	["汉字符号标点", 0x3000, 0x303F],
+	["假名", 0x3040, 0x30FF],
+	["注音符号", 0x3105, 0x312E],
+	["谚文兼容字母", 0x3131, 0x318E],
+	["汉文", 0x3190, 0x319F],
+	["注音符号扩展", 0x31A0, 0x31BF],
+	["汉字笔画", 0x31C0, 0x31EF, 1],
+	["片假名语音扩展", 0x31F0, 0x31FF],
+	["带圈汉字", 0x3200, 0x32FF],
+	["汉字兼容", 0x3300, 0x33FF, 1],
+	["汉字扩展A集", 0x3400, 0x4DBF, 1],
+	["易经六十四卦", 0x4DC0, 0x4DFF],
+	["汉字基本集", 0x4E00, 0x9FFF, 1],
+	["西文字母", 0xA000, 0xA95F],
+	["谚文字母扩展A", 0xA960, 0xA97C],
+	["西文字母", 0xA980, 0xABFF],
+	["谚文音节", 0xAC00, 0xD7A3],
+	["谚文字母扩展B", 0xD7B0, 0xD7FB],
+	["私用区", 0xE000, 0xF8FF],
+	["汉字兼容", 0xF900, 0xFAD9, 1],
+	["西文字母", 0xFB00, 0xFE0F],
+	["竖写标点", 0xFE10, 0xFE19, 1],
+	["组合半角", 0xFE20, 0xFE2F],
+	["竖写兼容", 0xFE30, 0xFE4F, 1],
+	["小字标点", 0xFE50, 0xFE6B, 1],
+	["西文字母", 0xFE70, 0xFEFF],
+	["全角半角", 0xFF01, 0xFFEE],
+	["西文字母", 0xFFF0, 0xFFFD],
+	["西文字母", 0x10000, 0x16FFF],
+	["西夏文", 0x17000, 0x187FF],
+	["西夏文部件", 0x18800, 0x18AFF],
+	["契丹小字", 0x18B00, 0x18CD5],
+	["西夏文补遗", 0x18D00, 0x18D20],
+	["西夏文部件补遗", 0x18D80, 0x18DF2],
+	["女真文", 0x18E00, 0x191D2, 1],
+	["假名扩展B", 0x1AFF0, 0x1AFFE],
+	["假名补遗", 0x1B000, 0x1B0FF],
+	["假名扩展A", 0x1B100, 0x1B122],
+	["小字假名扩展", 0x1B132, 0x1B167],
+	["女书", 0x1B170, 0x1B2FB, 1],
+	["西文字母", 0x1BC00, 0x1D2FF],
+	["太玄经符号", 0x1D300, 0x1D356],
+	["算筹符号", 0x1D360, 0x1D378],
+	["西文字母", 0x1D400, 0x1EEF1],
+	["麻将", 0x1F000, 0x1F02B],
+	["骨牌", 0x1F030, 0x1F093],
+	["扑克牌", 0x1F0A0, 0x1F0F5],
+	["西文字母", 0x1F100, 0x1F1FF],
+	["表意补遗", 0x1F200, 0x1F265],
+	["表情", 0x1F300, 0x1FBFA],
+	["汉字扩展B集", 0x20000, 0x2A6DF, 1],
+	["汉字扩展C集", 0x2A700, 0x2B735, 1],
+	["汉字扩展D集", 0x2B740, 0x2B81E, 1],
+	["汉字扩展E集", 0x2B820, 0x2CEA1, 1],
+	["汉字扩展F集", 0x2CEB0, 0x2EBE0, 1],
+	["汉字扩展I集", 0x2EBF0, 0x2EE4A, 1],
+	["兼容汉字补遗", 0x2F800, 0x2FA1D, 1],
+	["汉字扩展G集", 0x30000, 0x3134A, 1],
+	["汉字扩展H集", 0x31350, 0x323AF, 1],
+	["汉字扩展J集", 0x323B0, 0x33479, 1],
+	["小篆", 0x3D000, 0x3FC3F, 1]
+])</script></div>
+</aside>
+<section>
+<div id="uni"></div>
+</section>
+</main>
+</body>
+</html>

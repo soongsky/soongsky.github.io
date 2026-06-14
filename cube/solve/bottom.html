@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原底层的方法" />
+<meta name="Keywords" content="魔方, 缺角层先法, Keyhole LBL, 还原底层" />
+<title>还原底层 - 缺角层先法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">缺角层先法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>缺角层先法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="middle.html">还原中层棱块</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd><a href="top_cp.html">角块朝向补偿法</a></dd>
+	<dd><a href="top_co.html">调整顶层角块朝向</a></dd>
+	<dd><a href="other.html">左手版本</a></dd>
+	<dd><a href="faq.html">常见问题</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原底层</h1>
+<p>我们首先要还原魔方的底层，但在底层留了一个角块暂不还原（图1）；留着的缺角位置将作为后续还原的工作区。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxfxffx","xxxxbxbbb","xxxxlxlll","xxxxrxxrr","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+	</tr>
+	<tr>
+		<td>图1</td>
+	</tr>
+</table>
+<p>我们可以在魔方上任选一种颜色作为底面颜色，然后将带有底色中心块的一面朝下，将底层的四个棱块和三个角块逐一还原。除了缺角位置外，魔方底面的颜色应相同，而且底层每个侧面的颜色也应相同。如果你不习惯在底面进行还原，也可以将所要还原的面朝上或者朝向你所熟悉的方向，待这一层面还原之后再翻过来朝下。</p>
+<p>原则上这一步骤应完全由你自己去琢磨，否则就失去了玩魔方的意义。不过为了魔方解法的完整性，下面还是列出了还原底层的常用方法。值得注意的是，这里所介绍的还原方法并非唯一的，也不一定是最好、最快的，你完全可以自由发挥。</p>
+<p>在还原底层时，一般可以先还原底层棱块，即对好底层十字（图2）；再还原底层角块。这是因为棱块夹在角块中间，相对而言，还原棱块要比还原角块复杂一些。而先还原棱块就可以不考虑角块的情况，从而降低还原棱块的难度。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xxxxrxxrx","xxxxuxxxx","xdxdddxdx", "", "d")</script></td>
+	</tr>
+	<tr>
+		<td>图2</td>
+	</tr>
+</table>
+<h3>还原底层棱块</h3>
+<p>假设所要还原的底层棱块为<span>红黄<script>get_color("rd")</script></span>棱块，按照该棱块目前所处的位置可分为以下三种情况：</p>
+<p>1、棱块位于中层</p>
+<p>假设我们通过转动底面或中层，已将<span>红黄<script>get_color("rd")</script></span>棱块及其目标位置（<span>红<script>get_color("r")</script></span>、<span>黄<script>get_color("d")</script></span>中心块之间的棱块位置，下同）移至同一个侧面内，比如两者都置于右侧面。这时棱块的朝向有两种情形：</p>
+<p>（1）如图3-1所示，<span>红黄<script>get_color("rd")</script></span>棱块<span>黄<script>get_color("d")</script></span>色的一面朝前。这是比较好还原的状态，因为只要逆转右面（图3-2），就能将棱块移至目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfdxfx","xxxxbxxbx","xxxxlxxlx","xxxrrxxxx","xxxxuxxxx","xdxddxxdx", "", "ud")</script></td>
+		<td><script>cube("xxxxfdxfx","xxxxbxxbx","xxxxlxxlx","xxxrrxxxx","xxxxuxxxx","xdxddxxdx", "R'", "ud")</script></td>
+		<td><script>animcube("xxxxfdxfx", "xxxxbxxbx", "xxxxlxxlx", "xxxrrxxxx", "xxxxuxxxx", "xdxddxxdx", "R'")</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+	</tr>
+</table>
+<p>（2）如图4-1所示，<span>红黄<script>get_color("rd")</script></span>棱块<span>黄<script>get_color("d")</script></span>色的一面朝右。这时如果直接逆动右面，将造成颜色不对应。我们需要先同时逆转顶面及中层（图4-2），使棱块<span>黄<script>get_color("d")</script></span>色的一面朝后。这样当顺转右面（图4-3）时，棱块就以正确的朝向回到目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU'</td>
+		<td>R</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfrxfx","xxxxbxxbx","xxxxlxxlx","xxxdrxxxx","xxxxuxxxx","xdxddxxdx", "", "bud")</script></td>
+		<td><script>cube("xxxxfrxfx","xxxxbxxbx","xxxxlxxlx","xxxdrxxxx","xxxxuxxxx","xdxddxxdx", "TU'", "bud")</script></td>
+		<td><script>cube("xxxxfrxfx","xxxxbxxbx","xxxxlxxlx","xxxdrxxxx","xxxxuxxxx","xdxddxxdx", "TU'R", "bud")</script></td>
+		<td><script>animcube("xxxxfrxfx", "xxxxbxxbx", "xxxxlxxlx", "xxxdrxxxx", "xxxxuxxxx", "xdxddxxdx", "Ut'R")</script></td>
+	</tr>
+	<tr>
+		<td>图4-1</td>
+		<td>图4-2</td>
+		<td>图4-3</td>
+		<td>图4-4</td>
+	</tr>
+</table>
+<p>虽然这时底层和中层的颜色上下不对应，但并不影响后续的还原操作，因为我们一般是根据侧面配色的相对顺序关系来确定底层棱块的目标位置。</p>
+<p>2、棱块位于顶层</p>
+<p>假设我们通过转动顶面或底面，已将<span>红黄<script>get_color("rd")</script></span>棱块及其目标位置移至同一个侧面内，比如两者都置于右侧面。这时棱块的朝向有两种情形：</p>
+<p>（1）如图5-1所示，<span>红黄<script>get_color("rd")</script></span>棱块<span>黄<script>get_color("d")</script></span>色的一面朝上。这是比较好还原的状态，因为只要转动右面180°（图5-2），就能将棱块移至目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xrxxrxxxx","xxxxudxxx","xdxddxxdx", "", "ud")</script></td>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xrxxrxxxx","xxxxudxxx","xdxddxxdx", "s=R2", "ud")</script></td>
+		<td><script>animcube("xxxxfxxfx", "xxxxbxxbx", "xxxxlxxlx", "xrxxrxxxx", "xxxxudxxx", "xdxddxxdx", "R2")</script>></td>
+	</tr>
+	<tr>
+		<td>图5-1</td>
+		<td>图5-2</td>
+		<td>图5-3</td>
+	</tr>
+</table>
+<p>（2）如图6-1所示，<span>红黄<script>get_color("rd")</script></span>棱块<span>黄<script>get_color("d")</script></span>色的一面朝右。这时如果直接转动右面180°，将会造成颜色不对应。我们需要先逆转右面（图6-2），将棱块移至中层；然后按照棱块位于中层的还原方法，同时逆转顶面及中层（图6-3），再顺转右面（图6-4），将棱块移至目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R'</td>
+		<td>TU'</td>
+		<td>R</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xdxxrxxxx","xxxxurxxx","xdxddxxdx", "", "bud")</script></td>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xdxxrxxxx","xxxxurxxx","xdxddxxdx", "R'", "bud")</script></td>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xdxxrxxxx","xxxxurxxx","xdxddxxdx", "R'TU'", "bud")</script></td>
+		<td><script>cube("xxxxfxxfx","xxxxbxxbx","xxxxlxxlx","xdxxrxxxx","xxxxurxxx","xdxddxxdx", "R'TU'R", "bud")</script></td>
+		<td><script>animcube("xxxxfxxfx", "xxxxbxxbx", "xxxxlxxlx", "xdxxrxxxx", "xxxxurxxx", "xdxddxxdx", "R'Ut'R")</script></td>
+	</tr>
+	<tr>
+		<td>图6-1</td>
+		<td>图6-2</td>
+		<td>图6-3</td>
+		<td>图6-4</td>
+		<td>图6-5</td>
+	</tr>
+</table>
+<p>3、棱块位于底层</p>
+<p><span>红黄<script>get_color("rd")</script></span>棱块已经位于底层，但位置或朝向不对应。对于这种比较“尴尬”的状态，我们一般是可分两步还原：先将棱块移至中层或顶层，再按照上面所介绍的方法进行还原。比如在图7-1中，我们可以先逆转前面（图7-2），将棱块移至中层。根据侧面配色的相对顺序关系，<span>红<script>get_color("r")</script></span>色是在<span>绿<script>get_color("f")</script></span>色的底面顺转方向，因此<span>红黄<script>get_color("rd")</script></span>棱块的目标位置是在<span>绿黄<script>get_color("fd")</script></span>棱块的顺转方向，也就是后底棱位。接下来我们就逆转底面（图7-3），将棱块目标位置移至右侧面。然后逆转右面（图7-4），将棱块移至目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>F'</td>
+		<td>D'</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfxxdx","xxxxbxxxx","xxxxlxxbx","xxxxrxxfx","xxxxuxxxx","xrxdddxxx", "", "v=ud")</script></td>
+		<td><script>cube("xxxxfxxdx","xxxxbxxxx","xxxxlxxbx","xxxxrxxfx","xxxxuxxxx","xrxdddxxx", "F'", "v=ud")</script></td>
+		<td><script>cube("xxxxfxxdx","xxxxbxxxx","xxxxlxxbx","xxxxrxxfx","xxxxuxxxx","xrxdddxxx", "F'D'", "ud")</script></td>
+		<td><script>cube("xxxxfxxdx","xxxxbxxxx","xxxxlxxbx","xxxxrxxfx","xxxxuxxxx","xrxdddxxx", "F'D'R'", "ud")</script></td>
+		<td><script>animcube("xxxxfxxdx", "xxxxbxxxx", "xxxxlxxbx", "xxxxrxxfx", "xxxxuxxxx", "xrxdddxxx", "F'D'R'")</script></td>
+	</tr>
+	<tr>
+		<td>图7-1</td>
+		<td>图7-2</td>
+		<td>图7-3</td>
+		<td>图7-4</td>
+		<td>图7-5</td>
+	</tr>
+</table>
+<p>对于其他情况，也可以按照类似的方法进行还原。由于还原底层棱块的自由度较大，你完全不必拘泥于上述位置和朝向。</p>
+<h3>还原底层角块</h3>
+<p>假设所要还原的底层角块为<span>红绿黄<script>get_color("rfd")</script></span>角块，按照该角块目前所处的位置可分为以下两种情况：</p>
+<p>1、角块位于顶层</p>
+<p>假设我们通过转动顶面或底面，已将<span>红绿黄<script>get_color("rfd")</script></span>角块对准其目标位置（<span>红黄<script>get_color("rd")</script></span>、<span>绿黄<script>get_color("fd")</script></span>棱块之间的角块位置，下同），比如分别置于右前顶角位和右前底角位。这时<span>红绿黄<script>get_color("rfd")</script></span>角块的朝向有三种情形：</p>
+<p>（1）如<a id="f8">图8-1</a>所示，<span>红绿黄<script>get_color("rfd")</script></span>角块<span>黄<script>get_color("d")</script></span>色的一面朝前。从图上可以看出，如果这时逆转右面，<span>红绿黄<script>get_color("rfd")</script></span>角块正好可以归位。不过直接转动右面将会影响底层已还原的方块，因此我们先顺转顶面（图8-2），推开<span>红绿黄<script>get_color("rfd")</script></span>角块进行避让；再顺转右面（图8-3），将目标位置送至顶层；这时逆转顶面（图8-4），<span>红绿黄<script>get_color("rfd")</script></span>角块正好替换入目标位置；最后逆转右面复原（图8-5），将角块带回底层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>U</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxdxfxffx","xxxxbxbbx","xxxxlxxll","rxxxrxxrr","xxxxuxxxf","ddxdddxdd", "", "ud")</script></td>
+		<td><script>cube("xxdxfxffx","xxxxbxbbx","xxxxlxxll","rxxxrxxrr","xxxxuxxxf","ddxdddxdd", "U", "ud")</script></td>
+		<td><script>cube("xxdxfxffx","xxxxbxbbx","xxxxlxxll","rxxxrxxrr","xxxxuxxxf","ddxdddxdd", "UR", "ud")</script></td>
+		<td><script>cube("xxdxfxffx","xxxxbxbbx","xxxxlxxll","rxxxrxxrr","xxxxuxxxf","ddxdddxdd", "URU'", "ud")</script></td>
+		<td><script>cube("xxdxfxffx","xxxxbxbbx","xxxxlxxll","rxxxrxxrr","xxxxuxxxf","ddxdddxdd", "URU'R'", "ud")</script></td>
+		<td><script>animcube("xxdxfxffx", "xxxxbxbbx", "xxxxlxxll", "rxxxrxxrr", "xxxxuxxxf", "ddxdddxdd", "URU'R'")</script></td>
+	</tr>
+	<tr>
+		<td>图8-1</td>
+		<td>图8-2</td>
+		<td>图8-3</td>
+		<td>图8-4</td>
+		<td>图8-5</td>
+		<td>图8-6</td>
+	</tr>
+</table>
+<p>为了不影响底层已还原的方块，这里巧妙应用了先将目标位置“送出”、再将方块“带回”的方法进行还原。</p>
+<p>（2）如<a id="f9">图9-1</a>所示，<span>红绿黄<script>get_color("rfd")</script></span>角块<span>黄<script>get_color("d")</script></span>色的一面朝右。我们仍然采用“送出-带回”的还原方法，先顺转右面（图9-2），将目标位置送至顶层；再顺转顶面（图9-3），<span>红绿黄<script>get_color("rfd")</script></span>角块正好替换入目标位置；最后逆转右面复原（图9-4），将角块带回底层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R</td>
+		<td>U</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxfxfxffx","xxxxbxbbx","xxxxlxxll","dxxxrxxrr","xxxxuxxxr","ddxdddxdd", "", "ud")</script></td>
+		<td><script>cube("xxfxfxffx","xxxxbxbbx","xxxxlxxll","dxxxrxxrr","xxxxuxxxr","ddxdddxdd", "R", "ud")</script></td>
+		<td><script>cube("xxfxfxffx","xxxxbxbbx","xxxxlxxll","dxxxrxxrr","xxxxuxxxr","ddxdddxdd", "RU", "ud")</script></td>
+		<td><script>cube("xxfxfxffx","xxxxbxbbx","xxxxlxxll","dxxxrxxrr","xxxxuxxxr","ddxdddxdd", "RUR'", "ud")</script></td>
+		<td><script>animcube("xxfxfxffx", "xxxxbxbbx", "xxxxlxxll", "dxxxrxxrr", "xxxxuxxxr", "ddxdddxdd", "RUR'")</script></td>
+	</tr>
+	<tr>
+		<td>图9-1</td>
+		<td>图9-2</td>
+		<td>图9-3</td>
+		<td>图9-4</td>
+		<td>图9-5</td>
+	</tr>
+</table>
+<p>（3）如图10-1所示，<span>红绿黄<script>get_color("rfd")</script></span>角块<span>黄<script>get_color("d")</script></span>色的一面朝上。这是比较难处理的状态，不过我们可以分两步还原：先将角块转变为比较好还原的状态，再按照上面所介绍的方法进行还原。比如我们可以先顺转右面（图10-2），将<span>红绿黄<script>get_color("rfd")</script></span>角块的<span>黄<script>get_color("d")</script></span>色一面转为朝后；再转动顶面180°推开<span>红绿黄<script>get_color("rfd")</script></span>角块（图10-3）避让；然后逆转右面复原（图10-4），现在<span>红绿黄<script>get_color("rfd")</script></span>角块的状态就比较好还原了。我们逆转顶面（图10-5），将<span>红绿黄<script>get_color("rfd")</script></span>角块对准目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R</td>
+		<td>U²</td>
+		<td>R'</td>
+		<td>U'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "", "ud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(R", "ud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(RU2", "ud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(RU2R')", "ud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(RU2R')U'", "ud")</script></td>
+	</tr>
+	<tr>
+		<td>图10-1</td>
+		<td>图10-2</td>
+		<td>图10-3</td>
+		<td>图10-4</td>
+		<td>图10-5</td>
+	</tr>
+</table>
+<p>接下来就可以按照上面所介绍的方法，先顺转右面（图10-6），将目标位置送至顶层；再顺转顶面（图10-7），<span>红绿黄<script>get_color("rfd")</script></span>角块正好替换入目标位置；最后逆转右面复原（图10-8），将角块带回底层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>R</td>
+		<td>U</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(RU2R')U'(R", "ud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(RU2R')U'(RU", "ud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "(RU2R')U'(RUR')", "ud")</script></td>
+		<td><script>animcube("xxrxfxffx", "xxxxbxbbx", "xxxxlxxll", "fxxxrxxrr", "xxxxuxxxd", "ddxdddxdd", "RU2R'.U'.RUR'")</script></td>
+	</tr>
+	<tr>
+		<td>图10-6</td>
+		<td>图10-7</td>
+		<td>图10-8</td>
+		<td>图10-9</td>
+	</tr>
+</table>
+<p>另外还有一种更直接的还原方法（<a id="f11">图11-1</a>），先转动右面180°（图11-2），将目标位置送至顶层，而<span>红绿黄<script>get_color("rfd")</script></span>角块暂时被带到底层；再顺转顶面（图11-3），对被送至顶层的边进行避让，而目标位置和<span>红绿黄<script>get_color("rfd")</script></span>角块成相对位置；再次转动右面180°（图11-4），<span>红绿黄<script>get_color("rfd")</script></span>角块正好替换入目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R²</td>
+		<td>U</td>
+		<td>R²</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "", "bud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "R2", "bud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "R2U", "bud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "R2UR2", "bud")</script></td>
+	</tr>
+	<tr>
+		<td>图11-1</td>
+		<td>图11-2</td>
+		<td>图11-3</td>
+		<td>图11-4</td>
+	</tr>
+</table>
+<p>接下来是原路返回，先逆转顶面（图11-5），再转动右面180°复原（图11-6），将角块带回底层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U'</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "R2UR2U'", "bud")</script></td>
+		<td><script>cube("xxrxfxffx","xxxxbxbbx","xxxxlxxll","fxxxrxxrr","xxxxuxxxd","ddxdddxdd", "R2UR2U'R2", "bud")</script></td>
+		<td><script>animcube("xxrxfxffx", "xxxxbxbbx", "xxxxlxxll", "fxxxrxxrr", "xxxxuxxxd", "ddxdddxdd", "R2UR2'U'R2")</script></td>
+	</tr>
+	<tr>
+		<td>图11-5</td>
+		<td>图11-6</td>
+		<td>图11-7</td>
+	</tr>
+</table>
+<p>上面所介绍的这几种底层角块还原方法，在以后还原顶层角块时还会用到。</p>
+<p>2、角块位于底层</p>
+<p><span>红绿黄<script>get_color("rfd")</script></span>角块已经位于底层，但位置或朝向不对应。我们同样可以分两步还原：先将角块移至顶层，再按照角块位于顶层的方法进行还原。比如在图12-1中，我们可以顺转右面（图12-2），逆转顶面（图12-3），再逆转右面（图12-4），将<span>红绿黄<script>get_color("rfd")</script></span>角块移至顶层。这里要注意的是，我们可以通过在第二步选择逆转顶面或转动顶面180°，避免使<span>红绿黄<script>get_color("rfd")</script></span>角块<span>黄<script>get_color("d")</script></span>色的一面朝上，以方便下一步还原。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "", "ud")</script></td>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(R", "ud")</script></td>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(RU'", "ud")</script></td>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(RU'R')", "ud")</script></td>
+	</tr>
+	<tr>
+		<td>图12-1</td>
+		<td>图12-2</td>
+		<td>图12-3</td>
+		<td>图12-4</td>
+	</tr>
+</table>
+<p>接下来就可以按照角块位于顶层的方法，先顺转顶面（图12-5），再顺转右面（图12-6），逆转顶面（图12-7），最后逆转右面复原（图12-8），将角块带回底层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(RU'R')(U", "ud")</script></td>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(RU'R')(UR", "ud")</script></td>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(RU'R')(URU'", "ud")</script></td>
+		<td><script>cube("xxxxfxffd","xxxxbxbbx","xxxxlxxll","xxxxrxfrr","xxxxuxxxx","ddrdddxdd", "(RU'R')(URU'R')", "ud")</script></td>
+		<td><script>animcube("xxxxfxffd", "xxxxbxbbx", "xxxxlxxll", "xxxxrxfrr", "xxxxuxxxx", "ddrdddxdd", "RU'R'.URU'R'")</script></td>
+	</tr>
+	<tr>
+		<td>图12-5</td>
+		<td>图12-6</td>
+		<td>图12-7</td>
+		<td>图12-8</td>
+		<td>图12-9</td>
+	</tr>
+</table>
+<p>对于其他情况，也可以按照类似的方法进行还原。</p>
+<div class="back_to_top"><a href="index.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="middle.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

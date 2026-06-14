@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原顶层角块的方法" />
+<meta name="Keywords" content="魔方, 缺角层先法, Keyhole LBL, 还原顶层角块" />
+<title>还原顶层角块 - 缺角层先法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">缺角层先法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>缺角层先法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="middle.html">还原中层棱块</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd><a href="top_cp.html">角块朝向补偿法</a></dd>
+	<dd><a href="top_co.html">调整顶层角块朝向</a></dd>
+	<dd><a href="other.html">左手版本</a></dd>
+	<dd><a href="faq.html">常见问题</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原顶层角块</h1>
+<p>在前面的步骤中，我们已经还原了魔方的底层、中层、以及顶层的四个棱块，但在底层还留了一个的缺角位置（图1-1）。我们将利用这个底层缺角位置还原顶层四个角块和底层剩余的一个角块（图1-2）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xfxfffffx","xbxbbbbbb","xlxllllll","xrxrrrxrr","xuxuuuxux","ddxdddddd")</script></td>
+		<td><script>cube("fffffffff","bbbbbbbbb","lllllllll","rrrrrrrrr","uuuuuuuuu","ddddddddd")</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>至此，整个魔方还原完毕。</p>
+<h3>基本方法</h3>
+<p>我们先来看看还原顶层角块的基本方法。假设所要还原的<span>红绿白<script>get_color("rfu")</script></span>角块目前位于底层缺角位置，其目标位置为为<span>红白<script>get_color("ru")</script></span>、<span>绿白<script>get_color("fu")</script></span>棱块之间的<span>橙绿白<script>get_color("lfu")</script></span>角块位置。我们通过转动顶面，已将该目标位置对准底层缺角位置。按照角块的朝向可分为以下三种情况：</p>
+<p>1、如图2-1所示，<span>红绿白<script>get_color("rfu")</script></span>角块<span>白<script>get_color("u")</script></span>色的一面朝前。我们根据此颜色朝向，恰当选择还原底层角块的相应基本方法（参见“<a href="bottom.html">还原底层</a>”章节的<a href="bottom.html#f8">图8-1</a>），将角块以正确的朝向推上顶层目标位置。即先逆转顶面（图2-2），推开<span>红绿白<script>get_color("rfu")</script></span>角块进行避让；再逆转右面（图2-3），将目标位置送至底层；然后顺转底面（图2-4），<span>红绿白<script>get_color("rfu")</script></span>角块正好替换入目标位置；最后顺转右面复原（图2-5），将<span>红绿白<script>get_color("rfu")</script></span>角块推上顶层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>D'</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+	</tr>
+	<tr>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'D", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'DR)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+	</tr>
+</table>
+<p>但是事情并没有这么简单，这时的魔方看上去有点错乱。为了摆脱错乱状态，我们可以沿用“互逆”操作的还原思路，按照前阶段操作的步骤顺序再逆向操作一次，就能使魔方恢复到原来的归位状态。当然，如果我们现在直接逆向操作，那么魔方重新又回到图2-1所示的原始状态，达不到还原目的。所幸在前半段的操作中，顶层只有缺角上方角块发生变化，它已被替换成所要还原的<span>红蓝白<script>get_color("rbu")</script></span>角块，因此在逆向操作之前我们可以放心大胆地转动顶面，以便移开已经正确归位的角块，而不用担心会影响到被打乱方块的复原过程。由于顶层还有<span>红蓝白<script>get_color("rbu")</script></span>角块尚未正确还原，我们就顺转顶面（图2-6），将<span>红蓝白<script>get_color("rbu")</script></span>角块替换进来；然后进行后半段逆向操作，即逆转右面（图2-7）、逆转底面（图2-8）、顺转右面（图2-9）、顺转底面（图2-10）复原，并将<span>红蓝白<script>get_color("rbu")</script></span>角块带回底层缺角位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U</td>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+		<td>D</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'DR)U", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'DR)U(R'", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'DR)U(R'D'", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'DR)U(R'D'R", "blrud")</script></td>
+		<td><script>cube("rfufffffu","ubbbbbbbb","lldllllll","lrbrrrrrr","uuruuufuf","ddfdddddd", "(D'R'DR)U(R'D'RD)", "blrud")</script></td>
+		<td><script>animcube("rfufffffu", "ubbbbbbbb", "lldllllll", "lrbrrrrrr", "uuruuufuf", "ddfdddddd", "D'R'DR.U.R'D'RD")</script></td>
+	</tr>
+	<tr>
+		<td>图2-6</td>
+		<td>图2-7</td>
+		<td>图2-8</td>
+		<td>图2-9</td>
+		<td>图2-10</td>
+		<td>图2-11</td>
+	</tr>
+</table>
+<p>后半段逆向操作实际上也是还原底层角块的基本方法之一（参见“<a href="bottom.html">还原底层</a>”章节的<a href="bottom.html#f9">图9-1</a>），只不过由于图2-9中的<span>红蓝白<script>get_color("rbu")</script></span>角块未回到底层缺角位置，还需要追加一步操作。</p>
+<p>2、如图3-1所示，<span>红绿白<script>get_color("rfu")</script></span>角块<span>白<script>get_color("u")</script></span>色的一面朝右。我们同样根据此颜色朝向，恰当选择还原底层角块的相应基本方法（参见“<a href="bottom.html">还原底层</a>”章节的<a href="bottom.html#f9">图9-1</a>），将角块以正确的朝向推上顶层目标位置。即先逆转右面（图3-2），将目标位置送至底层；再逆转底面（图3-3），<span>红绿白<script>get_color("rfu")</script></span>角块正好替换入目标位置；然后顺转右面复原（图3-4），将<span>红绿白<script>get_color("rfu")</script></span>角块推上顶层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+	</tr>
+	<tr>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "", "blrud")</script></td>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'", "blrud")</script></td>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'D'", "blrud")</script></td>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'D'R)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+	</tr>
+</table>
+<p>由于顶层还有<span>红蓝白<script>get_color("rbu")</script></span>角块尚未正确还原，我们就顺转顶面（图3-5），将<span>红蓝白<script>get_color("rbu")</script></span>角块替换进来；然后进行后半段逆向操作，即逆转右面（图3-6）、顺转底面（图3-7）、顺转右面（图3-8）复原，并将<span>红蓝白<script>get_color("rbu")</script></span>角块带回底层缺角位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'D'R)U", "blrud")</script></td>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'D'R)U(R'", "blrud")</script></td>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'D'R)U(R'D", "blrud")</script></td>
+		<td><script>cube("dfuffffff","ubbbbbbbb","llfllllll","lrbrrrurr","uuruuuruf","ddrdddddd", "(R'D'R)U(R'DR)", "blrud")</script></td>
+		<td><script>animcube("dfuffffff", "ubbbbbbbb", "llfllllll", "lrbrrrurr", "uuruuuruf", "ddrdddddd", "R'D'R.U.R'DR")</script></td>
+	</tr>
+	<tr>
+		<td>图3-5</td>
+		<td>图3-6</td>
+		<td>图3-7</td>
+		<td>图3-8</td>
+		<td>图3-9</td>
+	</tr>
+</table>
+<p>后半段逆向操作同样也是还原底层角块的基本方法之一（参见“<a href="bottom.html">还原底层</a>”章节的<a href="bottom.html#f8">图8-1</a>），只不过由于图3-5中的<span>橙绿白<script>get_color("lfu")</script></span>角块已经避让，原先第一步将角块推开的操作就省略了。</p>
+<p>3、如图4-1所示，<span>红绿白<script>get_color("rfu")</script></span>角块的<span>白<script>get_color("u")</script></span>色的一面朝上。这种颜色朝向相对较难处理，但我们仍可以恰当选择还原底层角块的相应基本方法（参见“<a href="bottom.html">还原底层</a>”章节的<a href="bottom.html#f11">图11-1</a>），将角块以正确的朝向推上顶层目标位置。即先转动右面180°（图4-2），将目标位置送至底层；再逆转底面（图4-3），对被送至底层的边进行避让，而目标位置和<span>橙绿白<script>get_color("lfu")</script></span>角块成相对位置；再次转动右面180°（图4-4），<span>红绿白<script>get_color("rfu")</script></span>角块正好替换入目标位置；然后顺转底面（图4-5），再转动右面180°复原（图4-6），将<span>红绿白<script>get_color("rfu")</script></span>角块推上顶层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R²</td>
+		<td>D'</td>
+		<td>R²</td>
+		<td>D</td>
+		<td>R²</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2D", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图4-1</td>
+		<td>图4-2</td>
+		<td>图4-3</td>
+		<td>图4-4</td>
+		<td>图4-5</td>
+		<td>图4-6</td>
+	</tr>
+</table>
+<p>接下来顺转顶面（图4-7），将尚未正确还原的<span>红蓝白<script>get_color("rbu")</script></span>角块替换进来；然后进行后半段逆向操作复原（图4-8~图4-12），并将<span>红蓝白<script>get_color("rbu")</script></span>角块带回底层缺角位置。非常巧合，此逆向操作的步骤顺序与前半段操作完全相同。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U'</td>
+		<td>R²</td>
+		<td>D'</td>
+		<td>R²</td>
+		<td>D</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)U", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)U(R2", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)U(R2D'", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)U(R2D'R2", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)U(R2D'R2D", "blrud")</script></td>
+		<td><script>cube("ffufffffr","ubbbbbbbb","llrllllll","lrbrrrfrr","uuruuuduf","ddudddddd", "(R2D'R2DR2)U(R2D'R2DR2)", "blrud")</script></td>
+		<td><script>animcube("ffufffffr", "ubbbbbbbb", "llrllllll", "lrbrrrfrr", "uuruuuduf", "ddudddddd", "R2D'R2'DR2.U.R2D'R2'DR2")</script></td>
+	</tr>
+	<tr>
+		<td>图4-7</td>
+		<td>图4-8</td>
+		<td>图4-9</td>
+		<td>图4-10</td>
+		<td>图4-11</td>
+		<td>图4-12</td>
+		<td>图4-13</td>
+	</tr>
+</table>
+<p>从上述还原过程可以看出，我们并没有使用其他高深的还原公式，而只是在还原底层角块基本方法的基础上，简单地附加了一个逆向操作。其实质是将三个角块的位置依次轮换，这与前面所介绍换棱法的情况十分类似，只不过换角法的操作步驟更为冗长，它是嵌套地应用了“送出-带回”的互逆操作还原思路。</p>
+<p>对于这三种换角法，我们应注意角块在换位过程中的朝向对应关系，根据所要还原角块的颜色朝向，恰当选择相应的换角法。同时我们还注意到，顶层被平移的角块将会以原有的朝向出现在被带回角块原来所在的位置上，兼顾这一特点也可以提高还原效率。三种换角法写成公式如下：</p>
+<p>(D' R' D R) Ux (R' D' R D)</p>
+<p>(R' D' R) Ux (R' D R)</p>
+<p>(R² D' R² D R²) Ux (R² D' R² D R²)</p>
+<p>其中Ux表示将顶面转动某个角度，我们可以根据需要将其替换为U、U'或U²。</p>
+<h3>操作建议</h3>
+<p>与还原顶层棱块的情况相类似，我们在使用换角法将角块推上顶层的同时，还应规划好所要带回的角块，否则将会多走弯路。这里给出几点建议：</p>
+<p>（1）不要带回已经正确归位的角块。因为这将是多余的操作，下一步仍需将它推回到原来位置上去。</p>
+<p>（2）在顶层角块尚未全部正确归位之前，不要带回属于底层的角块。因为底层缺角位置是还原顶层角块的工作区，提前带回底层角块将是多余的操作，下一步仍需将它推回顶层，以便腾出缺角位置还原其他顶层角块。如果别无选择，我们宁可先将顶层角块以正确的朝向暂时推到其他位置上，以后再伺机还原。</p>
+<p>（3）应优先带回朝向错误的顶层角块。这是因为朝向错误的顶层角块只有通过带回到底层缺角位置才能将朝向调整过来；而仅仅是位置不对应的角块还有可能在还原其他角块的过程中“自动”归位。</p>
+<h3>特殊情况</h3>
+<p>在还原顶层角块的过程中，可能会遇到以下特殊情况：</p>
+<p>1、如图5-1所示，顶层还剩下<span>橙绿白<script>get_color("lfu")</script></span>角块尚未还原，其位置已经正确了，但朝向却是错误的。为了调整顶层角块朝向，我们必须先通过换角将其带回底层缺角位置，再重新以正确的朝向推上去。考虑到使<span>橙绿白<script>get_color("lfu")</script></span>角块回底层的朝向更有利于还原，我们选择以逆转右面（图5-2）、逆转底面（图5-3）、顺转右面（图5-4）开始换角，将<span>红绿黄<script>get_color("rfd")</script></span>角块推上顶层。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+	</tr>
+	<tr>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "", "blrud")</script></td>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'", "blrud")</script></td>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'D'", "blrud")</script></td>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'D'R)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图5-1</td>
+		<td>图5-2</td>
+		<td>图5-3</td>
+		<td>图5-4</td>
+	</tr>
+</table>
+<p>接下来我们逆转顶面（图5-5），将<span>橙绿白<script>get_color("lfu")</script></span>角块替换进来；然后逆转右面（图5-6）、顺转底面（图5-7）、顺转右面（图5-8）复原，并将<span>橙绿白<script>get_color("lfu")</script></span>角块带回底层缺角位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U'</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'D'R)U'", "blrud")</script></td>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'D'R)U'(R'", "blrud")</script></td>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'D'R)U'(R'D", "blrud")</script></td>
+		<td><script>cube("lfffffffd","bbbbbbbbb","llullllll","rrrrrrfrr","uuuuuufuu","ddrdddddd", "(R'D'R)U'(R'DR)", "blrud")</script></td>
+		<td><script>animcube("lfffffffd", "bbbbbbbbb", "llullllll", "rrrrrrfrr", "uuuuuufuu", "ddrdddddd", "R'D'R.U'.R'DR")</script></td>
+	</tr>
+	<tr>
+		<td>图5-5</td>
+		<td>图5-6</td>
+		<td>图5-7</td>
+		<td>图5-8</td>
+		<td>图5-9</td>
+	</tr>
+</table>
+<p>虽然目前<span>红绿白<script>get_color("rfu")</script></span>角块的位置是错误的，但其朝向正确。我们只要再进行一次换角，将<span>橙绿白<script>get_color("lfu")</script></span>角块、<span>红绿白<script>get_color("rfu")</script></span>角块、<span>红绿黄<script>get_color("rfd")</script></span>角块依次轮换，<span>红绿白<script>get_color("rfu")</script></span>角块也会以目前的朝向正确归位。</p>
+<p>2、如图6-1所示，顶层还剩下<span>橙绿白<script>get_color("lfu")</script></span>角块和<span>红绿黄<script>get_color("rfd")</script></span>角块尚未还原。<span>红绿白<script>get_color("rfu")</script></span>角块的目标位置为右前顶角位置，但如果通过换角法直接将其推上去替换<span>橙绿白<script>get_color("lfu")</script></span>角块、并带回<span>红绿黄<script>get_color("rfd")</script></span>角块，那么<span>橙绿白<script>get_color("lfu")</script></span>角块将以目前错误的朝向回到左前顶角位置，这就会出现类似图5-1所示的“两角换向”特殊情况。按照上面的操作建议，目前应优先带回朝向错误的<span>橙绿白<script>get_color("lfu")</script></span>角块，而不是急着带回<span>红绿黄<script>get_color("rfd")</script></span>底层棱块；否则就会因陷入特殊情况而多走弯路。因此我们先逆转顶面（图6-2），再开始换角前半段操作（图6-3~图6-5），将<span>红绿白<script>get_color("rfu")</script></span>角块推上去替换<span>红绿黄<script>get_color("rfd")</script></span>角块。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+	</tr>
+	<tr>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'D'", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'D'R)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图6-1</td>
+		<td>图6-2</td>
+		<td>图6-3</td>
+		<td>图6-4</td>
+		<td>图6-5</td>
+	</tr>
+</table>
+<p>接下来顺转顶面（图6-6），再完成换角后半段操作（图6-7~图6-9），将<span>橙绿白<script>get_color("lfu")</script></span>角块带回底层缺角位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'D'R)U", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'D'R)U(R'", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'D'R)U(R'D", "blrud")</script></td>
+		<td><script>cube("rfuffffff","bbbbbbbbb","lldllllll","lrrrrrurr","uuuuuufuf","ddrdddddd", "U'(R'D'R)U(R'DR)", "blrud")</script></td>
+		<td><script>animcube("rfuffffff", "bbbbbbbbb", "lldllllll", "lrrrrrurr", "uuuuuufuf", "ddrdddddd", "U'.R'D'R.U.R'DR")</script></td>
+	</tr>
+	<tr>
+		<td>图6-6</td>
+		<td>图6-7</td>
+		<td>图6-8</td>
+		<td>图6-9</td>
+		<td>图6-10</td>
+	</tr>
+</table>
+<p>我们只要再进行一次换角，将<span>橙绿白<script>get_color("lfu")</script></span>角块、<span>红绿白<script>get_color("rfu")</script></span>角块、<span>红绿黄<script>get_color("rfd")</script></span>角块依次轮换，角块就能全部正确归位。</p>
+<h3>安装错误</h3>
+<p>如果你遇到类似图7-1或图7-2的情况，即魔方上只有两个角块的位置是互换的，或者只有唯一一个角块的朝向是错误的，那么无论你怎么应用换角法都无法将其还原。出现这种情况的原因，是你的魔方安装错了。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("rflffffff","bbbbbbbbb","llfllllll","frrrrrrrr","uuuuuuuuu","ddddddddd")</script></td>
+		<td><script>cube("ffuffffff","bbbbbbbbb","lllllllll","frrrrrrrr","uuuuuuuur","ddddddddd")</script></td>
+	</tr>
+	<tr>
+		<td>图7-1</td>
+		<td>图7-2</td>
+	</tr>
+</table>
+<p>你可以按照前面章节所介绍的方法取下与之相邻的棱块，然后就能很方便地取下相应的角块。调整好角块的位置和朝向后放回，再将棱块按压回去。如果你之前遇到过其他问题，也可以一并进行处理。</p>
+<div class="back_to_top"><a href="top_e.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="top_cp.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

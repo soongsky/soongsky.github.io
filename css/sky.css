@@ -1,0 +1,58 @@
+@font-face{
+	font-family: Sky;
+	src: url("sky.woff") format("woff");
+}
+
+/* 天码字根 */
+.sky{
+	font-family: Sky;
+}
+
+/* 字根表 */
+.rtb{
+	width: calc(100% - 11em);
+}
+
+.rtb .root, .rtb .example{
+	width: 7em;
+}
+
+.rtb .code{
+	width: 2em;
+}
+
+/* 主码 */
+.main{
+	color: red;
+}
+
+/* 副码 */
+.aux{
+	color: blue;
+}
+
+/* 无音 */
+.np{
+	color: green;
+}
+
+.mtop{
+	border-top-style: hidden;
+}
+
+.mbottom{
+	border-bottom-style: hidden;
+}
+
+.mtb{
+	border-top-style: hidden;
+	border-bottom-style: hidden;
+}
+
+.train{
+	width: 9em;
+	height: 9em;
+	border: 1px solid #336699;
+	padding: 0.25em;
+	margin: 0.25em;
+}

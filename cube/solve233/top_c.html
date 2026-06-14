@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原顶层角块的方法" />
+<meta name="Keywords" content="魔方, 233, 缺角层先法, Keyhole LBL, 还原顶层角块" />
+<title>还原顶层角块 - 233魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">233魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>233魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原顶层角块</h1>
+<p>在前面的步骤中，我们已经还原了233魔方的底层、以及顶层的四个棱块，但在底层还留了一个的缺角位置（图1-1）。我们将利用这个底层缺角位置还原顶层四个角块和底层剩余的一个角块（图1-2）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xfxffx","xbxbbb","xlxlll","xrxxrr","xuxuuuxux","ddxdddddd", "", "", 3,3,2)</script></td>
+		<td><script>cube("ffffff","bbbbbb","llllll","rrrrrr","uuuuuuuuu","ddddddddd", "", "", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>至此，整个魔方还原完毕。</p>
+<h3>基本方法</h3>
+<p>我们仍然是使用三阶魔方中还原顶层角块的换角法。由于233魔方结构的原因，我们只用到一种换角法：</p>
+<p>(R² D' R² D R²) Ux (R² D' R² D R²)</p>
+<p>我们也无需进行朝向调整，因为角块的朝向始终是正确的。</p>
+<h3>特殊情况</h3>
+<p>我们在还原顶层角块过程中，有50%的可能会遇到“两角互换”的特殊情况。</p>
+<p>如图3-1所示，顶层已有三个角块正确归位，还剩下<span>红绿黄<script>get_color("rfd")</script></span>角块和位于缺角位置的<span>红绿白<script>get_color("rfu")</script></span>角块未还原；这两个角块正好互换了位置。究其原因，是顶层棱块基准需沿顶面转动90°。也就是说，我们需将顶层四个棱块两两互换三次，以便补偿<span>红绿黄<script>get_color("rfd")</script></span>角块和<span>红绿白<script>get_color("rfu")</script></span>角块的单次互换。我们先使用相邻棱块互换的方法：R² U R² U' R²（图3-2），将<span>红白<script>get_color("ru")</script></span>棱块和<span>蓝白<script>get_color("bu")</script></span>棱块互换。现在选择<span>红白<script>get_color("ru")</script></span>棱块作为基准，剩余的<span>橙白<script>get_color("lu")</script></span>棱块、<span>绿白<script>get_color("fu")</script></span>棱块和<span>蓝白<script>get_color("bu")</script></span>棱块正好需依次轮换。再转动顶面180°（图3-3），准备将<span>橙白<script>get_color("lu")</script></span>棱块和<span>绿白<script>get_color("fu")</script></span>棱块互换。不过我们在R² U R²完成<span>橙白<script>get_color("lu")</script></span>棱块和<span>绿白<script>get_color("fu")</script></span>棱块的上下互换之后（图3-4），并不急着进行U' R²复原。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R² U R² U' R²</td>
+		<td>U²</td>
+		<td>R² U R²</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "", "blrud", 3,3,2)</script></td>
+		<td>……<script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)", "blrud", 3,3,2)</script></td>
+		<td><script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)U2", "blrud", 3,3,2)</script></td>
+		<td>……<script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)U2(R2UR2", "blrud", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+	</tr>
+</table>
+<p>我们注意到，<span>绿白<script>get_color("fu")</script></span>棱块下一步还需和<span>蓝白<script>get_color("bu")</script></span>棱块进行互换。因此我们继续顺转顶面（图3-5），使<span>蓝白<script>get_color("bu")</script></span>棱块和<span>绿白<script>get_color("fu")</script></span>棱块上下对齐；再转动右面180°（图3-6），将两个棱块互换；然后转动顶面180°、转动右面180°复原（图3-7）。最后还剩三个角块未还原，只需使用“正换角”（图3-8），就能将剩余的角块正确归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U</td>
+		<td>R²</td>
+		<td>U R²</td>
+		<td>(R² D' R² D R²) U² (R² D' R² D R²)</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)U2(R2UR2U", "blrud", 3,3,2)</script></td>
+		<td><script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)U2(R2UR2UR2", "blrud", 3,3,2)</script></td>
+		<td>……<script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)U2(R2UR2UR2U2R2)", "blrud", 3,3,2)</script></td>
+		<td>……<script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "(R2UR2U'R2)U2(R2UR2UR2U2R2)(R2D'R2DR2)U2(R2D'R2DR2)", "blrud", 3,3,2)</script></td>
+		<td><script>animcube("ffrxxxffr", "bbbxxxbbb", "lllxxxlll", "frrxxxfrr", "uuuuuuuud", "ddudddddd", "R2UR2'U'R2.U2.R2UR2'.UR2U2R2'.R2D'R2'DR2.U2.R2D'R2'DR2")</script></td>
+	</tr>
+	<tr>
+		<td>图3-5</td>
+		<td>图3-6</td>
+		<td>图3-7</td>
+		<td>图3-8</td>
+		<td>图3-9</td>
+	</tr>
+</table>
+<p>我们处理特殊情况的方法比较繁琐，但它是基于本文使用简单易懂的方法解魔方的宗旨。当然还有一些更直接的方法，但那些方法都过于公式化，超出了本文所涉及的范围。如果你有更好的方法，欢迎与<a href="mailto:caprone@foxmail.com">我们</a>联系，分享你的经验。</p>
+<div class="back_to_top"><a href="top_e.html">&lt;&lt;上页</a> <a href="#">页首</a> 下页&gt;&gt;</div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="233魔方解法的简介" />
+<meta name="Keywords" content="魔方, 233, 缺角层先法, Keyhole LBL, 简介" />
+<title>简介 - 233魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">233魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>233魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>233魔方解法简介</h1>
+<p>233魔方的结构比普通三阶魔方简单，相当于三阶魔方去掉中层，因此可以使用类似三阶魔方的还原方法。我们将在<a href="../solve/">缺角层先法</a>的基础上，对233魔方解法加以介绍。</p>
+<p>233魔方的一般还原步骤如下：</p>
+<ol>
+	<li><a href="bottom.html">还原底层，但留一个角块暂不还原</a>（图1-1）</li>
+	<li><a href="top_e.html">还原顶层棱块</a>（图1-2）</li>
+	<li><a href="top_c.html">还原顶层角块，包括底层所留的一个角块</a>（图1-3）</li>
+</ol>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxffx","xxxbbb","xxxlll","xxxxrr","xxxxuxxxx","ddxdddddd", "", "d", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xlxlll","xrxxrr","xuxuuuxux","ddxdddddd", "", "", 3,3,2)</script></td>
+		<td><script>cube("ffffff","bbbbbb","llllll","rrrrrr","uuuuuuuuu","ddddddddd", "", "", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+		<td>图1-3</td>
+	</tr>
+</table>
+<p>由于233魔方结构的原因，其四个侧面只能转动180°而无法转动90°，这就导致棱块和角块的朝向始终是正确的，从而省去了调整朝向的步骤。同样是受到四个侧面的转动方式所限，我们所能用到的还原方法基本上只有一种。</p>
+<p>而在另一方面，由于233魔方侧面缺少中心块，这就给颜色定位带来麻烦，同时还有可能出现“两角互换”的特殊情况（见图2）。这需单独进行调整，而非魔方安装错误。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("ffrffr","bbbbbb","llllll","frrfrr","uuuuuuuud","ddudddddd", "", "", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图2</td>
+	</tr>
+</table>
+<div class="back_to_top">&lt;&lt;上页 <a href="#">页首</a> <a href="bottom.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

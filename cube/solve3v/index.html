@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="空心魔方解法的简介" />
+<meta name="Keywords" content="魔方, 空心魔方, 缺角层先法, Keyhole LBL, 简介" />
+<title>简介 - 空心魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">空心魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>空心魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>空心魔方解法简介</h1>
+<p>空心魔方和普通三阶魔方很相似，只不过少了中心块，因此完全可以使用三阶魔方的还原方法。空心魔方的一般还原步骤如下：</p>
+<ol>
+	<li>还原底层，但留一个角块暂不还原（图1-1）</li>
+	<li>还原中层棱块，但留一个棱块暂不还原（图1-2）</li>
+	<li>还原顶层棱块，包括中层所留的一个棱块（图1-3）</li>
+	<li>还原顶层角块，包括底层所留的一个角块（图1-4）</li>
+</ol>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxxxffx","xxxxxxbbb","xxxxxxlll","xxxxxxxrr","xxxxxxxxx","ddxdxdddd", "", "d")</script></td>
+		<td><script>cube("xxxfxxffx","xxxbxbbbb","xxxlxllll","xxxxxrxrr","xxxxxxxxx","ddxdxdddd", "", "d")</script></td>
+		<td><script>cube("xfxfxfffx","xbxbxbbbb","xlxlxllll","xrxrxrxrr","xuxuxuxux","ddxdxdddd")</script></td>
+		<td><script>cube("ffffxffff","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuu","ddddxdddd")</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+		<td>图1-3</td>
+		<td>图1-4</td>
+	</tr>
+</table>
+<p>空心魔方的还原方法与三阶魔方的相同，这里就不再赘述。对于还原过程中所遇到的特殊情况，我们将单独进行调整。</p>
+<h3>特殊情况</h3>
+<p>我们在还原顶层角块过程中，有50%的可能会遇到“两角互换”的特殊情况。</p>
+<p>如图3-1所示，顶层已有三个角块正确归位，还剩下<span>红绿黄<script>get_color("rfd")</script></span>角块和位于缺角位置的<span>红绿白<script>get_color("rfu")</script></span>角块未还原；这两个角块正好互换了位置。究其原因，是因为空心魔方缺少中心块，我们在定位中层棱块时失去基准，而中层棱块的定位又影响到顶层棱块及角块的定位。在这种情况下，中层四个棱块需依次轮换，而顶层四个棱块也要跟着依次轮换，从而补偿顶层角块的单次互换。我们先使用“前换棱”（图2-2），将<span>红绿<script>get_color("rf")</script></span>棱块暂时推上顶层。我们注意到，<span>红白<script>get_color("ru")</script></span>棱块相对于原有位置移动了90°；<span>红白<script>get_color("ru")</script></span>棱块可以作为顶层基准棱块。我们再同时顺转顶面及中层（图2-3），准备将<span>红绿<script>get_color("rf")</script></span>棱块替换到<span>红蓝<script>get_color("rb")</script></span>棱块的位置。而目前<span>红绿<script>get_color("rf")</script></span>棱块的位置实际上是<span>绿白<script>get_color("fu")</script></span>棱块的目标位置，因此我们顺转顶面（图2-4），再使用“前换棱”（图2-5），将<span>红绿<script>get_color("rf")</script></span>棱块和<span>绿白<script>get_color("fu")</script></span>棱块正确归位；这时<span>红绿<script>get_color("rf")</script></span>棱块就成了中层基准棱块。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R U R'</td>
+		<td>TU</td>
+		<td>U</td>
+		<td>R U R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "", "blrud")</script></td>
+		<td>……<script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')", "blrud")</script></td>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TU", "blrud")</script></td>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU", "blrud")</script></td>
+		<td>……<script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+	</tr>
+</table>
+<p>接下来使用相同的方法，将<span>红蓝<script>get_color("rb")</script></span>棱块和<span>橙白<script>get_color("lu")</script></span>棱块正确归位（图2-6~8）。然后轮到还原<span>橙蓝<script>get_color("lb")</script></span>棱块，我们同时顺转顶面及中层（图2-9），准备将<span>橙蓝<script>get_color("lb")</script></span>棱块替换到<span>橙绿<script>get_color("lf")</script></span>棱块的位置。这时顶层三个棱块均已正确归位，但我们仍沿用前面的方法，先顺转顶面（图2-10），再使用“前换棱”（图2-11），将<span>橙蓝<script>get_color("lb")</script></span>棱块正确归位，而<span>红白<script>get_color("ru")</script></span>棱块暂时离开其目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>TU</td>
+		<td>U</td>
+		<td>R U R'</td>
+		<td>TU</td>
+		<td>U</td>
+		<td>R U R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TU", "blrud")</script></td>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU", "blrud")</script></td>
+		<td>……<script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')", "blrud")</script></td>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')TU", "blrud")</script></td>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')TUU", "blrud")</script></td>
+		<td>……<script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')TUU(RUR')", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图2-6</td>
+		<td>图2-7</td>
+		<td>图2-8</td>
+		<td>图2-9</td>
+		<td>图2-10</td>
+		<td>图2-11</td>
+	</tr>
+</table>
+<p>然后还剩下<span>橙绿<script>get_color("lf")</script></span>棱块，我们同样是同时顺转顶面及中层（图2-12），准备将<span>橙绿<script>get_color("lf")</script></span>棱块替换到<span>白蓝<script>get_color("ub")</script></span>棱块的位置，而<span>白蓝<script>get_color("ub")</script></span>棱块的目标位置是目前<span>红白<script>get_color("ru")</script></span>棱块的位置，因此我们逆转顶面（图2-13），再使用“前换棱”（图2-14），将剩余的棱块全部正确归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>TU</td>
+		<td>U'</td>
+		<td>R U' R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')TUU(RUR')TU", "blrud")</script></td>
+		<td><script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')TUU(RUR')TUU'", "blrud")</script></td>
+		<td>……<script>cube("ffdfxfffu","bbbbxbbbb","llllxllll","rrrrxrrrr","uuuuxuuuf","ddfdxdddd", "(RUR')TUU(RUR')TUU(RUR')TUU(RUR')TUU'(RU'R')", "blrud")</script></td>
+		<td><script>animcube("ffdfxfffu", "bbbbxbbbb", "llllxllll", "rrrrxrrrr", "uuuuxuuuf", "ddfdxdddd", "RUR'.UtU.RUR'.UtU.RUR'.UtU.RUR'.UtU'.RU'R'")</script></td>
+	</tr>
+	<tr>
+		<td>图2-12</td>
+		<td>图2-13</td>
+		<td>图2-14</td>
+		<td>图2-15</td>
+	</tr>
+</table>
+<p>最后还剩下三个角块未还原，我们可以使用换角法将其正确归位，这里就不再赘述。</p>
+<p>我们处理特殊情况的方法比较繁琐，但它是基于本文使用简单易懂的方法解魔方的宗旨。当然还有一些更直接的方法，但那些方法都过于公式化，超出了本文所涉及的范围。如果你有更好的方法，欢迎与<a href="mailto:caprone@foxmail.com">我们</a>联系，分享你的经验。</p>
+<div class="back_to_top">&lt;&lt;上页 <a href="#">页首</a> 下页&gt;&gt;</div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

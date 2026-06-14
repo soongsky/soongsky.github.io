@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原中层棱块的方法" />
+<meta name="Keywords" content="魔方, 缺角层先法, Keyhole LBL, 还原中层棱块" />
+<title>还原中层棱块 - 缺角层先法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">缺角层先法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>缺角层先法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="middle.html">还原中层棱块</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd><a href="top_cp.html">角块朝向补偿法</a></dd>
+	<dd><a href="top_co.html">调整顶层角块朝向</a></dd>
+	<dd><a href="other.html">左手版本</a></dd>
+	<dd><a href="faq.html">常见问题</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原中层棱块</h1>
+<p>在前面的步骤中，我们已经还原了魔方的底层，但还留了一个的缺角位置（图1-1）。我们将利用这个底层缺角位置还原中层三个棱块，而留一个中层棱块暂不还原（图1-2）；中层和底层的缺角位置共同构成后续还原的工作区。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxfxffx","xxxxbxbbb","xxxxlxlll","xxxxrxxrr","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+		<td><script>cube("xxxffxffx","xxxbbbbbb","xxxllllll","xxxxrrxrr","xxxxuxxxx","ddxdddddd", "", "d")</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<h3>基本方法</h3>
+<p>我们先来看看还原中层棱块的两种基本方法。假设所要还原的中层棱块为<span>红绿<script>get_color("rf")</script></span>棱块，其目标位置为<span>红<script>get_color("r")</script></span>、<span>绿<script>get_color("f")</script></span>中心块之间的<span>橙白<script>get_color("lu")</script></span>棱块位置。我们通过同时转动顶面及中层，已将该目标位置对准底层缺角位置。按照棱块的朝向可分为以下两种情况：</p>
+<p>1、如图2-1所示，<span>红绿<script>get_color("rf")</script></span>棱块目前位于前顶棱位，棱块<span>绿<script>get_color("f")</script></span>色的一面朝上。我们先顺转右面（图2-2），将目标位置送至顶层；再逆转顶面（图2-3），<span>红绿<script>get_color("rf")</script></span>棱块正好替换原来目标位置上的棱块；最后逆转右面复原（图2-4），将<span>红绿<script>get_color("rf")</script></span>棱块带回中层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xrxffuffx","xxxbbxbbb","xxxxlllll","xxxlrrxrr","xxxxuxxfx","ddxdddddd")</script></td>
+		<td><script>cube("xrxffuffx","xxxbbxbbb","xxxxlllll","xxxlrrxrr","xxxxuxxfx","ddxdddddd", "R")</script></td>
+		<td><script>cube("xrxffuffx","xxxbbxbbb","xxxxlllll","xxxlrrxrr","xxxxuxxfx","ddxdddddd", "RU'")</script></td>
+		<td><script>cube("xrxffuffx","xxxbbxbbb","xxxxlllll","xxxlrrxrr","xxxxuxxfx","ddxdddddd", "RU'R'")</script></td>
+		<td><script>animcube("xrxffuffx", "xxxbbxbbb", "xxxxlllll", "xxxlrrxrr", "xxxxuxxfx", "ddxdddddd", "RU'R'")</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+	</tr>
+</table>
+<p>当我们前半段顺转右面时，原来正确归位的底层和中层方块暂时会被打乱；但经过后半段逆转右面的逆向操作，被打乱的方块又会恢复到原来归位的状态。我们注意到在前半段的“送出”操作中，被打乱的方块都处于底层和中层，因此在逆向“带回”操作之前我们可以放心大胆地转动与此无关的顶面，以便完成对中层棱块的还原，而不用担心会影响到被打乱方块的复原过程。唯一受影响的是底层缺角位置角块，当它被推上顶层时，会被逆转顶面带走。不过，这个缺角位置正是我们所预留的工作区，我们并不关心该位置上的角块变化；这也是我们事先将中层棱块的目标位置对准底层缺角位置的原因。</p>
+<p>2、如图3-1所示，<span>红绿<script>get_color("rf")</script></span>棱块目前位于右顶棱位，棱块<span>红<script>get_color("r")</script></span>色的一面朝上。这可以看成是第一种情况的镜像，我们可以先逆转前面（图3-2），将目标位置送至顶层；再顺转顶面（图3-3），<span>红绿<script>get_color("rf")</script></span>棱块正好替换原来目标位置上的棱块；最后顺转前面复原（图3-4），将<span>红绿<script>get_color("rf")</script></span>棱块带回中层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxfflffx","xxxbbxbbb","xxxxlllll","xfxurrxrr","xxxxurxxx","ddxdddddd")</script></td>
+		<td><script>cube("xxxfflffx","xxxbbxbbb","xxxxlllll","xfxurrxrr","xxxxurxxx","ddxdddddd", "F'")</script></td>
+		<td><script>cube("xxxfflffx","xxxbbxbbb","xxxxlllll","xfxurrxrr","xxxxurxxx","ddxdddddd", "F'U")</script></td>
+		<td><script>cube("xxxfflffx","xxxbbxbbb","xxxxlllll","xfxurrxrr","xxxxurxxx","ddxdddddd", "F'UF")</script></td>
+		<td><script>animcube("xxxfflffx", "xxxbbxbbb", "xxxxlllll", "xfxurrxrr", "xxxxurxxx", "ddxdddddd", "F'UF")</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+	</tr>
+</table>
+<p>这里同样是应用“送出-带回”的方法进行还原，这种利用互逆操作的还原思路，广泛应用于缺角层先法之中。</p>
+<p>对于这两种换棱法，我们应注意棱块在换位过程中的朝向对应关系，根据所要还原棱块的颜色朝向，恰当选择以顺转右面或逆转前面开始进行换棱。两种换棱法写成公式如下：</p>
+<p>R Ux R'</p>
+<p>F' Ux F</p>
+<p>其中Ux表示将顶面转动某个角度，我们可以根据需要将其替换为U、U'或U²。这是因为在实际还原过程中，所要还原棱块的位置可能不同于上述基本情况，我们应根据实际位置情况转动适当的角度。</p>
+<h3>还原实例</h3>
+<p>在实际还原过程中，我们一般可以先找好所要还原的棱块及其目标位置，再将目标位置对准底层缺角位置，然后根据棱块的朝向，选用相应的换棱法将其正确归位。</p>
+<p>图4-1是还原中层棱块的实例。我们首先在顶层找出一个属于中层的棱块，比如<span>橙蓝<script>get_color("lb")</script></span>棱块；中层棱块的特点是棱块上没有<span>白<script>get_color("u")</script></span>色。从该棱块的颜色可以看出，其目标位置是位于<span>橙<script>get_color("l")</script></span>色中心块与<span>蓝<script>get_color("b")</script></span>色中心块之间的棱位，也就是目前的左后棱位。因此我们同时转动顶面及中层180°（图4-2），将该目标位置对准底层缺角位置。这时中层和底层的颜色并不一致，而且<span>橙蓝<script>get_color("lb")</script></span>棱块也被移至左顶棱位，但这并不影响我们的还原工作。<span>橙蓝<script>get_color("lb")</script></span>棱块朝上的一面为<span>蓝<script>get_color("b")</script></span>色，与前面的中心块颜色相同，因此我们通过顺转右面（图4-3），将朝前的一面送至顶面；然后根据<span>橙蓝<script>get_color("lb")</script></span>棱块的实际位置，转动顶面180°（图4-4），将棱块替换入目标位置；最后逆转右面复原（图4-5），将<span>橙蓝<script>get_color("lb")</script></span>棱块带回中层归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU²</td>
+		<td>R</td>
+		<td>U²</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(R", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')", "blr")</script></td>
+	</tr>
+	<tr>
+		<td>图4-1</td>
+		<td>图4-2</td>
+		<td>图4-3</td>
+		<td>图4-4</td>
+		<td>图4-5</td>
+	</tr>
+</table>
+<p>接下来我们继续找出另一个中层棱块，比如<span>橙绿<script>get_color("lf")</script></span>棱块，其目标位置为右后棱位，因此我们同时顺转顶面及中层（图4-6），将目标位置对准底层缺角位置。根据<span>橙绿<script>get_color("lf")</script></span>棱块朝上的一面为<span>绿<script>get_color("f")</script></span>色，下一步应逆转前面进行换棱。但是我们注意到，目前位于棱块目标位置的<span>橙白<script>get_color("lu")</script></span>棱块是个顶层棱块，如果这时逆转前面，其<span>白<script>get_color("u")</script></span>色的一面将朝前而不是朝上。这种错误的朝向，将不利于下一步还原顶层棱块。因此我们以顺转右面开始先进行一次换棱，将它换成其他朝向错误的顶层棱块。比如这时顶层还有一个<span>蓝白<script>get_color("bu")</script></span>棱块的朝向是错误的，我们就在将<span>橙白<script>get_color("lu")</script></span>棱块以正确的朝向推上去时（图4-7），同时将错误朝向的<span>蓝白<script>get_color("bu")</script></span>棱块带回来（图4-8~图4-9）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>TU</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(R", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')", "blr")</script></td>
+	</tr>
+	<tr>
+		<td>图4-6</td>
+		<td>图4-7</td>
+		<td>图4-8</td>
+		<td>图4-9</td>
+	</tr>
+</table>
+<p>现在就可以开始还原<span>橙绿<script>get_color("lf")</script></span>棱块了，只是这时直接逆转前面将会遇到点小麻烦，它将撞到所要还原的<span>橙绿<script>get_color("lf")</script></span>棱块。但这并不是什么难处理的事，我们只要先将顶面转动一个角度，比如逆转顶面（图4-10）避让，再以逆转前面开始换棱，就能将<span>橙绿<script>get_color("lf")</script></span>棱块带回中层归位（图4-11~图4-13）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U'</td>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+	</tr>
+	<tr>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'U", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'UF)", "blr")</script></td>
+	</tr>
+	<tr>
+		<td>图4-10</td>
+		<td>图4-11</td>
+		<td>图4-12</td>
+		<td>图4-13</td>
+	</tr>
+</table>
+<p>最后是还原<span>红绿<script>get_color("rf")</script></span>棱块。同样地，同时顺转顶面及中层（图4-14），将目标位置对准底层缺角位置。虽然这次位于目标位置的<span>红白<script>get_color("ru")</script></span>棱块朝向也不适合使用顺转右面进行换棱，但由于目前位于顶层的三个顶层棱块都已经处于朝向正确的状态，我们就不去管顶层棱块朝向调整问题，而是直接进行换棱（图4-15~图4-17）。最后还剩下一个中层棱位未还原，将作为中层缺角工作区。我们同时顺转顶面及中层（图4-18），将它与底层的缺角位置对齐，为下一步还原作准备。</p>
+<table border="1" align="center">
+	<tr>
+		<td>TU</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>TU</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'UF)TU", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'UF)TU(R", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'UF)TU(RU'", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'UF)TU(RU'R')", "blr")</script></td>
+		<td><script>cube("xlxlfrffx","xrxrbubbb","xuxflulll","xlxurbxrr","xfxbubxfx","ddxdddddd", "TU2(RU2R')TU(RU'R')U'(F'UF)TU(RU'R')TU", "blr")</script></td>
+		<td><script>animcube("xlxlfrffx", "xrxrbubbb", "xuxflulll", "xlxurbxrr", "xfxbubxfx", "ddxdddddd", "Ut2.RU2R'.Ut.RU'R'.U'.F'UF.Ut.RU'R'.Ut")</script></td>
+	</tr>
+	<tr>
+		<td>图4-14</td>
+		<td>图4-15</td>
+		<td>图4-16</td>
+		<td>图4-17</td>
+		<td>图4-18</td>
+		<td>图4-19</td>
+	</tr>
+</table>
+<h3>特殊情况</h3>
+<p>有时你可能会发现在顶层已经找不到中层棱块了，因为未还原的中层棱块都位于中层，只是位置或朝向不正确。这时你可以分两步还原：先任意选择一个顶层棱块来替换未还原的中层棱块，将中层棱块暂时送回顶层，再应用换棱法将其正确还原。</p>
+<div class="back_to_top"><a href="bottom.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="top_e.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

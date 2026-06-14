@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="二阶魔方解法的简介" />
+<meta name="Keywords" content="魔方, 二阶, 缺角层先法, Keyhole LBL, 简介" />
+<title>简介 - 二阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube2.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">二阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>二阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top.html">还原顶层</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>二阶魔方解法简介</h1>
+<p>二阶魔方的结构比普通三阶魔方简单，相当于三阶魔方去掉中心块和棱块，因此可以使用类似三阶魔方的还原方法。我们将在<a href="../solve/">缺角层先法</a>的基础上，对二阶魔方解法加以介绍。</p>
+<p>二阶魔方的一般还原步骤如下：</p>
+<ol>
+	<li><a href="bottom.html">还原底层，但留一个角块暂不还原</a>（图1-1）</li>
+	<li><a href="top.html">还原顶层，包括底层所留的一个角块</a>（图1-2）</li>
+</ol>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxfx","xxbb","xxll","xxxr","xxxx","dxdd", "", "d", 2)</script></td>
+		<td><script>cube("ffff","bbbb","llll","rrrr","uuuu","dddd", "", "", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>由于二阶魔方没有中心块和棱块，角块移动的自由度更大，还原步聚更简单。而在另一方面，这也给颜色定位带来麻烦。一般我们应记住魔方配色：<span>绿<script>get_color("f")</script></span>前、<span>蓝<script>get_color("b")</script></span>后、<span>橙<script>get_color("l")</script></span>左、<span>红<script>get_color("r")</script></span>右、<span>白<script>get_color("u")</script></span>顶、<span>黄<script>get_color("d")</script></span>底；而角块三个面的颜色关系也能帮助我们确定魔方的配色。</p>
+<p>同时，也正因为颜色定位失去了基准，有可能出现“两角互换”的特殊情况（见图2）。这需单独进行调整，而非魔方安装错误。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("ffff","bbbb","llll","drur","uuur","drdd", "", "", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图2</td>
+	</tr>
+</table>
+<div class="back_to_top">&lt;&lt;上页 <a href="#">页首</a> <a href="bottom.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

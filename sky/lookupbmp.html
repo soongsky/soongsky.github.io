@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../css/base.css" />
+<meta name="Description" content="基本天码查询" />
+<meta name="Keywords" content="天码, 输入法, 查询, 基本集" />
+<title>基本天码查询 - 天码输入法</title>
+<script src="../java/base.js"></script>
+<link rel="stylesheet" href="../css/sky.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../index.html">首页</a></li>
+<li>»</li>
+<li><a href="index.html">天码输入法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>天码简介</dt>
+	<dd><a href="index.html">前言</a></dd>
+	<dd><a href="feature.html">方案特色</a></dd>
+	<dd><a href="root.html">字根编码</a></dd>
+	<dd><a href="div.html">汉字拆分</a></dd>
+	<dd><a href="code.html">汉字编码</a></dd>
+	<dd><a href="sc.html">汉字简码</a></dd>
+	<dd><a href="word.html">词组编码</a></dd>
+	<dd><a href="allroot.html">字根详解</a></dd>
+	<dd><a href="divrule.html">拆分细则</a></dd>
+	<dd><a href="rtb.html">字根总表</a></dd>
+	<dd><a href="postscript.html">后记</a></dd>
+	<dt>天码查询</dt>
+	<dd><a href="lookupbmp.html">基本天码查询</a></dd>
+	<dd><a href="lookup.html">超级天码查询</a></dd>
+	<dt>其他资源</dt>
+	<dd><a href="download.html">下载</a></dd>
+	<dd><a href="link.html">链接</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<h1>基本天码查询</h1>
+<form action="javascript:lookup()">
+	<input type="radio" name="type" id="single" checked="checked" /><label for="single">单字</label>
+	<input type="radio" name="type" id="word" /><label for="word">词组</label><br />
+	<input type="text" id="txt" /><br />
+	<label id="info" for="txt"></label>
+</form>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+<script src="../java/sky/code_bmp.js"></script>
+<script src="../java/sky/ucs.js"></script>
+<script src="../java/sky/lookup.js"></script>
+</body>
+</html>

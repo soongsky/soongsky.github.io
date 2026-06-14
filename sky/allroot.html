@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../css/base.css" />
+<meta name="Description" content="字根详解" />
+<meta name="Keywords" content="天码, 输入法, 字根详解" />
+<title>字根详解 - 天码输入法</title>
+<script src="../java/base.js"></script>
+<link rel="stylesheet" href="../css/sky.css" />
+<script>
+"use strict";
+// 练习组
+var group = [
+	"字根",
+	["一", "㇀", "丨", "亅", "丿", "丶", "㇏", "乚", "㇉", "𠄌", "乙", "乛", "𠄎", "〇"],
+	["二", "示", "三", "亖"],
+	["刂", "", "リ", "", "𰀪", "巜", "川", "彳", "彡", "巛", "", "", ""],
+	["丷", "", "", "冫", "⺀", "", "氵", "⺍", "灬", ""],
+	["日", "", "曰", "早", "目", "且", "", "貝", "見", "頁"],
+	["毌", "母", "毋", "", "女", "攵", "夂", "夕", "𱼀"],
+	["口", "", "", "亞"],
+	["囗", "", "𫩏", "四", "罒", "皿", "", "", "田", "由", "甲", "申", "鱼", "魚", "", "", "", "鬼"],
+	["㠯", "白", "自", "古", "舌", ""],
+	["", "卩", "𰆊", "阝", "尸", "户", "戶", "𠃜", "", "", "鳥", "", "烏", "刀", "", "巳", "㔾", "巴", "也", "艮", ""],
+	["⻊", "足", "", "虫", "𠀐", ""],
+	["匚", "臣", "巨", "𦣞", "", "𠫔", "至", "", "", "氏", "", "𧘇", "𰀄", "", "", "長", "镸", "馬", "隹"],
+	["", "", "𫜹", "⼹", "习", "王", "壬"],
+	["凵", "屮", "山", "䶹", "丩", "𠂈", "业", "", "", "𠁁", "臼", "", "", "心", "厶"],
+	["冂", "⺆", "同", "", "咼", "舟", "冖", "门", "月", "冉", "", "", "宀", "巾", "爫", "爪", "瓜", "豸", "勹", "包", "匃", "⺈", "", "角", "𰃦", "片", "爿", ""],
+	["厂", "辰", "⺁", "斤", "虍", "广", "疒", "鹿", "麻", "礻", "衤"],
+	["廴", "辶", "之", "", "七", "", "", "车", "毛", "匕", "", "", "𠤎", "𳑳"],
+	["十", "𠂇", "𬺰", "寸", "𰀁", "", "扌", "丰", "", "車", "甫", "中", "𰀉", "", "韋", "千", "手", "龵", ""],
+	["艹", "廾", "卄", "卅", ""],
+	["㐅", "力", "九", "丸"],
+	["𠀎", "甘", "廿", "龷", "丗", "", "井", "", "其", "耳", "", "西", "覀", "襾"],
+	["丅", "丁", "下", "不", "雨", "⻗", "干", "", "弔", "丆", "石", "而", "页"],
+	["丄", "彑", "土", "走", "耂", "士", "", "龶", "止", "", "龰"],
+	["亼", "亽", "饣", "人", "金", "", "八", "又", "龴", "𠂉", "牛", "⺧", "气", "生", "亻", ""],
+	["儿", "见", "兆", "几", "凡", "風", "殳", "尤", "尢", "兀", "龙"],
+	["戈", "𭠍", "𢦑", "戋", "㦮", "弋", "𫠠", "我", "", "犭", "𧰨", "豕"],
+	["讠", "亡", "主", "亠", "方", "立", "", "𰁜", "辛", "", "永", "工", ""],
+	["言", "", "吂", "䜌", "文"],
+	["弓", "了", "", "𠚕", "丂", "", "", "专", "马", "鸟", "", "乌", "", "纟", "糸", "糹", "幺", "乡", "己", "", "已", "ス", "子", "孑", "钅"],
+	["", "氺", "水", "", "", "米", "小", "𣥂", "⺌", "𫶧", "卝", "非", "行", "⺽", "門", "癶", "", "", "丱", "𣶒"],
+	["", "", "长", "丬", "", "䒑", "", "⺮", "木", "朩", "𣎳", "术", "朮", "來", "未", "禾", ""],
+	["⺊", "卜", "忄", ""],
+	["大", "夫", "𡗗", "龹", "犬", "火", "贝", "欠"],
+	["及", "皮", "牙", "矛", "身"],
+	["半", "", "羊", "⺶", "⺷"]
+];
+</script>
+<script src="../java/sky/root.js"></script>
+<script src="../java/sky/train.js"></script>
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../index.html">首页</a></li>
+<li>»</li>
+<li><a href="index.html">天码输入法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>天码简介</dt>
+	<dd><a href="index.html">前言</a></dd>
+	<dd><a href="feature.html">方案特色</a></dd>
+	<dd><a href="root.html">字根编码</a></dd>
+	<dd><a href="div.html">汉字拆分</a></dd>
+	<dd><a href="code.html">汉字编码</a></dd>
+	<dd><a href="sc.html">汉字简码</a></dd>
+	<dd><a href="word.html">词组编码</a></dd>
+	<dd><a href="allroot.html">字根详解</a></dd>
+	<dd><a href="divrule.html">拆分细则</a></dd>
+	<dd><a href="rtb.html">字根总表</a></dd>
+	<dd><a href="postscript.html">后记</a></dd>
+	<dt>天码查询</dt>
+	<dd><a href="lookupbmp.html">基本天码查询</a></dd>
+	<dd><a href="lookup.html">超级天码查询</a></dd>
+	<dt>其他资源</dt>
+	<dd><a href="download.html">下载</a></dd>
+	<dd><a href="link.html">链接</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<h1>字根详解</h1>
+<p>天码方案的所有字根及其编码、取象说明如下：</p>
+<h3>1、单笔画</h3>
+<div class="train" style="float:right"><script>train(1)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">一㇀</td>
+		<td><span class="main">H</span><span class="np">v</span></td>
+		<td>横笔画，取象“H”中间一横（按国标“㇀”归于“一”）</td>
+		<td>末刁</td>
+	</tr>
+	<tr>
+		<td class="sky">丨亅</td>
+		<td><span class="main">I</span><span class="np">v</span></td>
+		<td>竖笔画，取象“I”中间一竖（按国标“亅”归于“丨”）</td>
+		<td>个争</td>
+	</tr>
+	<tr>
+		<td class="sky">丿</td>
+		<td><span class="main">J</span><span class="np">v</span></td>
+		<td>撇笔画，取象“J”形</td>
+		<td>入</td>
+	</tr>
+	<tr>
+		<td class="sky">丶㇏乀</td>
+		<td><span class="main">Q</span><span class="np">v</span></td>
+		<td>点（捺）笔画，取象“Q”中一点（按国标“㇏”归于“丶”）</td>
+		<td>太尺赱</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">乚㇂㇄㇉𠃉ㄣ</td>
+		<td><span class="main">L</span><span class="np">v</span></td>
+		<td>逆折笔画，其第一个折弯转向逆时针方向，象“L”形</td>
+		<td>电曳𮫖丐𭤪夨</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𠃊𠃋𠃑𠄌𡿨</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>断发卐以𡿨</td>
+	</tr>
+	<tr>
+		<td class="sky">り</td>
+		<td><span class="main">L</span><span class="np">v</span></td>
+		<td>逆向弧形笔画，作为逆折笔画衍生字根</td>
+		<td>𠪳𭍻</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">乙乁乛⺄㇁㇅</td>
+		<td><span class="main">Z</span><span class="np">v</span></td>
+		<td>顺折笔画，其第一个折弯转向顺时针方向，象“Z”形</td>
+		<td>氹亪疋飞㇁卍</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">㇇㇊㇋㇌㇍㇎</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>今㇊𩁾𭥟𠁢凸</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𠃌𠃍𠄎</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>殷书乃𪛛𨙨</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">Z</span><span class="np">v</span></td>
+		<td>顺向弧形笔画，作为顺折笔画衍生字根</td>
+		<td>𦹗𠆭𡦹𢀓</td>
+	</tr>
+	<tr>
+		<td class="sky">〇</td>
+		<td><span class="main">O</span><span class="np">v</span></td>
+		<td>象“O”形</td>
+		<td>〇</td>
+	</tr>
+</table>
+<h3>2、多横</h3>
+<div class="train" style="float:right"><script>train(2)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">二𠄟𠄠</td>
+		<td><span class="main">Z</span><span class="aux">e</span></td>
+		<td>二横快写象“Z”形</td>
+		<td>里𣄾冒</td>
+	</tr>
+	<tr>
+		<td class="sky">示𱍐</td>
+		<td><span class="main">Z</span><span class="aux">s</span></td>
+		<td>字形包含“二”，作为“二”形衍生字根</td>
+		<td>际𥛖𦱯</td>
+	</tr>
+	<tr>
+		<td class="sky">三</td>
+		<td><span class="main">E</span><span class="aux">s</span></td>
+		<td>三横快写象“E”形</td>
+		<td>叁</td>
+	</tr>
+	<tr>
+		<td class="sky">亖</td>
+		<td><span class="main">E</span><span class="aux">s</span></td>
+		<td>多横，作为“三”形衍生字根</td>
+		<td>亖</td>
+	</tr>
+</table>
+<h3>3、多竖（撇）</h3>
+<div class="train" style="float:right"><script>train(3)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">刂</td>
+		<td><span class="main">N</span><span class="aux">d</span></td>
+		<td>二竖（撇）快写象“n”形；“刂”取Dao音</td>
+		<td>利</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">リ</td>
+		<td><span class="main">N</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>曲帅渊𤴮</td>
+	</tr>
+	<tr>
+		<td class="sky">𰀪巜</td>
+		<td><span class="main">N</span><span class="np">v</span></td>
+		<td>同向二笔向下，作为“刂”形衍生字根</td>
+		<td>勿兪</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">川彳</td>
+		<td><span class="main">M</span><span class="aux">c</span></td>
+		<td>多竖（撇）快写象“m”形；“彳”取Chi音</td>
+		<td>顺径</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠫸𭛕𰀋</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">彡巛</td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>同向多笔向下，作为“川”形衍生字根</td>
+		<td>须巡</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>亦肃𭂼鼠</td>
+	</tr>
+</table>
+<h3>4、多点</h3>
+<div class="train" style="float:right"><script>train(4)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">丷𬼀</td>
+		<td><span class="main">V</span><span class="np">v</span></td>
+		<td>横向二点（撇），象“V”形</td>
+		<td>㒸卵班办図</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">⺀</td>
+		<td><span class="main">V</span><span class="np">v</span></td>
+		<td>象转“V”形</td>
+		<td>冬飞𩡬</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">冫</td>
+		<td><span class="main">V</span><span class="aux">b</span></td>
+		<td>“冫”取Bing音</td>
+		<td>匀</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">氵</td>
+		<td><span class="main">C</span><span class="aux">s</span></td>
+		<td>三点水快写象“C”形；“氵”取Shui音</td>
+		<td>沐</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">ミ</td>
+		<td><span class="main">C</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠭧</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">⺍ツ𠁼</td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>横向多点快写象“m”形</td>
+		<td>学𫝂𡎓𢧟鹵</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">灬</td>
+		<td><span class="main">M</span><span class="aux">h</span></td>
+		<td>“灬”取Huo音</td>
+		<td>杰</td>
+	</tr>
+</table>
+<h3>5、“日目”形</h3>
+<div class="train" style="float:right"><script>train(5)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">日</td>
+		<td><span class="main">D</span><span class="aux">r</span></td>
+		<td>框中一横，象“Ð”形</td>
+		<td>阳</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">曰</td>
+		<td><span class="main">D</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>汩</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">D</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>衰</td>
+	</tr>
+	<tr>
+		<td class="sky">早</td>
+		<td><span class="main">D</span><span class="aux">z</span></td>
+		<td>字形包含“日”，作为“日”形衍生字根</td>
+		<td>朝</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">目</td>
+		<td><span class="main">B</span><span class="aux">m</span></td>
+		<td>框中多横，象“B”形</td>
+		<td>夏</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">且</td>
+		<td><span class="main">B</span><span class="aux">q</span></td>
+		<td>&nbsp;</td>
+		<td>寡</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">B</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>具𬢻</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">貝</td>
+		<td><span class="main">B</span><span class="aux">b</span></td>
+		<td>字形包含“目”，作为“目”形衍生字根</td>
+		<td>則</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">見</td>
+		<td><span class="main">B</span><span class="aux">x</span></td>
+		<td>“見”取Xian音</td>
+		<td>現</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">頁</td>
+		<td><span class="main">B</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>碩</td>
+	</tr>
+</table>
+<h3>6、四边形</h3>
+<div class="train" style="float:right"><script>train(6)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">女</td>
+		<td><span class="main">D</span><span class="aux">n</span></td>
+		<td>中间不规则四边形，象“D”形</td>
+		<td>好</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">攵</td>
+		<td><span class="main">D</span><span class="aux">p</span></td>
+		<td>“攵”取Pu音</td>
+		<td>收</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">夂夊</td>
+		<td><span class="main">D</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>冬夑囱</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">夕</td>
+		<td><span class="main">D</span><span class="aux">x</span></td>
+		<td>形近“夂”，作为“夂”形衍生字根</td>
+		<td>外</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𱼀</td>
+		<td><span class="main">D</span><span class="aux">y</span></td>
+		<td>“<span class="sky">𱼀</span>”取Yue音</td>
+		<td>炙亙</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">毌</td>
+		<td><span class="main">D</span><span class="aux">g</span></td>
+		<td>外围不规则四边形，象“D”形；“毌”取Guan音</td>
+		<td>贯</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">母</td>
+		<td><span class="main">D</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>姆</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">毋</td>
+		<td><span class="main">D</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>毐毎</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𣫬</td>
+		<td><span class="main">D</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𣫬</td>
+	</tr>
+</table>
+<h3>7、框形内空</h3>
+<div class="train" style="float:right"><script>train(7)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">口</td>
+		<td><span class="main">O</span><span class="aux">k</span></td>
+		<td>框形内空，象“O”形</td>
+		<td>鸣</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">◇</td>
+		<td><span class="main">O</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>斉囬戢𤕈</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">亞</td>
+		<td><span class="main">O</span><span class="aux">y</span></td>
+		<td>中间封闭，作为“口”形衍生字根</td>
+		<td>壼</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𬻞</td>
+		<td><span class="main">O</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𡙞𡸭𥉢</td>
+	</tr>
+</table>
+<h3>8、框形包容</h3>
+<div class="train" style="float:right"><script>train(8)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">囗</td>
+		<td><span class="main">Q</span><span class="aux">w</span></td>
+		<td>框形包容，象“Q”形；“囗”取Wei音</td>
+		<td>国</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">Q</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>囟</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">Q</span><span class="np">v</span></td>
+		<td>框中有物，象“Q”形</td>
+		<td>柬曾</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">四罒</td>
+		<td><span class="main">Q</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>泗置</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">皿</td>
+		<td><span class="main">Q</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>盐</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𫩏</td>
+		<td><span class="main">Q</span><span class="aux">q</span></td>
+		<td>“𫩏”取Qi音</td>
+		<td>临</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">田</td>
+		<td><span class="main">Q</span><span class="aux">t</span></td>
+		<td>&nbsp;</td>
+		<td>略</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">由</td>
+		<td><span class="main">Q</span><span class="aux">y</span></td>
+		<td>“田”形有笔画伸出，作为“田”形衍生字根</td>
+		<td>理</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">甲</td>
+		<td><span class="main">Q</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>鸭</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">申</td>
+		<td><span class="main">Q</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>畅</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">Q</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠶭𮏳𦴜</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">鱼魚</td>
+		<td><span class="main">Q</span><span class="aux">y</span></td>
+		<td>字形包含“田”，作为“田”形衍生字根</td>
+		<td>鲤漁</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">鬼</td>
+		<td><span class="main">Q</span><span class="aux">g</span></td>
+		<td>&nbsp;</td>
+		<td>瑰</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">Q</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>衡婁𡫤卑𣁽</td>
+	</tr>
+</table>
+<h3>9、“Bb”形</h3>
+<div class="train" style="float:right"><script>train(9)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">㠯</td>
+		<td><span class="main">B</span><span class="np">v</span></td>
+		<td>象“B”形</td>
+		<td>官</td>
+	</tr>
+	<tr>
+		<td class="sky">𮍌</td>
+		<td><span class="main">B</span><span class="np">v</span></td>
+		<td>字形包含“㠯”，作为“㠯”的衍生字根</td>
+		<td>𠁲𮍌</td>
+	</tr>
+	<tr>
+		<td class="sky">𤕪</td>
+		<td><span class="main">B</span><span class="np">v</span></td>
+		<td>象反“B”形</td>
+		<td>𤕪𨺅</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">白</td>
+		<td><span class="main">B</span><span class="aux">b</span></td>
+		<td>框形上带结构，象“b”形</td>
+		<td>伯</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">自</td>
+		<td><span class="main">B</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>咱</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">古</td>
+		<td><span class="main">B</span><span class="aux">g</span></td>
+		<td>&nbsp;</td>
+		<td>克</td>
+	</tr>
+	<tr>
+		<td class="sky">舌</td>
+		<td><span class="main">B</span><span class="aux">s</span></td>
+		<td>字形包含“古”，作为“古”形衍生字根</td>
+		<td>甜舍</td>
+	</tr>
+</table>
+<h3>10、框形下探</h3>
+<div class="train" style="float:right"><script>train(10)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">尸</td>
+		<td><span class="main">P</span><span class="aux">s</span></td>
+		<td>框形向下笔画延伸，象“P”形</td>
+		<td>展</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𠁣</td>
+		<td><span class="main">P</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>叚民𠝎𠬩</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">卩𰆊</td>
+		<td><span class="main">P</span><span class="aux">j</span></td>
+		<td>“卩<span class="sky">𰆊</span>”取Jie音</td>
+		<td>报卫</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">阝</td>
+		<td><span class="main">P</span><span class="aux">e</span></td>
+		<td>“阝”取Er音</td>
+		<td>陈</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">刀</td>
+		<td><span class="main">P</span><span class="aux">d</span></td>
+		<td>&nbsp;</td>
+		<td>召</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𠃜</td>
+		<td><span class="main">P</span><span class="np">v</span></td>
+		<td>字形包含“尸”，作为“尸”形衍生字根</td>
+		<td>眉倉𡔝殷</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">户戶</td>
+		<td><span class="main">P</span><span class="aux">h</span></td>
+		<td>&nbsp;</td>
+		<td>房所</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">P</span><span class="np">v</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根</td>
+		<td>朗𨘅</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">艮</td>
+		<td><span class="main">P</span><span class="aux">g</span></td>
+		<td>&nbsp;</td>
+		<td>良</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">鳥</td>
+		<td><span class="main">P</span><span class="aux">n</span></td>
+		<td>上部形近“戶”，作为“戶”形衍生字根</td>
+		<td>鴨</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">烏</td>
+		<td><span class="main">P</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>嗚𫠕</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">P</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>島𠂶</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">巳</td>
+		<td><span class="main">P</span><span class="aux">s</span></td>
+		<td>“<span class="sky"></span>”形延伸，作为“<span class="sky"></span>”形衍生字根</td>
+		<td>巷</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">巴</td>
+		<td><span class="main">P</span><span class="aux">b</span></td>
+		<td>&nbsp;</td>
+		<td>吧</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">也</td>
+		<td><span class="main">P</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>地</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">㔾𢀳</td>
+		<td><span class="main">P</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>范𣴋</td>
+	</tr>
+</table>
+<h3>11、框下有物</h3>
+<div class="train" style="float:right"><script>train(11)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">⻊𲧱足</td>
+		<td><span class="main">G</span><span class="aux">z</span></td>
+		<td>框形下带结构，象“g”形</td>
+		<td>跳𢿅促</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>喜</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𠀐</td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>形近“⻊”，作为“⻊”形衍生字根</td>
+		<td>贵惠</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">虫</td>
+		<td><span class="main">G</span><span class="aux">c</span></td>
+		<td>&nbsp;</td>
+		<td>蚂</td>
+	</tr>
+</table>
+<h3>12、向右包围</h3>
+<div class="train" style="float:right"><script>train(12)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">匚匸𠫔</td>
+		<td><span class="main">C</span><span class="np">v</span></td>
+		<td>开口向右，象“C”形</td>
+		<td>区旡𠥶年云</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>乐卬留</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𧘇</td>
+		<td><span class="main">C</span><span class="np">v</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根</td>
+		<td>派衣</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">氏</td>
+		<td><span class="main">C</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>氐</td>
+	</tr>
+	<tr>
+		<td class="sky">至</td>
+		<td><span class="main">C</span><span class="aux">z</span></td>
+		<td>上部形近“𠫔”，作为“𠫔”形衍生字根</td>
+		<td>到</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">巨</td>
+		<td><span class="main">C</span><span class="aux">j</span></td>
+		<td>字形包含“匚”，作为“匚”形衍生字根</td>
+		<td>矩</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">臣</td>
+		<td><span class="main">C</span><span class="aux">c</span></td>
+		<td>&nbsp;</td>
+		<td>卧</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𦣞𦣝</td>
+		<td><span class="main">C</span><span class="aux">y</span></td>
+		<td>“𦣞𦣝”取Yi音</td>
+		<td>姬弬</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𠥓</td>
+		<td><span class="main">C</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠥧𥦪𮎼</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𰀄𰀂</td>
+		<td><span class="main">E</span><span class="np">v</span></td>
+		<td>开口向右，象“E”形</td>
+		<td>黽虐㒫印裦</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>𡕣𨒎</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">镸長</td>
+		<td><span class="main">E</span><span class="aux">c</span></td>
+		<td>上部形近“<span class="sky">𰀄</span>”，作为“<span class="sky">𰀄</span>”形衍生字根</td>
+		<td>髟張</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">馬</td>
+		<td><span class="main">E</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>碼</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">隹</td>
+		<td><span class="main">E</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>唯𪙯𮩴</td>
+	</tr>
+</table>
+<h3>13、向左包围</h3>
+<div class="train" style="float:right"><script>train(13)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">C</span><span class="np">v</span></td>
+		<td>开口向左，象反“C”形</td>
+		<td>丣夬</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">C</span><span class="np">v</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根</td>
+		<td>臦𢍴</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𫜹习</td>
+		<td><span class="main">E</span><span class="aux">x</span></td>
+		<td>开口向左，象反“E”形；“𫜹<span class="sky"></span>”取Xue音</td>
+		<td>黽帇習𣷺</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">⼹</td>
+		<td><span class="main">E</span><span class="aux">j</span></td>
+		<td>“⼹”取Ji音</td>
+		<td>录</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𬺹</td>
+		<td><span class="main">E</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𡤞</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">王</td>
+		<td><span class="main">E</span><span class="aux">w</span></td>
+		<td>取象正反“E”形</td>
+		<td>噩</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">壬𡈼</td>
+		<td><span class="main">E</span><span class="aux">r</span></td>
+		<td>&nbsp;</td>
+		<td>任𣈂廷</td>
+	</tr>
+</table>
+<h3>14、向上包围</h3>
+<div class="train" style="float:right"><script>train(14)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">凵丩𠂈厶𠙴䶹</td>
+		<td><span class="main">U</span><span class="np">v</span></td>
+		<td>开口向上，象“U”形</td>
+		<td>凶叫亥私𠙴逆𡳿</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">屮</td>
+		<td><span class="main">U</span><span class="aux">c</span></td>
+		<td>“屮”取Cao音</td>
+		<td>㞢</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">山</td>
+		<td><span class="main">U</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>幽</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">U</span><span class="np">v</span></td>
+		<td>形近“凵”，作为“凵”形衍生字根</td>
+		<td>𠚜𠚡𠚞</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𠁁</td>
+		<td><span class="main">U</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>虛壺斲鬬𠀜</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky"></td>
+		<td><span class="main">U</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>學與𦥓𡞉𤔘𦥒𣦋</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">业</td>
+		<td><span class="main">U</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>亚</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">臼</td>
+		<td><span class="main">U</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>稻</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">心</td>
+		<td><span class="main">U</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>必</td>
+	</tr>
+</table>
+<h3>15、向下包围</h3>
+<div class="train" style="float:right"><script>train(15)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">冂⺆</td>
+		<td><span class="main">N</span><span class="np">v</span></td>
+		<td>开口向下，象“n”形</td>
+		<td>刚周</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">冖门</td>
+		<td><span class="main">N</span><span class="aux">m</span></td>
+		<td>“冖”取Mi音</td>
+		<td>冗问</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">N</span><span class="np">v</span></td>
+		<td>字形包含“冂”，作为“冂”形衍生字根</td>
+		<td>骨</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">同</td>
+		<td><span class="main">N</span><span class="aux">t</span></td>
+		<td>&nbsp;</td>
+		<td>筒</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">咼</td>
+		<td><span class="main">N</span><span class="aux">w</span></td>
+		<td>“咼”取Wo音</td>
+		<td>蝸</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">舟</td>
+		<td><span class="main">N</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>船𦩚𦩛</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">月⺝</td>
+		<td><span class="main">M</span><span class="aux">y</span></td>
+		<td>开口向下，比“n”形更复杂结构，象“m”形</td>
+		<td>脸有</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">⺼冉</td>
+		<td><span class="main">M</span><span class="aux">r</span></td>
+		<td>“⺼”取Rou音</td>
+		<td>脁再</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">宀</td>
+		<td><span class="main">M</span><span class="aux">b</span></td>
+		<td>“宀”取Bao音（宝盖头）</td>
+		<td>宝</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𣞛𡠡</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>形近“冉”，作为“冉”形衍生字根</td>
+		<td>禺庸𭁣</td>
+	</tr>
+	<tr>
+		<td class="sky">巾</td>
+		<td><span class="main">E</span><span class="aux">j</span></td>
+		<td>开口向下，象转“E”形</td>
+		<td>㡀</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">爫爪</td>
+		<td><span class="main">E</span><span class="aux">z</span></td>
+		<td>形近“巾”，作为“巾”形衍生字根；“爫”取Zhao音</td>
+		<td>爰爬</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">瓜</td>
+		<td><span class="main">E</span><span class="aux">g</span></td>
+		<td>&nbsp;</td>
+		<td>孤</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𤓰𰢛𫜵</td>
+		<td><span class="main">E</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠙙𰢛埓</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">豸</td>
+		<td><span class="main">E</span><span class="aux">z</span></td>
+		<td>字形包含“爫”，作为“爫”形衍生字根</td>
+		<td>貌</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𮙥𱬴</td>
+		<td><span class="main">E</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𤯴𱬴</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">勹</td>
+		<td><span class="main">H</span><span class="aux">b</span></td>
+		<td>象“h”形；“勹”取Bao音</td>
+		<td>句</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">⺈𠂊𰃦</td>
+		<td><span class="main">H</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>尔万久奥𨈐</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">包</td>
+		<td><span class="main">H</span><span class="aux">b</span></td>
+		<td>字形包含“勹”，作为“勹”形衍生字根</td>
+		<td>泡</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">匃</td>
+		<td><span class="main">H</span><span class="aux">g</span></td>
+		<td>“匃”取Gai音</td>
+		<td>曷</td>
+	</tr>
+	<tr>
+		<td class="sky">角</td>
+		<td><span class="main">H</span><span class="aux">j</span></td>
+		<td>字形包含“⺈”，作为“⺈”形衍生字根</td>
+		<td>触</td>
+	</tr>
+	<tr>
+		<td class="sky">片爿</td>
+		<td><span class="main">H</span><span class="aux">p</span></td>
+		<td>象“H”形</td>
+		<td>牌𲆷狀臧</td>
+	</tr>
+</table>
+<h3>16、向右下包围</h3>
+<div class="train" style="float:right"><script>train(16)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">厂</td>
+		<td><span class="main">J</span><span class="aux">c</span></td>
+		<td>象“J”形</td>
+		<td>压</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">⺁</td>
+		<td><span class="main">J</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>后𭦁</td>
+	</tr>
+	<tr>
+		<td class="sky">辰</td>
+		<td><span class="main">J</span><span class="aux">c</span></td>
+		<td>字形包含“厂”，作为“厂”形衍生字根</td>
+		<td>辱</td>
+	</tr>
+	<tr>
+		<td class="sky">斤</td>
+		<td><span class="main">J</span><span class="aux">j</span></td>
+		<td>字形包含“⺁”，作为“⺁”形衍生字根</td>
+		<td>欣</td>
+	</tr>
+	<tr>
+		<td class="sky">虍𮓗</td>
+		<td><span class="main">J</span><span class="aux">h</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根；取Hu音</td>
+		<td>虚𠁅</td>
+	</tr>
+	<tr>
+		<td class="sky">广</td>
+		<td><span class="main">J</span><span class="aux">g</span></td>
+		<td>象“j”形</td>
+		<td>库</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">疒</td>
+		<td><span class="main">J</span><span class="aux">b</span></td>
+		<td>字形包含“广”，作为“广”形衍生字根</td>
+		<td>病</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">鹿</td>
+		<td><span class="main">J</span><span class="aux">l</span></td>
+		<td>&nbsp;</td>
+		<td>辘</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">麻</td>
+		<td><span class="main">J</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>魔</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">礻</td>
+		<td><span class="main">J</span><span class="aux">s</span></td>
+		<td>上部形近“j”，作为“j”形衍生字根</td>
+		<td>社</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">衤</td>
+		<td><span class="main">J</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>衫</td>
+	</tr>
+</table>
+<h3>17、向右上包围</h3>
+<div class="train" style="float:right"><script>train(17)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">廴</td>
+		<td><span class="main">L</span><span class="aux">j</span></td>
+		<td>象“L”形；“廴”取Jian音（建之旁）</td>
+		<td>建</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">辶⻍⻎之</td>
+		<td><span class="main">L</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>造𡀟𨓕乏</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">L</span><span class="np">v</span></td>
+		<td>近形“L”，作为“L”形衍生字根</td>
+		<td>龜𪚦</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">七</td>
+		<td><span class="main">T</span><span class="aux">q</span></td>
+		<td>象“t”形</td>
+		<td>屯</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">匕</td>
+		<td><span class="main">T</span><span class="aux">b</span></td>
+		<td>&nbsp;</td>
+		<td>北𩿌斷</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𠫓𠤎</td>
+		<td><span class="main">T</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>切东𣏋比化</td>
+	</tr>
+	<tr>
+		<td class="sky">毛</td>
+		<td><span class="main">T</span><span class="aux">m</span></td>
+		<td>字形包含“七”，作为“七”形衍生字根</td>
+		<td>毯</td>
+	</tr>
+	<tr>
+		<td class="sky">车</td>
+		<td><span class="main">T</span><span class="aux">j</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根；“车”取Ju音</td>
+		<td>较</td>
+	</tr>
+	<tr>
+		<td class="sky">𳑳</td>
+		<td><span class="main">T</span><span class="np">v</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根</td>
+		<td>龍</td>
+	</tr>
+</table>
+<h3>18、竖向交叉</h3>
+<div class="train" style="float:right"><script>train(18)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">十扌</td>
+		<td><span class="main">F</span><span class="aux">s</span></td>
+		<td>竖向交叉，象“ƒ”形</td>
+		<td>妻打</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">寸</td>
+		<td><span class="main">F</span><span class="aux">c</span></td>
+		<td>&nbsp;</td>
+		<td>得</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">丰</td>
+		<td><span class="main">F</span><span class="aux">f</span></td>
+		<td>&nbsp;</td>
+		<td>拝邦</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𠂇𬺰𰀁</td>
+		<td><span class="main">F</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>有事聿那</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">車</td>
+		<td><span class="main">F</span><span class="aux">j</span></td>
+		<td>竖向交叉，象“ƒ”形；“車”取Ju音</td>
+		<td>重</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">甫</td>
+		<td><span class="main">F</span><span class="aux">p</span></td>
+		<td>“甫”取Pu音</td>
+		<td>尃</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">中</td>
+		<td><span class="main">F</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>串</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">韋</td>
+		<td><span class="main">F</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>韓</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𰀉</td>
+		<td><span class="main">F</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𣑛囊革</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">千</td>
+		<td><span class="main">F</span><span class="aux">q</span></td>
+		<td>象“F”形</td>
+		<td>垂</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">手龵</td>
+		<td><span class="main">F</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>摩掰</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">F</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>段𢭥</td>
+	</tr>
+</table>
+<h3>19、横向交叉</h3>
+<div class="train" style="float:right"><script>train(19)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">艹⺿廾サ</td>
+		<td><span class="main">H</span><span class="aux">c</span></td>
+		<td>横向交叉，象“H”形；“艹⺿廾サ”取Cao音</td>
+		<td>草𠦪卉𬻀</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">卄</td>
+		<td><span class="main">H</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>曹</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">卅</td>
+		<td><span class="main">H</span><span class="aux">s</span></td>
+		<td>形近“H”，作为“H”形衍生字根</td>
+		<td>卅</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">卌</td>
+		<td><span class="main">H</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>带𩆕𩡧</td>
+	</tr>
+</table>
+<h3>20、斜向交叉</h3>
+<div class="train" style="float:right"><script>train(20)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">㐅乂乄</td>
+		<td><span class="main">X</span><span class="np">v</span></td>
+		<td>斜向交叉，象“X”形</td>
+		<td>区丈乄</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">力</td>
+		<td><span class="main">X</span><span class="aux">l</span></td>
+		<td>形近“χ”手写体</td>
+		<td>加</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">九</td>
+		<td><span class="main">X</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>杂</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">丸</td>
+		<td><span class="main">X</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>执</td>
+	</tr>
+</table>
+<h3>21、横竖交叉</h3>
+<div class="train" style="float:right"><script>train(21)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𠀎</td>
+		<td><span class="main">S</span><span class="np">v</span></td>
+		<td>多横多竖交叉，象“$”形</td>
+		<td>寒𤨃𠔰𦸩</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">龷</td>
+		<td><span class="main">S</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>共無狦𠀫兼𬾹</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">甘</td>
+		<td><span class="main">S</span><span class="aux">g</span></td>
+		<td>&nbsp;</td>
+		<td>甜</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">廿</td>
+		<td><span class="main">S</span><span class="aux">n</span></td>
+		<td>&nbsp;</td>
+		<td>革</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">丗</td>
+		<td><span class="main">S</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>帯𢁎</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">井</td>
+		<td><span class="main">S</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>进</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">耳</td>
+		<td><span class="main">S</span><span class="aux">e</span></td>
+		<td>字形包含多横多竖，作为“$”形衍生字根</td>
+		<td>职</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">其</td>
+		<td><span class="main">S</span><span class="aux">q</span></td>
+		<td>&nbsp;</td>
+		<td>期</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">西覀襾</td>
+		<td><span class="main">S</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>酉要襾</td>
+	</tr>
+</table>
+<h3>22、“丁”形</h3>
+<div class="train" style="float:right"><script>train(22)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">丁</td>
+		<td><span class="main">T</span><span class="aux">d</span></td>
+		<td>象“T”形</td>
+		<td>亍</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">丅丆</td>
+		<td><span class="main">T</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>丐百</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">干</td>
+		<td><span class="main">T</span><span class="aux">g</span></td>
+		<td>字形包含“丅”，作为“丅”形衍生字根</td>
+		<td>華</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">弔</td>
+		<td><span class="main">T</span><span class="aux">d</span></td>
+		<td>&nbsp;</td>
+		<td>第</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">下</td>
+		<td><span class="main">T</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>卡</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">雨⻗</td>
+		<td><span class="main">T</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>漏雷𩃅</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">T</span><span class="np">v</span></td>
+		<td>字形包含“丆”，作为“丆”形衍生字根</td>
+		<td>爰</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">石</td>
+		<td><span class="main">T</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>䂖</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">而</td>
+		<td><span class="main">T</span><span class="aux">e</span></td>
+		<td>&nbsp;</td>
+		<td>端</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">页</td>
+		<td><span class="main">T</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>顶</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">不</td>
+		<td><span class="main">T</span><span class="aux">b</span></td>
+		<td>&nbsp;</td>
+		<td>否</td>
+	</tr>
+</table>
+<h3>23、“丄”形</h3>
+<div class="train" style="float:right"><script>train(23)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">丄龶𱤻</td>
+		<td><span class="main">Y</span><span class="np">v</span></td>
+		<td>上通下档，象斜“y”形</td>
+		<td>円𥄀𭓱青𣥗</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">止</td>
+		<td><span class="main">Y</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>址</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">土</td>
+		<td><span class="main">Y</span><span class="aux">t</span></td>
+		<td>&nbsp;</td>
+		<td>地</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">士</td>
+		<td><span class="main">Y</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>壮</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">彑</td>
+		<td><span class="main">Y</span><span class="aux">j</span></td>
+		<td>“彑”取Ji音</td>
+		<td>互</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">走</td>
+		<td><span class="main">Y</span><span class="aux">z</span></td>
+		<td>字形包含“土”，作为“土”形衍生字根</td>
+		<td>起</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">耂</td>
+		<td><span class="main">Y</span><span class="aux">l</span></td>
+		<td>“耂”取Lao音</td>
+		<td>老</td>
+	</tr>
+	<tr>
+		<td class="sky">龰</td>
+		<td><span class="main">Y</span><span class="np">v</span></td>
+		<td>形近“止”，作为“止”形衍生字根</td>
+		<td>㢟𡴧疌</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">Y</span><span class="np">v</span></td>
+		<td>字形包含“士”，作为“士”形衍生字根</td>
+		<td>壺</td>
+	</tr>
+</table>
+<h3>24、“人”形</h3>
+<div class="train" style="float:right"><script>train(24)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">亼亽</td>
+		<td><span class="main">A</span><span class="np">v</span></td>
+		<td>象“A”形</td>
+		<td>舍食</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">人</td>
+		<td><span class="main">A</span><span class="aux">r</span></td>
+		<td>&nbsp;</td>
+		<td>余</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">金</td>
+		<td><span class="main">A</span><span class="aux">j</span></td>
+		<td>字形包含“人”，作为“人”形衍生字根</td>
+		<td>釡</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">A</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>齿</td>
+	</tr>
+	<tr>
+		<td class="sky">饣</td>
+		<td><span class="main">A</span><span class="aux">s</span></td>
+		<td>形近“亽”，作为“亽”形衍生字根</td>
+		<td>饥</td>
+	</tr>
+	<tr>
+		<td class="sky">八</td>
+		<td><span class="main">A</span><span class="aux">b</span></td>
+		<td>形近“人”，作为“人”形衍生字根</td>
+		<td>具</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">又</td>
+		<td><span class="main">A</span><span class="aux">y</span></td>
+		<td>中间倒三角形，作为“A”形衍生字根</td>
+		<td>对</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">龴</td>
+		<td><span class="main">A</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>予</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">A</span><span class="np">v</span></td>
+		<td>中间三角形，象“A”形</td>
+		<td>㐃</td>
+	</tr>
+	<tr>
+		<td class="sky">𠂉</td>
+		<td><span class="main">L</span><span class="aux">r</span></td>
+		<td>象“L”形；“𠂉”取Ren音</td>
+		<td>乞</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">牛牜⺧</td>
+		<td><span class="main">L</span><span class="aux">n</span></td>
+		<td>字形包含“𠂉”，作为“𠂉”形衍生字根</td>
+		<td>吽牺告</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">生</td>
+		<td><span class="main">L</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>笙</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">气</td>
+		<td><span class="main">L</span><span class="aux">q</span></td>
+		<td>&nbsp;</td>
+		<td>氣</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">亻</td>
+		<td><span class="main">V</span><span class="aux">r</span></td>
+		<td>象“V”的变形；“亻”取Ren音</td>
+		<td>什</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">V</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>丘</td>
+	</tr>
+</table>
+<h3>25、“儿”形</h3>
+<div class="train" style="float:right"><script>train(25)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">儿</td>
+		<td><span class="main">W</span><span class="aux">e</span></td>
+		<td>字形向两边勾出，象“W”形</td>
+		<td>胤𦭂</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">几⺇</td>
+		<td><span class="main">W</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>机风</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">兀</td>
+		<td><span class="main">W</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>元</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">W</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𧋳</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">见</td>
+		<td><span class="main">W</span><span class="aux">x</span></td>
+		<td>字形包含“儿”，作为“儿”形衍生字根</td>
+		<td>现</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">兆</td>
+		<td><span class="main">W</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>桃</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">尤</td>
+		<td><span class="main">W</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>就</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">龙</td>
+		<td><span class="main">W</span><span class="aux">l</span></td>
+		<td>&nbsp;</td>
+		<td>尨</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">尢</td>
+		<td><span class="main">W</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>尪</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">凡風</td>
+		<td><span class="main">W</span><span class="aux">f</span></td>
+		<td>字形包含“几”，作为“几”形衍生字根</td>
+		<td>矾楓</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𠁽殳</td>
+		<td><span class="main">W</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠁽𠅴设</td>
+	</tr>
+</table>
+<h3>26、“戈犭”形</h3>
+<div class="train" style="float:right"><script>train(26)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">戈</td>
+		<td><span class="main">G</span><span class="aux">g</span></td>
+		<td>笔势近“ɕ”形</td>
+		<td>成</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">戋</td>
+		<td><span class="main">G</span><span class="aux">j</span></td>
+		<td>形近“戈”，作为“戈”形衍生字根</td>
+		<td>线</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">弋</td>
+		<td><span class="main">G</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>代</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𫠠𭠍𢦍𢦑</td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>民尧𥁘彧</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">㦮</td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>桟𧰞𭡴</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">我</td>
+		<td><span class="main">G</span><span class="aux">w</span></td>
+		<td>字形包含“戈”，作为“戈”形衍生字根</td>
+		<td>哦</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>羲</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">犭</td>
+		<td><span class="main">G</span><span class="aux">q</span></td>
+		<td>笔势近反“ɕ”形</td>
+		<td>狗</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𬆫𱮦</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">豕</td>
+		<td><span class="main">G</span><span class="aux">s</span></td>
+		<td>形近“犭”，作为“犭”形衍生字根</td>
+		<td>㒸</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𧰨</td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>毅𭻊</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𬺷𬺻𧰧</td>
+		<td><span class="main">G</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>𠦇𠛖𧰧𩂚𭴺</td>
+	</tr>
+</table>
+<h3>27、“讠”形</h3>
+<div class="train" style="float:right"><script>train(27)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">讠</td>
+		<td><span class="main">I</span><span class="aux">y</span></td>
+		<td>象“i”形</td>
+		<td>说</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">亡</td>
+		<td><span class="main">I</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>巟</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">方</td>
+		<td><span class="main">I</span><span class="aux">f</span></td>
+		<td>点下带橫结构形近“讠”，作为“讠”形衍生字根</td>
+		<td>放</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">永</td>
+		<td><span class="main">I</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>昶</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">主</td>
+		<td><span class="main">I</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>炷</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">立</td>
+		<td><span class="main">I</span><span class="aux">l</span></td>
+		<td>&nbsp;</td>
+		<td>产</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">辛</td>
+		<td><span class="main">I</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>梓辣</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">亠𰁜</td>
+		<td><span class="main">I</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>玄豙变</td>
+	</tr>
+	<tr>
+		<td class="sky">工</td>
+		<td><span class="main">I</span><span class="aux">g</span></td>
+		<td>象“I”形</td>
+		<td>巫</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">I</span><span class="np">v</span></td>
+		<td>形近“工”，作为“工”形衍生字根</td>
+		<td>黑</td>
+	</tr>
+</table>
+<h3>28、“j”形</h3>
+<div class="train" style="float:right"><script>train(28)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">J</span><span class="np">v</span></td>
+		<td>“亠”下带“口”结构，形近“ʝ”手写体</td>
+		<td>哀</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">言</td>
+		<td><span class="main">J</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>詳</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">吂</td>
+		<td><span class="main">J</span><span class="aux">m</span></td>
+		<td>“吂”取Mang音</td>
+		<td>赢</td>
+	</tr>
+	<tr>
+		<td class="sky">䜌</td>
+		<td><span class="main">J</span><span class="aux">l</span></td>
+		<td>字形包含“言”，作为“言”形衍生字根；取Luan音</td>
+		<td>變</td>
+	</tr>
+	<tr>
+		<td class="sky">文</td>
+		<td><span class="main">J</span><span class="aux">w</span></td>
+		<td>“亠”下带“乂”结构，快写形近“ʝ”手写体</td>
+		<td>离</td>
+	</tr>
+</table>
+<h3>29、弯折形</h3>
+<div class="train" style="float:right"><script>train(29)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>象“M”形</td>
+		<td>兕雋</td>
+	</tr>
+	<tr>
+		<td class="sky">𠚕</td>
+		<td><span class="main">M</span><span class="np">v</span></td>
+		<td>字形中的“从”象“M”形，作为“M”形衍生字根</td>
+		<td>齒</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">弓</td>
+		<td><span class="main">M</span><span class="aux">g</span></td>
+		<td>象转“M”形</td>
+		<td>夷</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">了</td>
+		<td><span class="main">M</span><span class="aux">l</span></td>
+		<td>&nbsp;</td>
+		<td>亟</td>
+	</tr>
+	<tr>
+		<td class="sky">丂</td>
+		<td><span class="main">S</span><span class="np">v</span></td>
+		<td>象“S”形</td>
+		<td>考与與姊</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">专</td>
+		<td><span class="main">S</span><span class="aux">z</span></td>
+		<td>形近“S”，作为“S”形衍生字根</td>
+		<td>转</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">马</td>
+		<td><span class="main">S</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>笃</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">鸟</td>
+		<td><span class="main">S</span><span class="aux">n</span></td>
+		<td>&nbsp;</td>
+		<td>鸭</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">乌</td>
+		<td><span class="main">S</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>钨</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𢎘</td>
+		<td><span class="main">S</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>凫𡷊𠀟𠮤</td>
+	</tr>
+	<tr>
+		<td class="sky"></td>
+		<td><span class="main">W</span><span class="np">v</span></td>
+		<td>象转“W”形</td>
+		<td>丝</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">糸纟糹</td>
+		<td><span class="main">W</span><span class="aux">s</span></td>
+		<td>字形包含“<span class="sky"></span>”，作为“<span class="sky"></span>”形衍生字根</td>
+		<td>系红紀</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">幺</td>
+		<td><span class="main">W</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>牽</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">乡</td>
+		<td><span class="main">W</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>雍</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">己</td>
+		<td><span class="main">Z</span><span class="aux">j</span></td>
+		<td>象“Z”形</td>
+		<td>纪</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">已</td>
+		<td><span class="main">Z</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>已</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">ス</td>
+		<td><span class="main">Z</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>改劲</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">子</td>
+		<td><span class="main">Z</span><span class="aux">z</span></td>
+		<td>象“Z”手写体；子字旁当“子”不当“孑”</td>
+		<td>孙</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">孑</td>
+		<td><span class="main">Z</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>孑</td>
+	</tr>
+	<tr>
+		<td class="sky">钅</td>
+		<td><span class="main">Z</span><span class="aux">j</span></td>
+		<td>快写象“z”形</td>
+		<td>钓</td>
+	</tr>
+</table>
+<h3>30、左右背离</h3>
+<div class="train" style="float:right"><script>train(30)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">X</span><span class="np">v</span></td>
+		<td>字形左右部分相互背离，象“x”手写体</td>
+		<td>率𥅀𠜫𫡋𬻟𡚏</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">癶</td>
+		<td><span class="main">X</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>癸祭𣼦𭾽𡙌𢄖</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">非</td>
+		<td><span class="main">X</span><span class="aux">f</span></td>
+		<td>字形左右背离，取象“x”手写体</td>
+		<td>菲</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">卝</td>
+		<td><span class="main">X</span><span class="aux">c</span></td>
+		<td>“卝”取Cao音</td>
+		<td>羋</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">丱</td>
+		<td><span class="main">X</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>聯𫧼𠇎</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">門</td>
+		<td><span class="main">X</span><span class="aux">m</span></td>
+		<td>字形背离结构，取象“x”手写体</td>
+		<td>問</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">行</td>
+		<td><span class="main">X</span><span class="aux">h</span></td>
+		<td>“行”取Hang音</td>
+		<td>衡</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">⺽</td>
+		<td><span class="main">X</span><span class="aux">j</span></td>
+		<td>&nbsp;</td>
+		<td>夓</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𣶒𨳈</td>
+		<td><span class="main">X</span><span class="aux">y</span></td>
+		<td>“<span class="sky">𣶒</span>”取Yuan音</td>
+		<td>淵𣉦𨳈𢛀𤬣𦧄</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𤕰</td>
+		<td><span class="main">X</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>鼎𬌋</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">氺水</td>
+		<td><span class="main">X</span><span class="aux">s</span></td>
+		<td>字形沿中竖向左右背离，作为“x”形衍生字根</td>
+		<td>隶氷𱦻</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">米</td>
+		<td><span class="main">X</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>粛</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">小𣥂</td>
+		<td><span class="main">X</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>少步</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">⺌𫶧</td>
+		<td><span class="main">X</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>当流聚𡘎眔𤲯𥨥</td>
+	</tr>
+</table>
+<h3>31、“K”形</h3>
+<div class="train" style="float:right"><script>train(31)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">𰀠</td>
+		<td><span class="main">K</span><span class="np">v</span></td>
+		<td>象“K”形</td>
+		<td>畏𠮺乍临</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">长</td>
+		<td><span class="main">K</span><span class="aux">c</span></td>
+		<td>&nbsp;</td>
+		<td>张</td>
+	</tr>
+	<tr>
+		<td class="sky">丬</td>
+		<td><span class="main">K</span><span class="np">v</span></td>
+		<td>象反“K”形</td>
+		<td>状北𭘀</td>
+	</tr>
+	<tr>
+		<td class="sky">䒑</td>
+		<td><span class="main">K</span><span class="np">v</span></td>
+		<td>象转“K”形</td>
+		<td>兰</td>
+	</tr>
+	<tr>
+		<td class="sky">⺮</td>
+		<td><span class="main">K</span><span class="aux">z</span></td>
+		<td>象双“K”形，作为“K”形衍生字根</td>
+		<td>竺</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">木朩</td>
+		<td><span class="main">K</span><span class="aux">m</span></td>
+		<td>取象正反“K”形</td>
+		<td>束茶</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">𣎳</td>
+		<td><span class="main">K</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>㳈</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">术</td>
+		<td><span class="main">K</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>沭</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">朮</td>
+		<td><span class="main">K</span><span class="aux">z</span></td>
+		<td>&nbsp;</td>
+		<td>怷</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">來</td>
+		<td><span class="main">K</span><span class="aux">l</span></td>
+		<td>字形包含“木”，作为“木”形衍生字根</td>
+		<td>麥</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">未</td>
+		<td><span class="main">K</span><span class="aux">w</span></td>
+		<td>&nbsp;</td>
+		<td>来</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">禾</td>
+		<td><span class="main">K</span><span class="aux">h</span></td>
+		<td>&nbsp;</td>
+		<td>秉</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky"></td>
+		<td><span class="main">K</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>余</td>
+	</tr>
+</table>
+<h3>32、“卜”形</h3>
+<div class="train" style="float:right"><script>train(32)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr>
+		<td class="sky">⺊</td>
+		<td><span class="main">L</span><span class="np">v</span></td>
+		<td>竖带横，象“L”形</td>
+		<td>上</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky"></td>
+		<td><span class="main">L</span><span class="np">v</span></td>
+		<td>竖带点，象“L”形</td>
+		<td>州</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">卜</td>
+		<td><span class="main">L</span><span class="aux">b</span></td>
+		<td>&nbsp;</td>
+		<td>外</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">忄</td>
+		<td><span class="main">L</span><span class="aux">x</span></td>
+		<td>&nbsp;</td>
+		<td>快</td>
+	</tr>
+</table>
+<h3>33、“大”形</h3>
+<div class="train" style="float:right"><script>train(33)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">大</td>
+		<td><span class="main">R</span><span class="aux">d</span></td>
+		<td>字形向两边撇出，象“R”形</td>
+		<td>天</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">犬</td>
+		<td><span class="main">R</span><span class="aux">q</span></td>
+		<td>&nbsp;</td>
+		<td>器</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">夫</td>
+		<td><span class="main">R</span><span class="aux">f</span></td>
+		<td>&nbsp;</td>
+		<td>失</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">𡗗</td>
+		<td><span class="main">R</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>春</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">火</td>
+		<td><span class="main">R</span><span class="aux">h</span></td>
+		<td>形近“大”，作为“大”形衍生字根</td>
+		<td>灭</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">贝</td>
+		<td><span class="main">R</span><span class="aux">b</span></td>
+		<td>&nbsp;</td>
+		<td>财</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">欠</td>
+		<td><span class="main">R</span><span class="aux">q</span></td>
+		<td>&nbsp;</td>
+		<td>吹</td>
+	<tr class="mtop">
+		<td class="sky">龹</td>
+		<td><span class="main">R</span><span class="np">v</span></td>
+		<td>&nbsp;</td>
+		<td>卷</td>
+	</tr>
+	</tr>
+</table>
+<h3>34、“R”形</h3>
+<div class="train" style="float:right"><script>train(34)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">及</td>
+		<td><span class="main">R</span><span class="aux">j</span></td>
+		<td>象“R”形</td>
+		<td>极</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">皮</td>
+		<td><span class="main">R</span><span class="aux">p</span></td>
+		<td>&nbsp;</td>
+		<td>波</td>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">牙</td>
+		<td><span class="main">R</span><span class="aux">j</span></td>
+		<td>象反“R”形</td>
+		<td>邪</td>
+	</tr>
+	<tr class="mtb">
+		<td class="sky">矛</td>
+		<td><span class="main">R</span><span class="aux">m</span></td>
+		<td>&nbsp;</td>
+		<td>茅</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">身</td>
+		<td><span class="main">R</span><span class="aux">s</span></td>
+		<td>&nbsp;</td>
+		<td>躲</td>
+	</tr>
+</table>
+<h3>35、“Y”形</h3>
+<div class="train" style="float:right"><script>train(35)</script></div>
+<table border="1" class="rtb">
+	<tr>
+		<th class="root">字根</th>
+		<th class="code">编码</th>
+		<th>取象说明</th>
+		<th class="example">例字</th>
+	</tr>
+	<tr class="mbottom">
+		<td class="sky">半</td>
+		<td><span class="main">Y</span><span class="aux">b</span></td>
+		<td>字形包含“Y”形，作为“Y”形衍生字根</td>
+		<td>伴判</td>
+	</tr>
+	<tr class="mtop">
+		<td class="sky">羊⺶⺷</td>
+		<td><span class="main">Y</span><span class="aux">y</span></td>
+		<td>&nbsp;</td>
+		<td>详羟美</td>
+	</tr>
+</table>
+<h3>36、综合练习</h3>
+<div class="train"><script>train(0)</script></div>
+<div class="back_to_top"><a href="word.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="divrule.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

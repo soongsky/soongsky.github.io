@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍合并中心块的方法" />
+<meta name="Keywords" content="魔方, 四阶, 缺角层先法, Keyhole LBL, 合并中心块" />
+<title>合并中心块 - 四阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube4.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">四阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>四阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="center.html">合并中心块</a></dd>
+	<dd><a href="edge.html">合并棱边</a></dd>
+	<dd><a href="solve.html">降阶还原</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>合并中心块</h1>
+<p>我们首先要合并中心块，即将每个面的四个中心块拼成相同颜色（图1）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxxxffxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxuuxxuuxxxxx","xxxxxddxxddxxxxx", "", "", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图1</td>
+	</tr>
+</table>
+<p>我们可以简单应用“送出-带回”互逆操作的还原思路，使用类似三阶魔方中还原中层棱块的方法，就能实现中心块的合并。下面是几个实例：</p>
+<p>1、如图2-1所示，顶层的一个<span>绿<script>get_color("f")</script></span>色中心块需带回前面进行合并。我们先同时顺转右面及第二层（图2-2），将目标位置推上顶层；再逆转顶面（图2-3），将<span>绿<script>get_color("f")</script></span>色中心块替换进来；最后同时逆转右面及第二层（图2-4）复原，将<span>绿<script>get_color("f")</script></span>色中心块带回归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TR</td>
+		<td>U'</td>
+		<td>TR'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "", "", 4)</script></td>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "TR", "", 4)</script></td>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "TRU'", "", 4)</script></td>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "TRU'TR'", "", 4)</script></td>
+		<td><script>animcube("xxxxxxxxxfxxxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllxxllxxxxx", "xxxxxrrxxrrxxxxx", "xxxxxxxxxfxxxxxx", "xxxxxddxxddxxxxx", "RtU'Rt'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+	</tr>
+</table>
+<p>如果顶层中心块的位置有所不同，我们可以将其旋转至便于还原的位置。而对于中心块位于其他面的情况，也可以按照类似的方法进行还原，只是转动角度略有不同。</p>
+<p>2、如图3-1所示，顶层的两个<span>绿<script>get_color("f")</script></span>色中心块已经处于合并状态，我们可以按照类似的方法将其带回前面。即先同时顺转右面及第二层（图3-2），将目标位置推上顶层；再转动顶面180°（图3-3），将两个<span>绿<script>get_color("f")</script></span>色中心块替换进来；最后同时逆转右面及第二层（图3-4）复原，将两个<span>绿<script>get_color("f")</script></span>色中心块带回归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TR</td>
+		<td>U²</td>
+		<td>TR'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxfxxxfxxxxxx","xxxxxddxxddxxxxx", "", "", 4)</script></td>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxfxxxfxxxxxx","xxxxxddxxddxxxxx", "TR", "", 4)</script></td>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxfxxxfxxxxxx","xxxxxddxxddxxxxx", "TRU2", "", 4)</script></td>
+		<td><script>cube("xxxxxxxxxfxxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxfxxxfxxxxxx","xxxxxddxxddxxxxx", "TRU2TR'", "", 4)</script></td>
+		<td><script>animcube("xxxxxxxxxfxxxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllxxllxxxxx", "xxxxxrrxxrrxxxxx", "xxxxxfxxxfxxxxxx", "xxxxxddxxddxxxxx", "RtU2Rt'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+	</tr>
+</table>
+<p>3、如图4-1所示，前面已有三个<span>绿<script>get_color("f")</script></span>色中心块，顶层还有一个<span>绿<script>get_color("f")</script></span>色中心块需带回前面进行合并。我们先同时顺转右面及第二层（图4-2），将前面单独的一个<span>绿<script>get_color("f")</script></span>色中心块推上去与顶层的<span>绿<script>get_color("f")</script></span>色中心块合并；再逆转顶面（图4-3），将合并好的两个<span>绿<script>get_color("f")</script></span>色中心块替换进来；最后同时逆转右面及第二层（图4-4）复原，将两个<span>绿<script>get_color("f")</script></span>色中心块带回归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TR</td>
+		<td>U'</td>
+		<td>TR'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xxxxxfxxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "", "", 4)</script></td>
+		<td><script>cube("xxxxxfxxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "TR", "", 4)</script></td>
+		<td><script>cube("xxxxxfxxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "TRU'", "", 4)</script></td>
+		<td><script>cube("xxxxxfxxxffxxxxx","xxxxxbbxxbbxxxxx","xxxxxllxxllxxxxx","xxxxxrrxxrrxxxxx","xxxxxxxxxfxxxxxx","xxxxxddxxddxxxxx", "TRU'TR'", "", 4)</script></td>
+		<td><script>animcube("xxxxxfxxxffxxxxx", "xxxxxbbxxbbxxxxx", "xxxxxllxxllxxxxx", "xxxxxrrxxrrxxxxx", "xxxxxxxxxfxxxxxx", "xxxxxddxxddxxxxx", "RtU'Rt'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图4-1</td>
+		<td>图4-2</td>
+		<td>图4-3</td>
+		<td>图4-4</td>
+		<td>图4-5</td>
+	</tr>
+</table>
+<p>对于其他情况，可以按照类似的方法进行还原。</p>
+<div class="back_to_top"><a href="index.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="edge.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原顶层棱块的方法" />
+<meta name="Keywords" content="魔方, 233, 缺角层先法, Keyhole LBL, 还原顶层棱块" />
+<title>还原顶层棱块 - 233魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">233魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>233魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原顶层棱块</h1>
+<p>在前面的步骤中，我们已经还原了233魔方的底层，但还留了一个的缺角位置（图1-1）。我们将利用这个缺角位置还原顶层四个棱块（图1-2）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxxffx","xxxbbb","xxxlll","xxxxrr","xxxxuxxxx","ddxdddddd", "", "d", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xlxlll","xrxxrr","xuxuuuxux","ddxdddddd", "", "", 3,3,2)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>至此，所有棱块均正确归位。</p>
+<p>在还原顶层棱块时，我们将使用类似还原底层角块的方法，对顶层棱块进行交换。</p>
+<p>如图2-1所示，顶层相邻的<span>蓝白<script>get_color("bu")</script></span>棱块和<span>红白<script>get_color("ru")</script></span>棱块处于位置互换的状态。我们先转动右面180°（图2-2），将<span>蓝白<script>get_color("bu")</script></span>棱块带到底层；再顺转顶面（图2-3），将<span>红白<script>get_color("ru")</script></span>棱块替换进来，同时对被送至顶层的边进行避让；然后转动右面180°（图2-4），<span>蓝白<script>get_color("bu")</script></span>棱块正好与<span>红白<script>get_color("ru")</script></span>棱块互换了位置；最后逆转顶面（图2-5）、转动右面180°复原（图2-6），将<span>红白<script>get_color("ru")</script></span>棱块推回顶层。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R²</td>
+		<td>U</td>
+		<td>R²</td>
+		<td>U'</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xfxffx","xrxbbb","xlxlll","xbxxrr","xuxuuuxux","ddxdddddd", "", "bud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xrxbbb","xlxlll","xbxxrr","xuxuuuxux","ddxdddddd", "R2", "bud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xrxbbb","xlxlll","xbxxrr","xuxuuuxux","ddxdddddd", "R2U", "bud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xrxbbb","xlxlll","xbxxrr","xuxuuuxux","ddxdddddd", "R2UR2", "bud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xrxbbb","xlxlll","xbxxrr","xuxuuuxux","ddxdddddd", "R2UR2U'", "bud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xrxbbb","xlxlll","xbxxrr","xuxuuuxux","ddxdddddd", "R2UR2U'R2", "bud", 3,3,2)</script></td>
+		<td><script>animcube("xfxxxxffx", "xrxxxxbbb", "xlxxxxlll", "xbxxxxxrr", "xuxuuuxux", "ddxdddddd", "R2UR2'U'R2")</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+		<td>图2-6</td>
+		<td>图2-7</td>
+	</tr>
+</table>
+<p>我们只需对还原方法稍加变换，还能适用其他位置情况。如图3-1所示，顶层相对的<span>橙白<script>get_color("lu")</script></span>棱块和<span>红白<script>get_color("ru")</script></span>棱块处于位置互换的状态。我们先转动右面180°（图3-2），将<span>橙白<script>get_color("lu")</script></span>棱块带到底层；再转动顶面180°（图3-3），将<span>红白<script>get_color("ru")</script></span>棱块替换进来，同时对被送至顶层的边进行避让；然后转动右面180°（图3-4），<span>橙白<script>get_color("lu")</script></span>棱块正好与<span>红白<script>get_color("ru")</script></span>棱块互换了位置；最后转动顶面180°（图3-5）、转动右面180°复原（图3-6），将<span>红白<script>get_color("ru")</script></span>棱块推回顶层。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R²</td>
+		<td>U²</td>
+		<td>R²</td>
+		<td>U²</td>
+		<td>R²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xfxffx","xbxbbb","xrxlll","xlxxrr","xuxuuuxux","ddxdddddd", "", "lrud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xrxlll","xlxxrr","xuxuuuxux","ddxdddddd", "R2", "lrud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xrxlll","xlxxrr","xuxuuuxux","ddxdddddd", "R2U2", "lrud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xrxlll","xlxxrr","xuxuuuxux","ddxdddddd", "R2U2R2", "lrud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xrxlll","xlxxrr","xuxuuuxux","ddxdddddd", "R2U2R2U2", "lrud", 3,3,2)</script></td>
+		<td><script>cube("xfxffx","xbxbbb","xrxlll","xlxxrr","xuxuuuxux","ddxdddddd", "R2U2R2U2R2", "lrud", 3,3,2)</script></td>
+		<td><script>animcube("xfxxxxffx", "xbxxxxbbb", "xrxxxxlll", "xlxxxxxrr", "xuxuuuxux", "ddxdddddd", "R2U2R2'U2R2")</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+		<td>图3-6</td>
+		<td>图3-7</td>
+	</tr>
+</table>
+<div class="back_to_top"><a href="bottom.html">&lt;&lt;上页</a> <a href="#">页首</a> <a href="top_c.html">下页&gt;&gt;</a></div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

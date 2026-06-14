@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="实例" />
+<meta name="Keywords" content="魔方, 缺角层先法, Keyhole LBL, 实例" />
+<title>实例 - 缺角层先法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube3.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">缺角层先法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>缺角层先法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="middle.html">还原中层棱块</a></dd>
+	<dd><a href="top_e.html">还原顶层棱块</a></dd>
+	<dd><a href="top_c.html">还原顶层角块</a></dd>
+	<dd><a href="top_cp.html">角块朝向补偿法</a></dd>
+	<dd><a href="top_co.html">调整顶层角块朝向</a></dd>
+	<dd><a href="other.html">左手版本</a></dd>
+	<dd><a href="faq.html">常见问题</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>实例</h1>
+<p>在2016年12月11日<a href="https://www.worldcubeassociation.org/competitions/POPSOpen2016/" target="_blank"/>POPS魔方公开赛</a>三阶魔方决赛中，菲利克斯·曾姆丹格斯（Feliks Zemdegs）以单次4.73秒成绩再次改写三阶魔方速拧单次世界纪录。而在相同打乱（U² F L² U² R² F L² F² L' D' B² R D² R' B' U' L' B'）情况下，相比较菲神的43步还原，我们则需要68步（包括魔方整体转动）。</p>
+<h3>还原底层棱块</h3>
+<p>分别还原底层<span>绿黄<script>get_color("fd")</script></span>棱块（图1-2~图1-3），<span>蓝黄<script>get_color("ld")</script></span>棱块（图1-4），<span>红黄<script>get_color("rd")</script></span>棱块（图1-5~图1-6）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>D</td>
+		<td>F</td>
+		<td>L</td>
+		<td>D</td>
+		<td>B'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B'", "blrd")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' D", "blrd")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DF", "blrd")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFL", "blrd")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLD", "blrd")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB'", "blrd")</script></td>
+		<td><script>animcube("", "", "", "", "", "", "DF.L.DB'", 3, "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B'")</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+		<td>图1-3</td>
+		<td>图1-4</td>
+		<td>图1-5</td>
+		<td>图1-6</td>
+		<td>图1-7</td>
+	</tr>
+</table>
+<h3>还原底层角块</h3>
+<p>先整体逆转，直接还原底层<span>橙蓝黄<script>get_color("lbd")</script></span>角块（图2-2~图2-5）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>CU'</td>
+		<td>R</td>
+		<td>U</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(R", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RU", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+	</tr>
+</table>
+<p>再整体转动180°，还原底层<span>红绿黄<script>get_color("rfd")</script></span>角块（图2-6~图2-10）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>CU²</td>
+		<td>U</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>D'</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(R", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图2-6</td>
+		<td>图2-7</td>
+		<td>图2-8</td>
+		<td>图2-9</td>
+		<td>图2-10</td>
+		<td>图2-11</td>
+	</tr>
+</table>
+<p>最后还原底层<span>红蓝黄<script>get_color("rbd")</script></span>角块（图2-11~图2-16），并转动底面180°留出底层缺角位置（图2-17）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>R²</td>
+		<td>U</td>
+		<td>R²</td>
+		<td>U'</td>
+		<td>R²</td>
+		<td>D²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2U", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U')", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2", "blrud")</script></td>
+		<td><script>animcube("", "", "", "", "", "", "Uc'.RUR'.Uc2.URU'R'.D'.R2UR2'U'R2.D2", 3, "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB'")</script></td>
+	</tr>
+	<tr>
+		<td>图2-12</td>
+		<td>图2-13</td>
+		<td>图2-14</td>
+		<td>图2-15</td>
+		<td>图2-16</td>
+		<td>图2-17</td>
+		<td>图2-18</td>
+	</tr>
+</table>
+<h3>还原中层棱块</h3>
+<p>先将朝向错误的顶层<span>红白<script>get_color("ru")</script></span>棱块带回中层（图3-2~图3-5）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU'</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(R", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')", "blr")</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+	</tr>
+</table>
+<p>再还原中层<span>红绿<script>get_color("rf")</script></span>棱块（图3-6~图3-8），并将位置错误的中层<span>红蓝<script>get_color("rb")</script></span>棱块暂时送回顶层（图3-9~图3-12）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+		<td>TU'</td>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'U", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'U", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)", "blr")</script></td>
+	</tr>
+	<tr>
+		<td>图3-6</td>
+		<td>图3-7</td>
+		<td>图3-8</td>
+		<td>图3-9</td>
+		<td>图3-10</td>
+		<td>图3-11</td>
+		<td>图3-12</td>
+	</tr>
+</table>
+<p>最后还原中层<span>红蓝<script>get_color("rb")</script></span>棱块（图3-13~图3-16），并转动顶面及中层180°留出中层缺角位置（图3-17）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>TU²</td>
+		<td>F'</td>
+		<td>U</td>
+		<td>F</td>
+		<td>TU²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'U", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2", "blr")</script></td>
+		<td><script>animcube("", "", "", "", "", "", "Ut'.RU'R'.F'UF.Ut'.F'UF.Ut2.F'UF.Ut2", 3, "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' Uc'RUR'Uc2URU'R'D'R2UR2'U'R2D2")</script></td>
+	</tr>
+	<tr>
+		<td>图3-13</td>
+		<td>图3-14</td>
+		<td>图3-15</td>
+		<td>图3-16</td>
+		<td>图3-17</td>
+		<td>图3-18</td>
+	</tr>
+</table>
+<h3>还原顶层棱块</h3>
+<p>先还原顶层<span>橙白<script>get_color("lu")</script></span>棱块（图4-2~图4-4）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R</td>
+		<td>U</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (R", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RU", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')", "blr")</script></td>
+	</tr>
+	<tr>
+		<td>图4-1</td>
+		<td>图4-2</td>
+		<td>图4-3</td>
+		<td>图4-4</td>
+	</tr>
+</table>
+<p>再还原顶层<span>蓝白<script>get_color("bu")</script></span>棱块（图4-5~图4-8）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U'</td>
+		<td>F'</td>
+		<td>U²</td>
+		<td>F</td>
+		<td>动画演示</td>
+	</tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2", "blr")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F)", "blr")</script></td>
+		<td><script>animcube("", "", "", "", "", "", "RUR'.U'.F'U2F", 3, "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' Uc'RUR'Uc2URU'R'D'R2UR2'U'R2D2 Ut'RU'R'F'UFUt'F'UFUt2F'UFUt2")</script></td>
+	</tr>
+	<tr>
+		<td>图4-5</td>
+		<td>图4-6</td>
+		<td>图4-7</td>
+		<td>图4-8</td>
+		<td>图4-9</td>
+	</tr>
+</table>
+<h3>还原顶层角块</h3>
+<p>先还原顶层<span>红绿白<script>get_color("rfu")</script></span>角块（图5-2~图5-8）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+		<td>U²</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'D", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图5-1</td>
+		<td>图5-2</td>
+		<td>图5-3</td>
+		<td>图5-4</td>
+		<td>图5-5</td>
+		<td>图5-6</td>
+		<td>图5-7</td>
+		<td>图5-8</td>
+	</tr>
+</table>
+<p>再还原顶层<span>橙蓝白<script>get_color("lbu")</script></span>角块（图5-9~图5-17）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>D'</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+		<td>U</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'D", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图5-9</td>
+		<td>图5-10</td>
+		<td>图5-11</td>
+		<td>图5-12</td>
+		<td>图5-13</td>
+	</tr>
+</table>
+<p>最后还原顶层<span>橙绿白<script>get_color("lfu")</script></span>角块、<span>红蓝白<script>get_color("rbu")</script></span>角块（图5-18~图5-24）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+		<td>D</td>
+		<td>R'</td>
+		<td>D'</td>
+		<td>R</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'R", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'R)", "blrud")</script></td>
+	</tr>
+	<tr>
+		<td>图5-14</td>
+		<td>图5-15</td>
+		<td>图5-16</td>
+		<td>图5-17</td>
+		<td>图5-18</td>
+		<td>图5-19</td>
+		<td>图5-20</td>
+	</tr>
+</table>
+<p>并转动顶面180°，还原整个魔方（图5-25）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U²</td>
+		<td>R'</td>
+		<td>D</td>
+		<td>R</td>
+		<td>U²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'R)U2", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'R)U2(R'", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'R)U2(R'D", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'R)U2(R'DR)", "blrud")</script></td>
+		<td><script>cube("","","","","","", "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' CU'(RUR')CU2U(RU'R')D'(R2UR2U'R2)D2 TU'(RU'R')(F'UF)TU'(F'UF)TU2(F'UF)TU2 (RUR')U'(F'U2F) (R'D'R)U2(R'DR)(D'R'DR)U(R'D'RD)(R'D'R)U2(R'DR)U2", "blrud")</script></td>
+		<td><script>animcube("", "", "", "", "", "", "R'D'R.U2.R'DR.D'R'DR.U.R'D'RD.R'D'R.U2.R'DR.U2", 3, "U2FL2U2R2FL2F2L'D'B2RD2R'B'U'L'B' DFLDB' Uc'RUR'Uc2URU'R'D'R2UR2'U'R2D2 Ut'RU'R'F'UFUt'F'UFUt2F'UFUt2 RUR'U'F'U2F")</script></td>
+	</tr>
+	<tr>
+		<td>图5-21</td>
+		<td>图5-22</td>
+		<td>图5-23</td>
+		<td>图5-24</td>
+		<td>图5-25</td>
+		<td>图5-26</td>
+	</tr>
+</table>
+<!-- <div><script>animcube("uuuuffufd", "dulrblurl", "blrblrfdb", "lbrdrdfbr", "dbbuurfff", "llrldddfb", "D F L D B' Uc' Ut' (F' U F) Uc2 (R U R') Uc U2 (R U R') D2 (R U2 R') Ut2 (F' U2 F) (R U2 R') Ut (F' U F) U (R U R') Ut' (D' R' D R) U' (R' D' R D) (R' D' R) U' (R' D R)", 3)</script></div> -->
+<div class="back_to_top">&lt;&lt;上页 <a href="#">页首</a> 下页&gt;&gt;</div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

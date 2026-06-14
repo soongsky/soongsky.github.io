@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍降阶还原方法" />
+<meta name="Keywords" content="魔方, 四阶, 缺角层先法, Keyhole LBL, 降阶还原" />
+<title>降阶还原 - 四阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube4.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">四阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>四阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="center.html">合并中心块</a></dd>
+	<dd><a href="edge.html">合并棱边</a></dd>
+	<dd><a href="solve.html">降阶还原</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>降阶还原</h1>
+<p>在前面的步骤中，我们已经将四阶魔方每个面的四个中心块拼成同色、每条棱边的两个棱块也拼成同色，但各棱边的位置和朝向尚未还原（图1-1）。这时的四阶魔方就相当于三阶魔方，我们可以使用三阶魔方的方法进行还原（图1-2）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xffxlffdlffdxrrx","xuuxubbfubbfxllx","xbbxdllfdllfxbbx","xffxbrrrbrrrxddx","xbbxruuuruuuxrrx","xddxlddllddlxuux", "", "", 4)</script></td>
+		<td><script>cube("ffffffffffffffff","bbbbbbbbbbbbbbbb","llllllllllllllll","rrrrrrrrrrrrrrrr","uuuuuuuuuuuuuuuu","dddddddddddddddd", "", "", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>至此，整个魔方还原完毕。</p>
+<h3>基本方法</h3>
+<p>如果我们将四阶魔方的中间两层看成一个层面，那么合并中心块和棱边之后的四阶魔方就降阶为三阶魔方。我们完全可以使用三阶魔方的还原方法，具体过程就不再赘述。对于还原过程中所遇到的特殊情况，我们将单独进行调整。</p>
+<h3>特殊情况</h3>
+<p>由于四阶魔方中间层转动的固有特点，降阶后的四阶魔方有可能出现不同于三阶魔方的情况：</p>
+<p>1、单边翻色</p>
+<p>我们在还原顶层棱块过程中，有一半的可能会遇到“单边翻色”的特殊情况。</p>
+<p>如图2-1所示，其他棱边均已正确归位，只剩下<span>红绿<script>get_color("rf")</script></span>棱边的朝向是错误的。有研究表明，这种状态是由于合并中心块时中间两层位置不对应造成的。解决的办法就是将其中一个中间层再转动90°，比如我们可以选择同时顺转顶面及第二层（图2-2）。虽然这时四个侧面的中心块和棱边都被打乱，但接下来可以逐个复原中心块。我们发现前面和右面都有一组<span>红<script>get_color("r")</script></span>色中心块组，因此首先设法将右面<span>红<script>get_color("r")</script></span>色中心块组带回前面合并。这里仍然利用“互逆”操作进行还原，先转动右面180°，将右面<span>红<script>get_color("r")</script></span>色中心块组避让至上半部；再顺转底面的第二层（图2-4），将<span>红<script>get_color("r")</script></span>色中心块组的目标位置移至右面下半部。之所以只转动底面第二层，是因为有一条<span>黄<script>get_color("d")</script></span>色边被移至顶层，这时再转动底面或顶面都将妨碍其回到还原状态。然后转动右面180°（图2-5），将右面<span>红<script>get_color("r")</script></span>色中心块组移入下半部；最后逆转底面及第二层复原（图2-6），将右面<span>红<script>get_color("r")</script></span>色中心块组带回前面合并。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU</td>
+		<td>R²</td>
+		<td>MD</td>
+		<td>R²</td>
+		<td>TD'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MD", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+		<td>图2-6</td>
+	</tr>
+</table>
+<p>接下来按顶面方向顺转整个魔方（图2-7），准备将右面<span>蓝<script>get_color("b")</script></span>色中心块组带回前面合并。我们仍然沿用上面的思路，先同时逆转顶面及第二层（图2-8），将<span>蓝<script>get_color("b")</script></span>色中心块组的目标位置移至右面上半部；再转动右面180°（图2-9），将右面<span>蓝<script>get_color("b")</script></span>色中心块组移入上半部。同样由于有一条<span>黄<script>get_color("d")</script></span>色边被移至顶层，最后只顺转顶面的第二层（图2-10），复原<span>蓝<script>get_color("b")</script></span>色中心块组。</p>
+<table border="1" align="center">
+	<tr>
+		<td>CU</td>
+		<td>TU'</td>
+		<td>R²</td>
+		<td>MU</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-7</td>
+		<td>图2-8</td>
+		<td>图2-9</td>
+		<td>图2-10</td>
+	</tr>
+</table>
+<p>我们再次按顶面方向顺转中间各层（图2-11），并沿用上面的思路合并<span>橙<script>get_color("l")</script></span>色中心块组。即先转动右面180°（图2-12），将右面<span>橙<script>get_color("l")</script></span>色中心块组避让至上半部；再同时顺转底面及第二层（图2-13），将<span>橙<script>get_color("l")</script></span>色中心块组的目标位置移至右面下半部；然后转动右面180°（图2-14），将右面<span>橙<script>get_color("l")</script></span>色中心块组移入下半部；最后逆转顶面的第二层（图2-15），复原<span>橙<script>get_color("l")</script></span>色中心块组。这时，剩下的<span>绿<script>get_color("f")</script></span>色中心块组也自动合并。</p>
+<table border="1" align="center">
+	<tr>
+		<td>WU</td>
+		<td>R²</td>
+		<td>TD</td>
+		<td>R²</td>
+		<td>MD'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TD", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')", "blrud", 4)</script></td>
+		<td><script>animcube("xffxfffrfffrfffx", "xbbxbbbbbbbbbbbb", "xllxllllllllllll", "xrrxfrrrfrrrxrrr", "xuuxuuuuuuuuxuux", "dddxdddddddddddd", "Ut.R2DmR2Dt'.Uc.Ut'R2Um.Uw.R2DtR2Dm'", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-11</td>
+		<td>图2-12</td>
+		<td>图2-13</td>
+		<td>图2-14</td>
+		<td>图2-15</td>
+		<td>图2-16</td>
+	</tr>
+</table>
+<p>由于仍有一条<span>黄<script>get_color("d")</script></span>色边被移至顶层，我们先转动右面180°复原底面（图2-17）。这时四个侧面的中心块均已复原，但侧面还剩下两组棱边未合并。我们按顶面方向逆转整个魔方（图2-18），使底层缺角位置回到右前方，而两组待合并棱边也分别置于左前棱位及右前棱位。但以目前这两条棱边的排列方向是无法直接进行合并的，需将右前棱位的两个棱块上下对调。因此我们先以顺转右面开始换棱（图2-19~图2-21），将这两个棱块推到顶层。</p>
+<table border="1" align="center">
+	<tr>
+		<td>R²</td>
+		<td>CU'</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(R", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-17</td>
+		<td>图2-18</td>
+		<td>图2-19</td>
+		<td>图2-20</td>
+		<td>图2-21</td>
+	</tr>
+</table>
+<p>再以逆转前面开始换棱（图2-22~图2-24），将其以另一朝向带回，现在的棱边排列方向正适宜进行棱边合并。我们注意到位于左前棱位下侧<span>红蓝<script>get_color("rb")</script></span>棱块及右前棱位上侧<span>橙蓝<script>get_color("lb")</script></span>棱块的位置目前是正确的，这时应逆转顶面的第二层（图2-25），以便将另两个位置不正确的棱块进行对调。为了达到复原顶层棱边的效果，接下来使用刚才对调右前棱块的逆向操作，先将待对调的两个棱块推到顶层（图2-26~图2-28）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>F'</td>
+		<td>U²</td>
+		<td>F</td>
+		<td>MU'</td>
+		<td>F'</td>
+		<td>U²</td>
+		<td>F</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'U2", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'U2F)", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图2-22</td>
+		<td>图2-23</td>
+		<td>图2-24</td>
+		<td>图2-25</td>
+		<td>图2-26</td>
+		<td>图2-27</td>
+		<td>图2-28</td>
+	</tr>
+</table>
+<p>再将其以另一朝向带回（图2-29~图2-31）；最后同时顺转顶面及第二层复原（图2-32），顶层各棱边也将回到其正确位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>R</td>
+		<td>U</td>
+		<td>R'</td>
+		<td>TU</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'U2F)(R", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'U2F)(RU", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'U2F)(RUR')", "blrud", 4)</script></td>
+		<td><script>cube("xffxfffrfffrfffx","xbbxbbbbbbbbbbbb","xllxllllllllllll","xrrxfrrrfrrrxrrr","xuuxuuuuuuuuxuux","dddxdddddddddddd", "TU(R2MDR2TD')CU(TU'R2MU)WU(R2TDR2MD')R2CU'(RU'R')(F'U2F)MU'(F'U2F)(RUR')TU", "blrud", 4)</script></td>
+		<td><script>animcube("xffxfffrfffrfffx", "xbbxbbbbbbbbbbbb", "xllxllllllllllll", "xrrxfrrrfrrrxrrr", "xuuxuuuuuuuuxuux", "dddxdddddddddddd", "R2Uc'.RU'R'.F'U2F.Um'.F'U2F.RUR'.Ut", 4, "Ut.R2DmR2Dt'.Uc.Ut'R2Um.Uw.R2DtR2Dm'")</script></td>
+	</tr>
+	<tr>
+		<td>图2-29</td>
+		<td>图2-30</td>
+		<td>图2-31</td>
+		<td>图2-32</td>
+		<td>图2-33</td>
+	</tr>
+</table>
+<p>2、两角互换</p>
+<p>我们在还原顶层角块过程中，有一半的可能会遇到“两角互换”的特殊情况。</p>
+<p>如图3-1所示，所有其他角块都已正确归位，只剩下<span>红绿黄<script>get_color("rfd")</script></span>角块与<span>红绿白<script>get_color("rfu")</script></span>角块正好处于位置互换的状态。有研究表明，这种状态是由于合并棱边时棱块位置不对应造成的。如果能将其中两条棱边的合并位置对调，那么就正好可以补偿两角互换的情况。为了方便还原操作，我们选择将右前棱边与左后棱边对调。先同时转动顶面及第二层180°（图3-2），将这两条棱边暂时拆分成棱块交叉互换状态；再将位于右前棱位的两个棱块上下对调（图3-3~图3-8）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>TU²</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(R", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+	</tr>
+</table>
+<p>然后同时转动顶面及中间层180°（图3-9），将位于左后棱位的两个棱块转至右前棱位，同时也进行棱块上下对调（图3-10~图3-15）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>F'</td>
+		<td>U²</td>
+		<td>F</td>
+		<td>T3U²</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+	</tr>
+	<tr>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(R", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-6</td>
+		<td>图3-7</td>
+		<td>图3-8</td>
+		<td>图3-9</td>
+		<td>图3-10</td>
+		<td>图3-11</td>
+		<td>图3-12</td>
+	</tr>
+</table>
+<p>最后同时转动顶面及第二层180°复原（图3-16），<span>红绿<script>get_color("rf")</script></span>棱边与<span>橙蓝<script>get_color("lb")</script></span>棱边正好进行了对调。</p>
+<table border="1" align="center">
+	<tr>
+		<td>F'</td>
+		<td>U²</td>
+		<td>F</td>
+		<td>TU²</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2", "blrud", 4)</script></td>
+		<td><script>animcube("fffrfffffffffffr", "bbbbbbbbbbbbbbbb", "llllllllllllllll", "frrrrrrrrrrrfrrr", "uuuuuuuuuuuuuuud", "dddudddddddddddd", "Ut2.RU'R'.F'U2F.U2Uw2.RU'R'.F'U2F.Ut2", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-13</td>
+		<td>图3-14</td>
+		<td>图3-15</td>
+		<td>图3-16</td>
+		<td>图3-17</td>
+	</tr>
+</table>
+<p>现在所形成的两棱互换、两角互换状态，完全可以使用三阶魔方的方法进行还原。我们先以顺转右面开始换棱（图3-18~图3-20），将<span>橙蓝<script>get_color("lb")</script></span>棱边推至顶层；然后同时转动顶面及中间层180°（图3-21），并根据<span>橙蓝<script>get_color("lb")</script></span>棱边的朝向，顺转顶面进行避让（图3-22）。</p>
+<table border="1" align="center">
+	<tr>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>T3U²</td>
+	</tr>
+	<tr>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(R", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-18</td>
+		<td>图3-19</td>
+		<td>图3-20</td>
+		<td>图3-21</td>
+	</tr>
+</table>
+<p>再以逆转前面开始换棱（图3-23~图3-25），将<span>橙蓝<script>get_color("lb")</script></span>棱边带回归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>U</td>
+		<td>F'</td>
+		<td>U'</td>
+		<td>F</td>
+	</tr>
+	<tr>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'F)", "blrud", 4)</script></td>
+	</tr>
+	<tr>
+		<td>图3-22</td>
+		<td>图3-23</td>
+		<td>图3-24</td>
+		<td>图3-25</td>
+	</tr>
+</table>
+<p>最后同时转动顶面及中间层180°（图3-26），并根据<span>红绿<script>get_color("rf")</script></span>棱边的位置及朝向，逆转顶面进行避让（图3-27）；再以顺转右面开始换棱（图3-28~图3-30），将<span>红绿<script>get_color("rf")</script></span>棱边带回归位。</p>
+<table border="1" align="center">
+	<tr>
+		<td>T3U²</td>
+		<td>U'</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'F)T3U2", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'F)T3U2U'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'F)T3U2U'(R", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'F)T3U2U'(RU'", "blrud", 4)</script></td>
+		<td><script>cube("fffrfffffffffffr","bbbbbbbbbbbbbbbb","llllllllllllllll","frrrrrrrrrrrfrrr","uuuuuuuuuuuuuuud","dddudddddddddddd", "TU2(RU'R')(F'U2F)T3U2(RU'R')(F'U2F)TU2(RU'R')T3U2U(F'U'F)T3U2U'(RU'R')", "blrud", 4)</script></td>
+		<td><script>animcube("fffrfffffffffffr", "bbbbbbbbbbbbbbbb", "llllllllllllllll", "frrrrrrrrrrrfrrr", "uuuuuuuuuuuuuuud", "dddudddddddddddd", "RU'R'.U2Uw2U.F'U'F.U2Uw2U'.RU'R'", 4, "Ut2.RU'R'.F'U2F.U2Uw2.RU'R'.F'U2F.Ut2")</script></td>
+	</tr>
+	<tr>
+		<td>图3-26</td>
+		<td>图3-27</td>
+		<td>图3-28</td>
+		<td>图3-29</td>
+		<td>图3-30</td>
+		<td>图3-31</td>
+	</tr>
+</table>
+<p>接下来只要进行适当换角，就能全部还原，具体过程不再赘述。</p>
+<div class="back_to_top"><a href="edge.html">&lt;&lt;上页</a> <a href="#">页首</a> 下页&gt;&gt;</div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>

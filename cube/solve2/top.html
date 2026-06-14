@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../css/base.css" />
+<meta name="Description" content="介绍还原顶层的方法" />
+<meta name="Keywords" content="魔方, 二阶, 缺角层先法, Keyhole LBL, 还原顶层" />
+<title>还原顶层 - 二阶魔方解法 - 魔方的奥秘</title>
+<script src="../../java/base.js"></script>
+<script src="../../java/cube/AnimCube2.js"></script>
+<script src="../../java/cube/cube.js"></script>
+<link rel="stylesheet" href="../../css/cube.css" />
+</head>
+<body>
+<header>
+<nav>
+<ul class="sidebar">
+<li><a href="../../index.html">首页</a></li>
+<li>|</li>
+<li><a href="../../soongs/index.html">宋氏族谱</a></li>
+<li>|</li>
+<li><a href="../../sky/index.html">天码输入法</a></li>
+<li>|</li>
+<li><a href="../../cube/index.html">魔方的奥秘</a></li>
+</ul>
+<ul>
+<li><a href="../../index.html">首页</a></li>
+<li>»</li>
+<li><a href="../index.html">魔方的奥秘</a></li>
+<li>»</li>
+<li><a href="index.html">二阶魔方解法</a></li></ul>
+</nav>
+</header>
+<main>
+<nav>
+<dl>
+	<dt>二阶魔方解法</dt>
+	<dd><a href="index.html">简 介</a></dd>
+	<dd><a href="bottom.html">还原底层</a></dd>
+	<dd><a href="top.html">还原顶层</a></dd>
+	<dd>&nbsp;</dd>
+</dl>
+</nav>
+<section>
+<div style="float:right"><script>selector()</script></div>
+<h1>还原顶层</h1>
+<p>在前面的步骤中，我们已经还原了二阶魔方的底层，但还留了一个的缺角位置（图1-1）。我们将利用这个底层缺角位置还原顶层四个角块和底层剩余的一个角块（图1-2）。</p>
+<table border="1" align="center">
+	<tr>
+		<td><script>cube("xxfx","xxbb","xxll","xxxr","xxxx","dxdd", "", "d", 2)</script></td>
+		<td><script>cube("ffff","bbbb","llll","rrrr","uuuu","dddd", "", "", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图1-1</td>
+		<td>图1-2</td>
+	</tr>
+</table>
+<p>至此，整个魔方还原完毕。</p>
+<h3>基本方法</h3>
+<p>同样由于少了棱块的束缚，还原顶层角块的自由度也很大。特别是在还原前两个顶层角块时，很多时候不必严格按照三阶魔方中的方法进行还原。比如在图2-1中，顶层<span>红绿白<script>get_color("rfu")</script></span>角块已经归位，而<span>红蓝白<script>get_color("rbu")</script></span>角块目前位于缺角位置。如果直接顺转右面将<span>红蓝白<script>get_color("rbu")</script></span>角块推上顶层的目标位置，角块的朝向将是错误的。我们可以先顺转顶面（图2-2），推开已归位的<span>红绿白<script>get_color("rfu")</script></span>角块；再顺转右面（图2-3），将<span>红蓝白<script>get_color("rbu")</script></span>角块推上顶层；然后经过逆转顶面（图2-4）、逆转右面复原（图2-5），<span>红蓝白<script>get_color("rbu")</script></span>角块在朝向调整正确的同时，也回到其目标位置。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>U</td>
+		<td>R</td>
+		<td>U'</td>
+		<td>R'</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("rlfr","rfbb","ufll","udur","lfub","dbdd", "", "blrud", 2)</script></td>
+		<td><script>cube("rlfr","rfbb","ufll","udur","lfub","dbdd", "U", "blrud", 2)</script></td>
+		<td><script>cube("rlfr","rfbb","ufll","udur","lfub","dbdd", "U(R", "blrud", 2)</script></td>
+		<td><script>cube("rlfr","rfbb","ufll","udur","lfub","dbdd", "U(RU'", "blrud", 2)</script></td>
+		<td><script>cube("rlfr","rfbb","ufll","udur","lfub","dbdd", "U(RU'R')", "blrud", 2)</script></td>
+		<td><script>animcube("rlfr", "rfbb", "ufll", "udur", "lfub", "dbdd", "U.RU'R'", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图2-1</td>
+		<td>图2-2</td>
+		<td>图2-3</td>
+		<td>图2-4</td>
+		<td>图2-5</td>
+		<td>图2-6</td>
+	</tr>
+</table>
+<p>当然，如果没有便捷的还原方法，我们还是需要使用三阶魔方中还原顶层角块的方法，这里就不再赘述。</p>
+<h3>特殊情况</h3>
+<p>如图3-1所示，顶层还剩下<span>红绿黄<script>get_color("rfd")</script></span>角块尚未还原，它和位于缺角位置的<span>红绿白<script>get_color("rfu")</script></span>角块正好互换了位置。我们在还原顶层角块过程中，有50%的可能会遇到这种“两角互换”的特殊情况，而非魔方安装错误。究其原因，是因为二阶魔方没有中心块，颜色定位失去了基准，原本看上去已经正确归位的那三个角块其实并非“位置正确”；这类似于三阶魔方中所出现的“两棱互换”特殊情况。为了摆脱这种“尴尬”状态，我们可以将顶面转动90°，再通过两次换角将顶层角块轮换并归位。这里只给出简单示意（图3-2~图3-6），具体过程不再赘述。</p>
+<table border="1" align="center">
+	<tr>
+		<td>原始状态</td>
+		<td>U</td>
+		<td>(R' D' R) U (R' D R)</td>
+		<td>U</td>
+		<td>(R' D' R) U (R' D R)</td>
+		<td>动画演示</td>
+	</tr>
+	<tr>
+		<td><script>cube("ffff","bbbb","llll","drur","uuur","drdd", "", "blrud", 2)</script></td>
+		<td><script>cube("ffff","bbbb","llll","drur","uuur","drdd", "U", "blrud", 2)</script></td>
+		<td>…<script>cube("ffff","bbbb","llll","drur","uuur","drdd", "U(R'D'R)U(R'DR)", "blrud", 2)</script></td>
+		<td><script>cube("ffff","bbbb","llll","drur","uuur","drdd", "U(R'D'R)U(R'DR)U", "blrud", 2)</script></td>
+		<td>…<script>cube("ffff","bbbb","llll","drur","uuur","drdd", "U(R'D'R)U(R'DR)U(R'D'R)U(R'DR)", "blrud", 2)</script></td>
+		<td><script>animcube("ffff", "bbbb", "llll", "drur", "uuur", "drdd", "U.R'D'R.U.R'DR.U.R'D'R.U.R'DR", 2)</script></td>
+	</tr>
+	<tr>
+		<td>图3-1</td>
+		<td>图3-2</td>
+		<td>图3-3</td>
+		<td>图3-4</td>
+		<td>图3-5</td>
+		<td>图3-6</td>
+	</tr>
+</table>
+<p>如果能根据顶层角块之间的相对位置关系，提前对特殊情况进行预判，就可以减少换角次数。</p>
+<div class="back_to_top"><a href="bottom.html">&lt;&lt;上页</a> <a href="#">页首</a> 下页&gt;&gt;</div>
+</section>
+</main>
+<footer>
+©2005-<span><script>get_year()</script></span> <a href="http://www.soongsky.com/">宋 天</a> 版权所有 <a href="mailto:caprone@foxmail.com">联系我们</a>
+</footer>
+</body>
+</html>
