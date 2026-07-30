@@ -19,8 +19,8 @@ function get_year(){
 //	<a><script>download("点击下载", "目录/文件")</script></a>
 function download(title, url){
 	var node = document.currentScript.parentNode;
-	node.href = "/download.php/" + url + "?id=" + (Date.now() / 1000);
+//	node.href = "/download.php/" + url + "?id=" + (Date.now() / 1000);
+	node.href = "/download/" + url;
 	node.target="_blank"
 	node.innerHTML = title;
 }
-
