@@ -3,186 +3,606 @@
 <head>
 <meta charset="utf-8" />
 <title>万年历</title>
-<style>
-table {
-	border-collapse: collapse;
-	text-align: center;
-}
-
-th {
-	width: 6em;
-}
-
-.sunday {
-	color: red;
-}
-
-.saturday {
-	color: green;
-}
-
-.today {
-	font-weight: bold;
-}
-
-.other {
-	opacity : 0.5;
-}
-
-.day {
-	/*font-size: 120%;*/
-}
-
-.aux {
-	font-size: 80%;
-}
-</style>
-</head>
-<body onload="start()">
-<h1>万年历</h1>
-<form action="javascript:update_jd()" onchange="update_jd()">
-	<label for="jd">儒略日：</label>
-	<input type="text" id="jd" />
-	<label>UTC</label>
-	<select id="tz">
-		<option value="-720">-12</option><option value="-660">-11</option><option value="-600">-10</option><option value="-570">-09:30</option><option value="-540">-09</option><option value="-480">-08</option><option value="-420">-07</option>
-		<option value="-360">-06</option><option value="-300">-05</option><option value="-270">-04:30</option><option value="-240">-04</option><option value="-210">-03:30</option><option value="-180">-03</option><option value="-150">-02:30</option><option value="-120">-02</option><option value="-60">-01</option>
-		<option value="0" selected="selected">+00</option><option value="60">+01</option><option value="120">+02</option><option value="180">+03</option><option value="210">+03:30</option><option value="240">+4</option><option value="270">+04:30</option><option value="300">+5</option><option value="330">+05:30</option><option value="345">+05:45</option>
-		<option value="360">+06</option><option value="390">+06:30</option><option value="420">+07</option><option value="480">+08</option><option value="525">+08:45</option><option value="540">+09</option><option value="570">+09:30</option><option value="600">+10</option><option value="630">+10:30</option><option value="660">+11</option>
-		<option value="720">+12</option><option value="765">+12:45</option><option value="780">+13</option><option value="825">+13:45</option><option value="840">+14</option>
-	</select>
-	<span id="dgz"></span>
-</form>
-<form id="cm" action="javascript:update_d(this)" onchange="update_d(this)">
-	<label>时间：</label>
-	<select id="hr">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option>
-		<option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option>
-	</select>
-	<span>:</span>
-	<select id="mn">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
-		<option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option>
-		<option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option>
-		<option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option><option>46</option><option>47</option><option>48</option><option>49</option>
-		<option>50</option><option>51</option><option>52</option><option>53</option><option>54</option><option>55</option><option>56</option><option>57</option><option>58</option><option>59</option>
-	</select>
-	<span>:</span>
-	<select id="sc">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
-		<option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option>
-		<option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option>
-		<option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option><option>46</option><option>47</option><option>48</option><option>49</option>
-		<option>50</option><option>51</option><option>52</option><option>53</option><option>54</option><option>55</option><option>56</option><option>57</option><option>58</option><option>59</option>
-	</select><br />
-	<label>公历：</label>
-	<select name="era"><option>公元</option><option>公元前</option></select>
-	<input type="number" name="y" style="width:4em" />
-	<label>年</label>
-	<select name="m"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option></select>
-	<label>月</label>
-	<select name="d">
-		<option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
-		<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-		<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-	</select>
-	<label>日</label>
-	<table id="cmc" border="1"></table>
-</form>
-<form id="gg" action="javascript:update_d(this)" onchange="update_d(this)">
-	<label id="ggl">格里历：</label>
-	<select name="era"><option>公元</option><option>公元前</option></select>
-	<input type="number" name="y" style="width:4em" />
-	<label>年</label>
-	<select name="m"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option></select>
-	<label>月</label>
-	<select name="d">
-		<option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
-		<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-		<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-	</select>
-	<label>日</label>
-</form>
-<form id="jl" action="javascript:update_d(this)" onchange="update_d(this)">
-	<label id="jll">儒略历：</label>
-	<select name="era"><option>公元</option><option>公元前</option></select>
-	<input type="number" name="y" style="width:4em" />
-	<label>年</label>
-	<select name="m"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option></select>
-	<label>月</label>
-	<select name="d">
-		<option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
-		<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-		<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-	</select>
-	<label>日</label>
-</form>
-<form id="g32" action="javascript:update_d(this)" onchange="update_d(this)">
-	<label>格历扩：</label>
-	<select name="era"><option>公元</option><option>公元前</option></select>
-	<input type="number" name="y" style="width:4em" />
-	<label>年</label>
-	<select name="m"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option></select>
-	<label>月</label>
-	<select name="d">
-		<option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
-		<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-		<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-	</select>
-	<label>日</label>
-</form>
-<form action="javascript:update_maya()" onchange="update_maya()">
-	<label>玛雅历：</label>
-	<span>(</span>
-	<input type="number" id="mp" style="width:2em" />
-	<span>)</span>
-	<select id="mhy">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
-	</select>
-	<span>.</span>
-	<select id="mty">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
-	</select>
-	<span>.</span>
-	<select id="my">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
-	</select>
-	<span>.</span>
-	<select id="mm">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
-	</select>
-	<span>.</span>
-	<select id="md">
-		<option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>
-		<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
-	</select>
-	<div id="tk"></div>
-	<div id="hb"></div>
-</form>
-<div id="lun"></div>
-<hr />
-<form>
-	<label>本机时间：</label>
-	<input type="button" id="clkn" />
-	<input type="button" id="clkr" />
-	<input type="button" id="clku" />
-</form>
-<!--
-<form id="sclk" hidden="hidden">
-	<label>服务器时间</label>
-	<input type="button" id="sclkn" />
-	<input type="button" id="sclkr" />
-	<input type="button" id="sclku" />
-</form>
--->
 <script>
 "use strict";
+//<!--
+// 使用说明，在html网页中插入：
+//	<script>calendar()</script>
+// 即可。
+//-->
+function calendar(){
+	var node = document.currentScript.parentNode;
+	var cal = {};
+
+	var form, label, input, span, select, option;
+	// 儒略日区
+	form = document.createElement("form");
+	form.onchange = function(){
+		var jd = parseFloat(cal.jd.value);
+		var tz = parseInt(cal.tz.value);
+		update(cal, jd, tz);
+	};
+	form.onsubmit = function(){return false};
+	node.appendChild(form);
+	// 儒略日
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("儒略日："));
+	input = cal.jd = document.createElement("input");
+	input.type = "text";
+	label.appendChild(input);
+	form.appendChild(label);
+	// 时区
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode(" UTC "));
+	select = cal.tz = document.createElement("select");
+	// 常用时区
+	var tz = [-720, -660, -600, -570, -540, -480, -420,
+		-360, -300, -270, -240, -210, -180, -150, -120, -60,
+		0, 60, 120, 180, 210, 240, 270, 300, 330, 345,
+		360, 390, 420, 480, 525, 540, 570, 600, 630, 660,
+		720, 765, 780, 825, 840];
+	for (var i=0; i<tz.length; ++i) {
+		option = document.createElement("option");
+		option.value = tz[i];
+		option.text = tzs(tz[i]);
+		select.appendChild(option);
+	}
+	select.selectedIndex = 16;
+	label.appendChild(select);
+	form.appendChild(label);
+	// 日干支
+	span = cal.dgz = document.createElement("span");
+	form.appendChild(span);
+
+	var addopt = function(select, from, to){
+		for (var i=from; i<=to; ++i) {
+			option = document.createElement("option");
+			if (i < 10) option.text = "0" + i;
+			else option.text = i;
+			select.appendChild(option);
+		}
+	};
+	var ymd = function(form){
+		// 公元
+		select = document.createElement("select");
+		select.name = "era";
+		select.appendChild(document.createElement("option")).text = "公元";
+		select.appendChild(document.createElement("option")).text = "公元前";
+		form.appendChild(select);
+		form.appendChild(document.createTextNode(" "));
+		// 年
+		input = document.createElement("input");
+		input.type = "number";
+		input.name = "y";
+		input.style.width = "4em";
+		form.appendChild(input);
+		form.appendChild(document.createTextNode(" 年 "));
+		// 月
+		select = document.createElement("select");
+		select.name = "m";
+		addopt(select, 1, 12);
+		form.appendChild(select);
+		form.appendChild(document.createTextNode(" 月 "));
+		// 日
+		select = document.createElement("select");
+		select.name = "d";
+		addopt(select, 1, 31);
+		form.appendChild(select);
+		form.appendChild(document.createTextNode(" 日"));
+	};
+
+	// 公历区
+	form = cal.cm = document.createElement("form");
+	form.onchange = function(){update_d(cal, cal.cm, AUTO)};
+	form.onsubmit = function(){return false};
+	node.appendChild(form);
+	// 时间
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("时间："));
+	form.appendChild(label);
+	select = document.createElement("select");
+	select.name = "hr";
+	addopt(select, 0, 23);
+	form.appendChild(select);
+	form.appendChild(document.createTextNode(" : "));
+	select = document.createElement("select");
+	select.name = "mn";
+	addopt(select, 0, 59);
+	form.appendChild(select);
+	form.appendChild(document.createTextNode(" : "));
+	select = document.createElement("select");
+	select.name = "sc";
+	addopt(select, 0, 59);
+	form.appendChild(select);
+	form.appendChild(document.createElement("br"));
+	// 公历
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("公历："));
+	form.appendChild(label);
+	ymd(form);
+	// 月历
+	var table = cal.cmc = document.createElement("table");
+	table.border = 1;
+	table.style.textAlign = "center";
+	table.style.borderCollapse = "collapse";
+	cal.cm.appendChild(table);
+	for (var i=0; i<7; ++i) {
+		var row = document.createElement("tr");
+		table.appendChild(row);
+		for (var j=0; j<7; ++j) {
+			var cell = document.createElement(i ? "td" : "th");
+			cell.style.width = "6em";
+			row.appendChild(cell);
+			if (j == 0) cell.style.color = "red";
+			else if (j == 6) cell.style.color = "green";
+			if (i == 0) cell.innerHTML = WK[j];
+		}
+	}
+
+	// 格里历区
+	form = cal.gg = document.createElement("form");
+	form.onchange = function(){update_d(cal, cal.gg, GREGORIAN)};
+	form.onsubmit = function(){return false};
+	node.appendChild(form);
+	label = cal.ggl = document.createElement("label");
+	label.appendChild(document.createTextNode("格里历："));
+	form.appendChild(label);
+	ymd(form);
+
+	// 儒略历区
+	form = cal.jl = document.createElement("form");
+	form.onchange = function(){update_d(cal, cal.jl, JULIAN)};
+	form.onsubmit = function(){return false};
+	node.appendChild(form);
+	label = cal.jll = document.createElement("label");
+	label.appendChild(document.createTextNode("儒略历："));
+	form.appendChild(label);
+	ymd(form);
+
+	// 格里扩区
+	form = cal.g32 = document.createElement("form");
+	form.onchange = function(){update_d(cal, cal.g32, GREGORIAN_3200)};
+	form.onsubmit = function(){return false};
+	node.appendChild(form);
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("格里扩："));
+	form.appendChild(label);
+	ymd(form);
+
+	// 玛雅历区
+	form = cal.maya = document.createElement("form");
+	form.onchange = function(){
+		var elem = cal.maya.elements;
+		var pre = parseInt(elem.namedItem("pre").value);
+		var hy = elem.namedItem("hy").selectedIndex;
+		var ty = elem.namedItem("ty").selectedIndex;
+		var y = elem.namedItem("y").selectedIndex;
+		var m = elem.namedItem("m").selectedIndex;
+		var d = elem.namedItem("d").selectedIndex;
+
+		var t = get_t(cal);
+		update(cal, mayatojd(pre, hy, ty, y, m, d)+t.jdf, t.tz);
+	};
+	form.onsubmit = function(){return false};
+	node.appendChild(form);
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("玛雅历："));
+	form.appendChild(label);
+	// 循环数
+	form.appendChild(document.createTextNode("( "));
+	input = document.createElement("input");
+	input.type = "number";
+	input.name = "pre";
+	input.style.width = "2em";
+	form.appendChild(input);
+	form.appendChild(document.createTextNode(" ) "));
+	// 四百年
+	select = document.createElement("select");
+	select.name = "hy";
+	addopt(select, 0, 19);
+	form.appendChild(select);
+	form.appendChild(document.createTextNode(" . "));
+	// 廿年
+	select = document.createElement("select");
+	select.name = "ty";
+	addopt(select, 0, 19);
+	form.appendChild(select);
+	form.appendChild(document.createTextNode(" . "));
+	// 年
+	select = document.createElement("select");
+	select.name = "y";
+	addopt(select, 0, 19);
+	form.appendChild(select);
+	form.appendChild(document.createTextNode(" . "));
+	// 月
+	select = document.createElement("select");
+	select.name = "m";
+	addopt(select, 0, 17);
+	form.appendChild(select);
+	form.appendChild(document.createTextNode(" . "));
+	// 日
+	select = document.createElement("select");
+	select.name = "d";
+	addopt(select, 0, 17);
+	form.appendChild(select);
+	// 卓尔金历
+	cal.tk = document.createElement("div");
+	form.appendChild(cal.tk);
+	// 哈布历
+	cal.hb = document.createElement("div");
+	form.appendChild(cal.hb);
+
+	// 农历区
+	cal.lun = document.createElement("div");
+	node.appendChild(cal.lun);
+	node.appendChild(document.createElement("hr"));
+
+	// 本机时间区
+	var clkn, clkr, clku, time, tzn, tzr;
+	form = document.createElement("form");
+	node.appendChild(form);
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("本机时间："));
+	form.appendChild(label);
+	input = clkn = document.createElement("input");
+	input.type = "button";
+	input.onclick = function(){update_now(cal, time, tzn)};
+	form.appendChild(input);
+	form.appendChild(document.createTextNode(" "));
+	input = clkr = document.createElement("input");
+	input.type = "button";
+	input.onclick = function(){update_now(cal, time, tzr)};
+	form.appendChild(input);
+	form.appendChild(document.createTextNode(" "));
+	input = clku = document.createElement("input");
+	input.type = "button";
+	input.onclick = function(){update_now(cal, time, 0)};
+	form.appendChild(input);
+/*
+	// 服务器时间区
+	var sclk, sclkn, sclkr, sclku, stime, stzn, stzr;
+	form = sclk = document.createElement("form");
+	form.hidden = true;
+	node.appendChild(form);
+	label = document.createElement("label");
+	label.appendChild(document.createTextNode("服务器时间："));
+	form.appendChild(label);
+	input = sclkn = document.createElement("input");
+	input.type = "button";
+	input.onclick = function(){update_now(cal, stime, stzn)};
+	form.appendChild(input);
+	input = sclkr = document.createElement("input");
+	input.type = "button";
+	input.onclick = function(){update_now(cal, stime, stzr)};
+	form.appendChild(input);
+	input = sclku = document.createElement("input");
+	input.type = "button";
+	input.onclick = function(){update_now(cal, stime, 0)};
+	form.appendChild(input);
+
+	// 服务器时间与本地时间毫秒差
+	var delta = 0;
+	// 服务器对时
+	var sync = function(){
+		// 通过HTTP请求获取服务器时间
+		fetch(location.origin, {method: "HEAD", cache: "no-store"})
+		.then(response => {
+			// 从响应头获取时间
+			delta = new Date(response.headers.get("Date")).getTime() - Date.now();
+			sclk.hidden = false;
+			setTimeout(sync, 5000);
+		}).catch(error => {
+			// 暂时性网络中断
+			if (delta) setTimeout(sync, 50000);
+			else sclk.hidden = true;
+		});
+	};
+	sync();
+*/
+	var clock = function(){
+		// 本机时间
+		var date = new Date();
+		time = date.getTime();
+		var y = date.getFullYear();
+		// 当前时区，分钟差
+		tzn = -date.getTimezoneOffset();
+		// 非夏令时区，分钟差；考虑南半球夏令时情况
+		tzr = Math.min(-new Date(y, 0).getTimezoneOffset(), -new Date(y, 6).getTimezoneOffset());
+		update_clk(clkn, clkr, clku, date, tzn, tzr);
+/*
+		// 服务器时间
+		stime = time + delta;
+		date.setTime(stime);
+		y = d.getFullYear();
+		// 当前时区，分钟差
+		stzn = -date.getTimezoneOffset();
+		// 非夏令时区，分钟差；考虑南半球夏令时情况
+		stzr = Math.min(-new Date(y, 0).getTimezoneOffset(), -new Date(y, 6).getTimezoneOffset());
+		update_clk(sclkn, sclkr, sclku, date, stzn, stzr);
+*/
+		setTimeout(clock, 500);
+	};
+	clock();
+	update_now(cal, time, tzn);
+}
+
+function update_clk(clkn, clkr, clku, date, tzn, tzr){
+	var hr = date.getHours();
+	var mn = date.getMinutes();
+	var sc = date.getSeconds();
+
+	clkn.value = ts(hr, mn, sc) + " UTC" + tzs(tzn);
+	if (tzn != tzr) clkn.value += "夏";
+
+	// 当前是夏令时
+	if (tzr != tzn) {
+		mn -= tzn - tzr;
+		while (mn < 0) {
+			mn += 60;
+			if (--hr < 0) hr += 24;
+		}
+		clkr.value = ts(hr, mn, sc) + " UTC" + tzs(tzr);
+		clkr.hidden = false;
+	} else clkr.hidden = true;
+
+	// 当前非UTC+0时区
+	if (tzn && tzr) {
+		hr = date.getUTCHours();
+		mn = date.getUTCMinutes();
+		sc = date.getUTCSeconds();
+		clku.value = ts(hr, mn, sc) + " UTC";
+		clku.hidden = false;
+	} else clku.hidden = true;
+}
+
+function ts(hr, mn, sc){
+	if (hr < 10) hr = "0" + hr;
+	if (mn < 10) mn = "0" + mn;
+	if (sc < 10) sc = "0" + sc;
+	return hr + ":" + mn + ":" + sc;
+}
+
+function tzs(tz){
+	var tzm = tz % 60;
+	var tzh = (tz - tzm) / 60;
+	var str = "";
+	if (tz >= 0) {
+		if (tzh < 10) tzh = "0" + tzh;
+		str = "+" + tzh;
+	} else {
+		tzh = -tzh;
+		if (tzh < 10) tzh = "0" + tzh;
+		str = "-" + tzh;
+		tzm = -tzm;
+	}
+	if (tzm) str += ":" + tzm;
+	return str;
+}
+
+function update_now(cal, time, tz){
+	var jd = dtojd(1970, 1, 1, GREGORIAN) + ttojd(0, 0, time/1000, 0);
+	update(cal, jd, tz);
+
+	// 选时区
+	for (var i=0; i<cal.tz.length; ++i) {
+		if (cal.tz.options[i].value == tz) break;
+	}
+	// 新增时区
+	if (i >= cal.tz.length) {
+		var option = document.createElement("option");
+		option.value = tz;
+		option.text = tzs(tz);
+		cal.tz.appendChild(option);
+	}
+	cal.tz.selectedIndex = i;
+}
+
+function get_t(cal){
+	var tz = parseInt(cal.tz.value);
+	var elem = cal.cm.elements;
+	var hr = elem.namedItem("hr").selectedIndex;
+	var mn = elem.namedItem("mn").selectedIndex;
+	var sc = elem.namedItem("sc").selectedIndex;
+	return {jdf: ttojd(hr, mn, sc, tz), tz:tz};
+}
+
+function update_d(cal, form, type){
+	var elem = form.elements;
+	var y = parseInt(elem.namedItem("y").value);
+	var m = elem.namedItem("m").selectedIndex+1;
+	var d = elem.namedItem("d").selectedIndex+1;
+	if (elem.namedItem("era").selectedIndex) y=1-y;
+
+	var t = get_t(cal);
+	update(cal, dtojd(y, m, d, type)+t.jdf, t.tz);
+}
+
+function update(cal, jd, tz){
+	if (isNaN(jd)) return;
+	cal.jd.value = jd;
+
+	var t = jdtot(jd, tz);
+	var elem = cal.cm.elements;
+	elem.namedItem("hr").selectedIndex = t.hms.hr;
+	elem.namedItem("mn").selectedIndex = t.hms.mn;
+	elem.namedItem("sc").selectedIndex = t.hms.sc;
+
+	var wk = jdtow(t.jdn);
+	var gz = jdtogz(t.jdn);
+	cal.dgz.innerHTML = " 周" + WK[wk] + " " + TG[gz%10] + DZ[gz%12] + "(" + (gz+1) + ")";
+
+	var ymd = function(form, d){
+		var elem = form.elements;
+		var y = d.y;
+		if (y > 0) {
+			elem.namedItem("era").selectedIndex = 0;
+		} else {
+			y = 1 - y;
+			elem.namedItem("era").selectedIndex = 1;
+		}
+		elem.namedItem("y").value = y;
+		elem.namedItem("m").selectedIndex = d.m-1;
+		elem.namedItem("d").selectedIndex = d.d-1;
+	};
+
+	var d = jdtod(t.jdn, AUTO);
+	ymd(cal.cm, d);
+	ymd(cal.gg, jdtod(t.jdn, GREGORIAN));
+	ymd(cal.jl, jdtod(t.jdn, JULIAN));
+	ymd(cal.g32, jdtod(t.jdn, GREGORIAN_3200));
+	if (t.jdn>JD1582_10_4) {
+		cal.ggl.style.fontWeight = "bold";
+		cal.jll.style.fontWeight = "normal";
+	} else {
+		cal.ggl.style.fontWeight = "normal";
+		cal.jll.style.fontWeight = "bold";
+	}
+
+	var maya = jdtomaya(t.jdn);
+	var elem = cal.maya.elements;
+	elem.namedItem("pre").value = maya.pre;
+	elem.namedItem("hy").selectedIndex = maya.hy;
+	elem.namedItem("ty").selectedIndex = maya.ty;
+	elem.namedItem("y").selectedIndex = maya.y;
+	elem.namedItem("m").selectedIndex = maya.m;
+	elem.namedItem("d").selectedIndex = maya.d;
+	cal.tk.innerHTML = "卓尔金历：" + maya.tnum + " " + TNAME[maya.tname] + "(" + maya.tname + ")";
+	cal.hb.innerHTML = "哈布历：" + maya.hbd + " " + HBM[maya.hbm] + "(" + maya.hbm + ")";
+
+	// 月历
+	var cmc = cal.cmc;
+	// 上月首
+	var jd0 = dtojd(d.y, d.m-1, 1, AUTO);
+	// 本月首
+	var jd1 = dtojd(d.y, d.m, 1, AUTO);
+	// 下月首
+	var jd2 = dtojd(d.y, d.m+1, 1, AUTO);
+	// 上月天数
+	var n0 = jd1 - jd0;
+	// 本月天数
+	var n1 = jd2 - jd1;
+	// 月首周内偏移
+	var delta = jdtow(jd1);
+	// 日历行数
+	var ln = cmc.rows.length;
+	// 改历修正
+	if (n0 < 28) n0 += 10;
+	else if (n1 < 28) n1 += 10;
+
+	// 逐日序号
+	var k = 1 - delta;
+	// 逐日儒略日
+	var jdk = jd1 - delta;
+
+	var lun;
+	// 约二万年以内，显示农历
+	if (-5000000 <= jdk && jdk <= 10000000) {
+		// 农历月历数据
+		lun = lunc(jdk, tz, (ln - 1) * 7);
+		// 查月序号
+		var im;
+		for (im=0; im<lun.nm.length-2; ++im) {
+			if (lun.nm[im+1][0] > jdk) break;
+		}
+		// 日期
+		var ld = jdk - lun.nm[im][0] + 1;
+		// 节气索引
+		var it = 0;
+		// 四分月相索引
+		var ip = 0;
+	} else cal.lun.innerHTML = "";
+
+	// 逐行输出月历
+	for (var i=1; i<ln; ++i) {
+		var row = cmc.rows[i];
+		for (var j=0; j<7; ++j) {
+			var cell = row.cells[j];
+			// 当日
+			if (jdk == t.jdn) cell.style.fontWeight = "bold";
+			else cell.style.fontWeight = "initial";
+			// 上月
+			if (k <= 0) {
+				cell.style.opacity = "0.5";
+				cell.innerHTML = "<div>" + (k + n0) + "</div>";
+			// 下月
+			} else if (k > n1){
+				cell.style.opacity = "0.5";
+				cell.innerHTML = "<div>" + (k - n1) + "</div>";
+			// 本月
+			} else {
+				cell.style.opacity = "initial";
+				cell.innerHTML = "<div>" + k + "</div>";
+			}
+			// 干支
+			gz = jdtogz(jdk);
+			cell.innerHTML += "<div style='font-size:80%'>" + TG[gz%10] + DZ[gz%12] + "</div>";
+
+			// 如显示农历
+			if (lun !== undefined) {
+				var strd;
+				if (ld == 20) strd = "二十";
+				else if (ld == 30) strd = "三十";
+				else strd = TEN[Math.floor((ld-1)/10)] + NUM[(ld-1)%10+1];
+				// 月份
+				var lm;
+				if (i==1 && j==0 || ld == 1) {
+					lm = im - (lun.leap && im>=lun.leap ? 1 : 0) + 11;
+					var strm = (lun.leap && im==lun.leap ? "闰" : "") + MON[(lm-1) % 12 + 1] + "月";
+					cell.innerHTML += "<div style='font-size:80%'>" + strm + strd + "</div>";
+				} else {
+					cell.innerHTML += "<div style='font-size:80%'>" + strd + "</div>";
+				}
+
+				// 节气
+				if (it < lun.term.length && jdk == lun.term[it][0]) {
+					var hms = stot(lun.term[it][1]);
+					cell.innerHTML += "<div style='font-size:80%'>" + ts(hms.hr, hms.mn, hms.sc) + TERM[lun.term[it][2]] + "</div>";
+					++it;
+				}
+
+				// 四分月相
+				if (ip < lun.phase.length && jdk == lun.phase[ip][0]) {
+					var hms = stot(lun.phase[ip][1]);
+					cell.innerHTML += "<div style='font-size:80%'>" + ts(hms.hr, hms.mn, hms.sc) + PHASE[lun.phase[ip][2]] + "</div>";
+					// 朔
+					if (lun.phase[ip][2] == 0) {
+						var type = secl(jdk, lun.phase[ip][1], tz);
+						// 日食
+						if (type) cell.innerHTML += "<div style='font-size:80%'>" + SECL[type] + "</div>";
+					// 望
+					} else if (lun.phase[ip][2] == 2) {
+						var type = mecl(jdk, lun.phase[ip][1], tz);
+						// 月食
+						if (type) cell.innerHTML += "<div style='font-size:80%'>" + MECL[type] + "</div>";
+					}
+					++ip;
+				}
+
+				if (jdk == t.jdn) {
+					// 年份
+					var ly = lun.y + Math.floor((lm-1) / 12) - 1;
+					var stry = (ly > 0 ? ly : ("前" + (1-ly))) + "年";
+					var strm = (lun.leap && im==lun.leap ? "闰" : "") + ((lm-1) % 12 + 1) + "月";
+					gz = ytogz(ly);
+					var strgz = TG[gz%10] + DZ[gz%12] + "(" + (gz+1) + ")";
+					cal.lun.innerHTML = "农历：" + stry + strm + ld + " 岁次" + strgz;
+				}
+
+				++ld;
+				if (jdk + 1 >= lun.nm[im+1][0]) {
+					++im;
+					ld = 1;
+				}
+			}
+
+			// 改历修正
+			if (jdk == JD1582_10_4) k += 11;
+			else ++k;
+			++jdk;
+		}
+	}
+}
+
 // 1582年10月4日的儒略日，儒略历的最后一日，次日即改为格里历1582年10月15日
 var JD1582_10_4 = 2299160;
 // J2000.0历元的儒略日
@@ -256,382 +676,6 @@ var D2PI = DPI + DPI;
 var DEG2RAD = DPI / 180;
 // 角秒转换为弧度
 var AS2RAD = DPI / (180 * 60 * 60);
-
-function start(){
-	var time, tzn, tzr;
-	var clkn = document.getElementById("clkn");
-	clkn.onclick = function(){update_now(time, tzn)};
-	var clkr = document.getElementById("clkr");
-	clkr.onclick = function(){update_now(time, tzr)};
-	var clku = document.getElementById("clku");
-	clku.onclick = function(){update_now(time, 0)};
-
-/*
-	var stime, stzn, stzr;
-	var sclk = document.getElementById("sclk");
-	var sclkn = document.getElementById("sclkn");
-	sclkn.onclick = function(){update_now(stime, stzn)};
-	var sclkr = document.getElementById("sclkr");
-	sclkr.onclick = function(){update_now(stime, stzr)};
-	var sclku = document.getElementById("sclku");
-	sclku.onclick = function(){update_now(stime, 0)};
-
-	// 服务器时间与本地时间毫秒差
-	var delta = 0;
-	// 服务器对时
-	var sync = function(){
-		// 通过HTTP请求获取服务器时间
-		fetch(location.origin, {method: "HEAD", cache: "no-store"})
-		.then(response => {
-			// 从响应头获取时间
-			delta = new Date(response.headers.get("Date")).getTime() - Date.now();
-			sclk.hidden = false;
-			setTimeout(sync, 5000);
-		}).catch(error => {
-			// 暂时性网络中断
-			if (delta) setTimeout(sync, 50000);
-			else sclk.hidden = true;
-		});
-	};
-	sync();
-*/
-
-	var clock = function(){
-		// 本机时间
-		var d = new Date();
-		time = d.getTime();
-		var y = d.getFullYear();
-		// 当前时区，分钟差
-		tzn = -d.getTimezoneOffset();
-		// 非夏令时区，分钟差；考虑南半球夏令时情况
-		tzr = Math.min(-new Date(y, 0).getTimezoneOffset(), -new Date(y, 6).getTimezoneOffset());
-		update_clk(clkn, clkr, clku, d, tzn, tzr);
-
-/*
-		// 服务器时间
-		stime = time + delta;
-		d.setTime(stime);
-		y = d.getFullYear();
-		// 当前时区，分钟差
-		stzn = -d.getTimezoneOffset();
-		// 非夏令时区，分钟差；考虑南半球夏令时情况
-		stzr = Math.min(-new Date(y, 0).getTimezoneOffset(), -new Date(y, 6).getTimezoneOffset());
-		update_clk(sclkn, sclkr, sclku, d, stzn, stzr);
-*/
-
-		setTimeout(clock, 500);
-	};
-	clock();
-}
-
-function update_clk(clkn, clkr, clku, d, tzn, tzr){
-	var hr = d.getHours();
-	var mn = d.getMinutes();
-	var sc = d.getSeconds();
-
-	clkn.value = ts(hr, mn, sc) + " UTC" + tzs(tzn);
-	if (tzn != tzr) clkn.value += "夏";
-
-	// 当前是夏令时
-	if (tzr != tzn) {
-		mn -= tzn - tzr;
-		while (mn < 0) {
-			mn += 60;
-			if (--hr < 0) hr += 24;
-		}
-		clkr.value = ts(hr, mn, sc) + " UTC" + tzs(tzr);
-		clkr.hidden = false;
-	} else clkr.hidden = true;
-
-	// 当前非UTC+0时区
-	if (tzn && tzr) {
-		hr = d.getUTCHours();
-		mn = d.getUTCMinutes();
-		sc = d.getUTCSeconds();
-		clku.value = ts(hr, mn, sc) + " UTC";
-		clku.hidden = false;
-	} else clku.hidden = true;
-}
-
-function ts(hr, mn, sc){
-	if (hr < 10) hr = "0" + hr;
-	if (mn < 10) mn = "0" + mn;
-	if (sc < 10) sc = "0" + sc;
-	return hr + ":" + mn + ":" + sc;
-}
-
-function tzs(tz){
-	var tzm = tz % 60;
-	var tzh = (tz - tzm) / 60;
-	var str = "";
-	if (tz > 0) {
-		if (tzh < 10) tzh = "0" + tzh;
-		str = "+" + tzh;
-	} else if (tz < 0) {
-		tzh = -tzh;
-		if (tzh < 10) tzh = "0" + tzh;
-		str = "-" + tzh;
-		tzm = -tzm;
-	}
-	if (tzm) str += ":" + tzm;
-	return str;
-}
-
-function update(jd, tz){
-	if (isNaN(jd)) return;
-	document.getElementById("jd").value = jd;
-
-	var t = jdtot(jd, tz);
-	document.getElementById("hr").selectedIndex = t.hms.hr;
-	document.getElementById("mn").selectedIndex = t.hms.mn;
-	document.getElementById("sc").selectedIndex = t.hms.sc;
-
-	var wk = jdtow(t.jdn);
-	var gz = jdtogz(t.jdn);
-	document.getElementById("dgz").innerHTML = "周" + WK[wk] + " " + TG[gz%10] + DZ[gz%12] + "(" + (gz+1) + ")";
-
-	update_c(t.jdn, "cm", AUTO, tz);
-	update_c(t.jdn, "gg", GREGORIAN, tz);
-	update_c(t.jdn, "jl", JULIAN, tz);
-	update_c(t.jdn, "g32", GREGORIAN_3200, tz);
-	document.getElementById("ggl").style.fontWeight = t.jdn>JD1582_10_4 ? "bold" : "normal";
-	document.getElementById("jll").style.fontWeight = t.jdn>JD1582_10_4 ? "normal" : "bold";
-
-	var my = jdtomaya(t.jdn);
-	document.getElementById("mp").value = my.pre;
-	document.getElementById("mhy").selectedIndex = my.hy;
-	document.getElementById("mty").selectedIndex = my.ty;
-	document.getElementById("my").selectedIndex = my.y;
-	document.getElementById("mm").selectedIndex = my.m;
-	document.getElementById("md").selectedIndex = my.d;
-	document.getElementById("tk").innerHTML = "卓尔金历：" + my.tnum + " " + TNAME[my.tname] + "(" + my.tname + ")";
-	document.getElementById("hb").innerHTML = "哈布历：" + my.hbd + " " + HBM[my.hbm] + "(" + my.hbm + ")";
-}
-
-function update_c(jdn, id, type, tz){
-	var form = document.getElementById(id);
-	var elem = form.elements;
-
-	var d = jdtod(jdn, type);
-	var y = d.y;
-	if (y > 0) {
-		elem.namedItem("era").selectedIndex = 0;
-	} else {
-		y = 1 - y;
-		elem.namedItem("era").selectedIndex = 1;
-	}
-	elem.namedItem("y").value = y;
-	elem.namedItem("m").selectedIndex = d.m-1;
-	elem.namedItem("d").selectedIndex = d.d-1;
-
-	if (id !="cm") return;
-
-	// 月历
-	var cmc = document.getElementById("cmc");
-	cmc.innerHTML = "";
-
-	// 上月首
-	var jd0 = dtojd(d.y, d.m-1, 1, type);
-	// 本月首
-	var jd1 = dtojd(d.y, d.m, 1, type);
-	// 下月首
-	var jd2 = dtojd(d.y, d.m+1, 1, type);
-	// 上月天数
-	var n0 = jd1 - jd0;
-	// 本月天数
-	var n1 = jd2 - jd1;
-	// 月首周内偏移
-	var delta = jdtow(jd1);
-	// 日历行数
-	var ln = Math.ceil((n1 + delta) / 7) + 1;
-	// 改历修正
-	if (n0 < 28) n0 += 10;
-	else if (n1 < 28) n1 += 10;
-
-	// 逐日序号
-	var k = 1 - delta;
-	// 逐日儒略日
-	var jdk = jd1 - delta;
-	// 逐日干支
-	var gzk = jdtogz(jdk);
-
-	// 约二万年以内，显示农历
-	if (-5000000 <= jdn && jdn <= 10000000) {
-		// 农历月历数据
-		var lun = lunc(jdk, tz, (ln - 1) * 7);
-		// 查月序号
-		var im;
-		for (im=0; im<lun.nm.length-2; ++im) {
-			if (lun.nm[im+1][0] > jdk) break;
-		}
-		// 日期
-		var ld = jdk - lun.nm[im][0] + 1;
-		// 节气索引
-		var it = 0;
-		// 四分月相索引
-		var ip = 0;
-	} else document.getElementById("lun").innerHTML = "";
-
-	// 逐行输出月历
-	for (var i=0; i<ln; ++i) {
-		var row = document.createElement("tr");
-		cmc.appendChild(row);
-		for (var j=0; j<7; ++j) {
-			var cell = document.createElement(i ? "td" : "th");
-			row.appendChild(cell);
-			if (j == 0) cell.className = "sunday";
-			else if (j == 6) cell.className = "saturday";
-			if (i == 0) {
-				cell.innerHTML = WK[j];
-				continue;
-			}
-
-			if (jdk == jdn) cell.classList.add("today");
-			// 上月
-			if (k <= 0) {
-				cell.classList.add("other");
-				cell.innerHTML = "<div>" + (k + n0) + "</div>";
-			// 下月
-			} else if (k > n1){
-				cell.classList.add("other");
-				cell.innerHTML = "<div>" + (k - n1) + "</div>";
-			// 本月
-			} else {
-				cell.innerHTML = "<div class='day'>" + k + "</div>";
-			}
-			// 干支
-			cell.innerHTML += "<div class='aux'>" + TG[gzk%10] + DZ[gzk%12] + "</div>";
-
-			// 如显示农历
-			if (lun != undefined) {
-				var strd;
-				if (ld == 20) strd = "二十";
-				else if (ld == 30) strd = "三十";
-				else strd = TEN[Math.floor((ld-1)/10)] + NUM[(ld-1)%10+1];
-				// 月份
-				var lm;
-				if (i==1 && j==0 || ld == 1) {
-					lm = im - (lun.leap && im>=lun.leap ? 1 : 0) + 11;
-					var strm = (lun.leap && im==lun.leap ? "闰" : "") + MON[(lm-1) % 12 + 1] + "月";
-					cell.innerHTML += "<div class='aux'>" + strm + strd + "</div>";
-				} else {
-					cell.innerHTML += "<div class='aux'>" + strd + "</div>";
-				}
-
-				// 节气
-				if (it < lun.term.length && jdk == lun.term[it][0]) {
-					var hms = stot(lun.term[it][1]);
-					cell.innerHTML += "<div class='aux'>" + ts(hms.hr, hms.mn, hms.sc) + TERM[lun.term[it][2]] + "</div>";
-					++it;
-				}
-
-				// 四分月相
-				if (ip < lun.phase.length && jdk == lun.phase[ip][0]) {
-					var hms = stot(lun.phase[ip][1]);
-					cell.innerHTML += "<div class='aux'>" + ts(hms.hr, hms.mn, hms.sc) + PHASE[lun.phase[ip][2]] + "</div>";
-					// 朔
-					if (lun.phase[ip][2] == 0) {
-						var type = secl(jdk, lun.phase[ip][1], tz);
-						// 日食
-						if (type) cell.innerHTML += "<div class='aux'>" + SECL[type] + "</div>";
-					// 望
-					} else if (lun.phase[ip][2] == 2) {
-						var type = mecl(jdk, lun.phase[ip][1], tz);
-						// 月食
-						if (type) cell.innerHTML += "<div class='aux'>" + MECL[type] + "</div>";
-					}
-					++ip;
-				}
-
-				if (jdk == jdn) {
-					// 年份
-					var ly = lun.y + Math.floor((lm-1) / 12) - 1;
-					var stry = (ly > 0 ? ly : ("前" + (1-ly))) + "年";
-					var strm = (lun.leap && im==lun.leap ? "闰" : "") + ((lm-1) % 12 + 1) + "月";
-					var gz = ytogz(ly);
-					var strgz = TG[gz%10] + DZ[gz%12] + "(" + (gz+1) + ")";
-					document.getElementById("lun").innerHTML = "农历：" + stry + strm + ld + " 岁次" + strgz;
-				}
-
-				++ld;
-				if (jdk + 1 >= lun.nm[im+1][0]) {
-					++im;
-					ld = 1;
-				}
-			}
-
-			// 改历修正
-			if (jdk == JD1582_10_4) k += 11;
-			else ++k;
-			++jdk;
-			++gzk;
-		}
-	}
-}
-
-function update_now(time, tz){
-	var jd = dtojd(1970, 1, 1, GREGORIAN) + ttojd(0, 0, time/1000, 0);
-	update(jd, tz);
-
-	// 选时区
-	var tzs = document.getElementById("tz");
-	for (var i=0; i<tzs.length; ++i) {
-		if (tzs.options[i].value == tz) break;
-	}
-	// 新增时区
-	if (i >= tzs.length) {
-		var option = document.createElement("option");
-		tzs.appendChild(option);
-		option.value = tz;
-		option.text = tzs(tz);
-	}
-	tzs.selectedIndex = i;
-}
-
-function update_jd(){
-	var tz = parseInt(document.getElementById("tz").value);
-	var jd = parseFloat(document.getElementById("jd").value);
-	update(jd, tz);
-}
-
-function get_t(){
-	var hr = document.getElementById("hr").selectedIndex;
-	var mn = document.getElementById("mn").selectedIndex;
-	var sc = document.getElementById("sc").selectedIndex;
-	var tz = parseInt(document.getElementById("tz").value);
-	return {jd: ttojd(hr, mn, sc, tz), tz:tz};
-}
-
-function update_d(form){
-	var id = form.id;
-	var type;
-	if (id == "gg") type = GREGORIAN;
-	else if (id == "jl") type = JULIAN;
-	else if (id == "g32") type = GREGORIAN_3200;
-	else type = AUTO;
-
-	var elem = form.elements;
-	var y = parseInt(elem.namedItem("y").value);
-	var m = elem.namedItem("m").selectedIndex+1;
-	var d = elem.namedItem("d").selectedIndex+1;
-	if (elem.namedItem("era").selectedIndex) y=1-y;
-
-	var t = get_t();
-	update(dtojd(y, m, d, type)+t.jd, t.tz);
-}
-
-function update_maya(){
-	var tz = parseInt(document.getElementById("tz").value);
-	var pre = parseInt(document.getElementById("mp").value);
-	var hy = document.getElementById("mhy").selectedIndex;
-	var ty = document.getElementById("mty").selectedIndex;
-	var y = document.getElementById("my").selectedIndex;
-	var m = document.getElementById("mm").selectedIndex;
-	var d = document.getElementById("md").selectedIndex;
-
-	var t = get_t();
-	update(mayatojd(pre, hy, ty, y, m, d)+t.jd, t.tz);
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // 日历转换
@@ -1043,12 +1087,13 @@ function ddeg(deg1, deg2){
 // 月相角
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	v：视位置
 // 返回：月相角，[0°, 360)
-function mphase(t){
+function mphase(t, v){
 	// 太阳视位置（相对于瞬时平黄道）
-	var secl = sunva00(t);
+	var secl = sunae00(t, v);
 	// 月球视位置（相对于瞬时平黄道）
-	var mecl = moonva98(t);
+	var mecl = moonae98(t, v);
 	// 黄经角距，°
 	var d = mecl[0] - secl[0];
 	// 转换至360°以内
@@ -1077,7 +1122,7 @@ function search(jdn, jds, tz, deg, func, TIME){
 		jds += ds;
 		// J2000.0起算的儒略世纪，TT
 		var t = tjc(jdn, jds, tz);
-		var val = func(t);
+		var val = func(t, true);
 		d0 = Math.abs(delta);
 		// 角距误差，°
 		delta = ddeg(deg, val);
@@ -1108,7 +1153,7 @@ function psearch(jdn, tz, deg, func, TIME){
 	// 向前搜索（含当前日）
 	var t = tjc(jdn, 86400, tz);
 	// 当前日24时
-	var val = func(t);
+	var val = func(t, true);
 	// 角距误差
 	var delta = ddeg(deg, val);
 	// 取前一时刻作为起点
@@ -1137,7 +1182,7 @@ function lunar(jdn, tz){
 	// 冬至太阳视黄经
 	var deg = 270;
 	// 搜索前冬至（含当前日）
-	mt[0] = psearch(jdn, tz, deg, sunvl00, TROPICAL);
+	mt[0] = psearch(jdn, tz, deg, sunl00, TROPICAL);
 	// 中气角度间距，°
 	var dg = 30;
 	// 中气秒数间距，s
@@ -1145,7 +1190,7 @@ function lunar(jdn, tz){
 	// 搜索后续中气，至次年冬至
 	for (var i=1; i<13; ++i) {
 		if ((deg += dg) >= 360) deg = 0;
-		mt[i] = search(mt[i-1][0], mt[i-1][1]+ds, tz, deg, sunvl00, TROPICAL);
+		mt[i] = search(mt[i-1][0], mt[i-1][1]+ds, tz, deg, sunl00, TROPICAL);
 	}
 
 	// 朔日，当年十一月起至次年十二月（共14或15个）
@@ -1220,7 +1265,7 @@ function lunc(jdn, tz, nday){
 		// 节气黄经
 		var deg = id * dg;
 		// 搜索后续节气
-		term = search(term[0], term[1]+ds, tz, deg+dg, sunvl00, TROPICAL);
+		term = search(term[0], term[1]+ds, tz, deg+dg, sunl00, TROPICAL);
 		if (term[0] >= jdn + nday) break;
 		if (term[0] >= jdn) {
 			term.push(id + 1);
@@ -1312,9 +1357,9 @@ function dsm2(jdn, jds, tz, spf, mpf){
 	// J2000.0起算的儒略世纪，TT
 	var t = tjc(jdn, jds, tz);
 	// 太阳视位置
-	var secl = spf(t);
+	var secl = spf(t, true);
 	// 月球视位置
-	var mecl = mpf(t);
+	var mecl = mpf(t, true);
 
 	var rou = Math.cos(secl[1] * DEG2RAD);
 	var sx = rou * Math.cos(secl[0] * DEG2RAD);
@@ -1404,7 +1449,7 @@ function bs(jdn, jds, tz, spf, mpf){
 // 返回：日食类型
 function secl(jdn, jds, tz){
 	// 搜索日月角距最小时刻
-	var dsm = bs(jdn, jds, tz, sunva00, moonva98);
+	var dsm = bs(jdn, jds, tz, sunae00, moonae98);
 	// 太阳视半径，rad
 	var sa = (RS / AU) / dsm[1];
 	// 月球视半径，rad
@@ -1428,10 +1473,10 @@ function secl(jdn, jds, tz){
 	return type;
 }
 
-// 地球本影位置
-function eva00(t){
-	// 太阳视位置
-	var ecl = sunva00(t);
+// 地球本影平黄道坐标
+function eae00(t){
+	// 太阳视位置（相对于瞬时平黄道）
+	var ecl = sunae00(t, true);
 	// 取地球本影位置
 	ecl[0] -= 180;
 	ecl[1] = -ecl[1];
@@ -1446,7 +1491,7 @@ function eva00(t){
 // 返回：月食类型
 function mecl(jdn, jds, tz){
 	// 搜索日月角距最小时刻
-	var dsm = bs(jdn, jds, tz, eva00, moonva98);
+	var dsm = bs(jdn, jds, tz, eae00, moonae98);
 	// 太阳视半径，rad
 	var sa = (RS / AU) / dsm[1];
 	// 月球视半径，rad
@@ -1692,49 +1737,48 @@ function farg2003(t){
 	var f = [14];
 	// 月球平近点角，rad
 	//	l = 134.96340251° + (1325×360° + 715923.2178")t + 31.8792"t² + 0.051635"t³ - 0.00024470"t⁴
-	f[0] = (134.96340251 * DEG2RAD) + tf * (1325 * D2PI) + t * (715923.2178 + t * (31.8792 + t * (0.051635 - t * 0.00024470))) * AS2RAD;
+	f[0] = (134.96340251 + tf * (1325 * 360) + t * (715923.2178 + t * (31.8792 + t * (0.051635 - t * 0.00024470))) / 3600) % 360 * DEG2RAD;
 	// 太阳平近点角，rad
 	//	l' = 357.52910918° + (99×360° + 1292581.0481")t - 0.5532"t² + 0.000136"t³ - 0.00001149"t⁴
-	f[1] = (357.52910918 * DEG2RAD) + tf * (99 * D2PI) + t * (1292581.0481 + t * (-0.5532 + t * (0.000136 - t * 0.00001149))) * AS2RAD;
-	// 月球平升交角，rad
+	f[1] = (357.52910918 + tf * (99 * 360) + t * (1292581.0481 + t * (-0.5532 + t * (0.000136 - t * 0.00001149))) / 3600) % 360 * DEG2RAD;
+	// 月球平升交角距，rad
 	//	F = 93.27209062° + (1342×360° + 295262.8478")t - 12.7512"t² - 0.001037"t³ + 0.00000417"t⁴
-	f[2] = (93.27209062 * DEG2RAD) + tf * (1342 * D2PI) + t * (295262.8478 + t * (-12.7512 + t * (-0.001037 + t * 0.00000417))) * AS2RAD;
+	f[2] = (93.27209062 + tf * (1342 * 360) + t * (295262.8478 + t * (-12.7512 + t * (-0.001037 + t * 0.00000417))) / 3600) % 360 * DEG2RAD;
 	// 月球平距角，rad
 	//	D = 297.85019547° + (1236×360° + 1105601.2090")t - 6.3706"t² + 0.006593"t³ - 0.00003169"t⁴
-	f[3] = (297.85019547 * DEG2RAD) + tf * (1236 * D2PI) + t * (1105601.2090 + t * (-6.3706 + t * (0.006593 - t * 0.00003169))) * AS2RAD;
+	f[3] = (297.85019547 + tf * (1236 * 360) + t * (1105601.2090 + t * (-6.3706 + t * (0.006593 - t * 0.00003169))) / 3600) % 360 * DEG2RAD;
 	// 月球轨道升交点黄经，rad
 	//	Ω = 125.04455501° - (5×360° + 482890.5431")t + 7.4722"t² + 0.007702"t³ - 0.00005939"t⁴
-	f[4] = (125.04455501 * DEG2RAD) - tf * (5 * D2PI) + t * (-482890.5431 + t * (7.4722 + t * (0.007702 - t * 0.00005939))) * AS2RAD;
+	f[4] = (125.04455501 - tf * (5 * 360) + t * (-482890.5431 + t * (7.4722 + t * (0.007702 - t * 0.00005939))) / 3600) % 360 * DEG2RAD;
 
 	// 水星平黄经，rad
 	//	LMe = 4.402608842 + 2608.7903141574t
-	f[5] = 4.402608842 + t * 2608.7903141574;
+	f[5] = (4.402608842 + t * 2608.7903141574) % D2PI;
 	// 金星平黄经，rad
 	//	LVe = 3.176146697 + 1021.3285546211t
-	f[6] = 3.176146697 + t * 1021.3285546211;
+	f[6] = (3.176146697 + t * 1021.3285546211) % D2PI;
 	// 地球平黄经，rad
 	//	LE = 1.753470314 + 628.3075849991t
-	f[7] = 1.753470314 + t * 628.3075849991;
+	f[7] = (1.753470314 + t * 628.3075849991) % D2PI;
 	// 火星平黄经，rad
 	//	LMa = 6.203480913 + 334.0612426700t
-	f[8] = 6.203480913 + t * 334.0612426700;
+	f[8] = (6.203480913 + t * 334.0612426700) % D2PI;
 	// 木星平黄经，rad
 	//	LJ = 0.599546497 + 52.9690962641t
-	f[9] = 0.599546497 + t * 52.9690962641;
+	f[9] = (0.599546497 + t * 52.9690962641) % D2PI;
 	// 土星平黄经，rad
 	//	LSa = 0.874016757 + 21.3299104960t
-	f[10] = 0.874016757 + t * 21.3299104960;
+	f[10] = (0.874016757 + t * 21.3299104960) % D2PI;
 	// 天王星平黄经，rad
 	//	LU = 5.481293872 + 7.4781598567t
-	f[11] = 5.481293872 + t * 7.4781598567;
+	f[11] = (5.481293872 + t * 7.4781598567) % D2PI;
 	// 海王星平黄经，rad
 	//	LNe = 5.311886287 + 3.8133035638t
-	f[12] = 5.311886287 + t * 3.8133035638;
+	f[12] = (5.311886287 + t * 3.8133035638) % D2PI;
 	// 黄经总岁差，rad
 	//	pA = 0.024381750t + 0.00000538691t²
-	f[13] = t * (0.024381750 + t * 0.00000538691);
+	f[13] = (t * (0.024381750 + t * 0.00000538691)) % D2PI;
 
-	for (var i=0; i<14; ++i) f[i] %= D2PI;
 	return f;
 }
 
@@ -1869,7 +1913,7 @@ function obl2006(t){
 	return EPS0 + t * (-46.836769 + t * (-0.0001831 + t * (0.00200340 + t * (-0.000000576 - t * 0.0000000434))));
 }
 
-// GCRS赤经岁差，Fukushima−Williams简化法，IAU2006
+// GCRS赤经岁差，Fukushima-Williams简化法，IAU2006
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
 // 返回：GCRS赤经岁差γ¯，as
@@ -1879,7 +1923,7 @@ function gamb2006(t){
 	return -0.052928 + t * (10.556378 + t * (0.4932044 + t * (-0.00031238 + t * (-0.000002788 + t * 0.0000000260))));
 }
 
-// GCRS瞬时黄赤交角，Fukushima−Williams简化法，IAU2006
+// GCRS瞬时黄赤交角，Fukushima-Williams简化法，IAU2006
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
 // 返回：GCRS瞬时黄赤交角φ¯，as
@@ -1889,7 +1933,7 @@ function phib2006(t){
 	return 84381.412819 + t * (-46.811016 + t * (0.0511268 + t * (0.00053289 + t * (-0.000000440 - t * 0.0000000176))));
 }
 
-// GCRS黄经岁差，Fukushima−Williams简化法，IAU2006
+// GCRS黄经岁差，Fukushima-Williams简化法，IAU2006
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
 // 返回：GCRS黄经岁差ψ¯，as
@@ -1899,7 +1943,7 @@ function psib2006(t){
 	return -0.041775 + t * (5038.481484 + t * (1.5584175 + t * (-0.00018522 + t * (-0.000026452 - t * 0.0000000148))));
 }
 
-// 岁差矩阵BP(t)，Fukushima−Williams简化法，IAU2006
+// 岁差矩阵BP(t)，Fukushima-Williams简化法，IAU2006
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
 // 返回：岁差矩阵BP(t)
@@ -1944,7 +1988,7 @@ function deps2006(t, f){
 	return (sum0 + t * sum1) / 1000000;
 }
 
-// 岁差章动矩阵BPN(t)，Fukushima−Williams简化法，IAU2006
+// 岁差章动矩阵BPN(t)，Fukushima-Williams简化法，IAU2006
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
 //	f：日月、行星基本变量，rad
@@ -2076,50 +2120,58 @@ function get_ep(table_epv, t){
 	return sum;
 }
 
-// 地球位置（相对于EPV00历元平黄道）
+// 地球位置（相对于ICRS）
 // 输入：
-//	t：J2000.0起算的儒略年，TDB（通常可用TT代替）
-// 返回：地球位置坐标（相对于EPV00历元平黄道），au
+//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+// 返回：地球位置ICRS坐标，au
 function ep00(t){
+	// J2000.0起算的儒略年
+	var ta = t * 100;
 	// 地球X、Y、Z坐标，au：
 	//	∑ᵢ[a0 * cos(b0 + c0 * t)]
 	//		+ ∑ᵢ[a1 * cos(b1 + c1 * t)]t
 	//		+ ∑ᵢ[a2 * cos(b2 + c2 * t)]t²
-	var sum0 = get_ep(table_epv_ex0, t);
-	var sum1 = get_ep(table_epv_ex1, t);
-	var sum2 = get_ep(table_epv_ex2, t);
-	var x = sum0 + t * (sum1 + t * sum2);
+	var sum0 = get_ep(table_epv_ex0, ta);
+	var sum1 = get_ep(table_epv_ex1, ta);
+	var sum2 = get_ep(table_epv_ex2, ta);
+	var x = sum0 + ta * (sum1 + ta * sum2);
 
-	sum0 = get_ep(table_epv_ey0, t);
-	sum1 = get_ep(table_epv_ey1, t);
-	sum2 = get_ep(table_epv_ey2, t);
-	var y = sum0 + t * (sum1 + t * sum2);
+	sum0 = get_ep(table_epv_ey0, ta);
+	sum1 = get_ep(table_epv_ey1, ta);
+	sum2 = get_ep(table_epv_ey2, ta);
+	var y = sum0 + ta * (sum1 + ta * sum2);
 
-	sum0 = get_ep(table_epv_ez0, t);
-	sum1 = get_ep(table_epv_ez1, t);
-	sum2 = get_ep(table_epv_ez2, t);
-	var z = sum0 + t * (sum1 + t * sum2);
+	sum0 = get_ep(table_epv_ez0, ta);
+	sum1 = get_ep(table_epv_ez1, ta);
+	sum2 = get_ep(table_epv_ez2, ta);
+	var z = sum0 + ta * (sum1 + ta * sum2);
 
-	return [x, y, z];
+	// 转换至ICRS：R3(0.0475") R1(-84381.4091")
+	return rotz(0.0475 * AS2RAD, rotx(-84381.4091 * AS2RAD, [x, y, z]));
 }
 
-// 太阳视位置（相对于瞬时平黄道）
+// 太阳平黄道坐标
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	v：视位置
 // 返回：
-//	[0]：太阳视黄经（相对于瞬时平黄道），[0°, 360°)
-//	[1]：太阳视黄纬（相对于瞬时平黄道），[-90°, 90°]
+//	[0]：太阳视平黄经，[0°, 360°)
+//	[1]：太阳视平黄纬，[-90°, 90°]
 //	[2]：日地距离，au
-function sunva00(t){
-	// 地球位置坐标，au
-	var p = ep00(t * 100);
-	// 日地距离，au
-	var r = Math.sqrt(p[0] * p[0] + p[1] * p[1] + p[2] * p[2]);
-	// 补偿光行差，儒略年
-	var dt = r * (TAU0 / JY / 86400);
-	// 重新计算地球位置坐标，au
-	p = ep00(t * 100 - dt);
-	// 取太阳位置坐标
+function sunae00(t, v){
+	// 地球位置ICRS坐标，au
+	var p = ep00(t);
+	var l, b, r;
+	// 视位置
+	if (v) {
+		// 日地距离，au
+		r = Math.sqrt(p[0] * p[0] + p[1] * p[1] + p[2] * p[2]);
+		// 补偿光行差，儒略世纪
+		var dt = r * (TAU0 / JC / 86400);
+		// 重新计算地球位置，au
+		p = ep00(t - dt);
+	}
+	// 取太阳位置
 	p[0] = -p[0];
 	p[1] = -p[1];
 	p[2] = -p[2];
@@ -2129,15 +2181,16 @@ function sunva00(t){
 	var phib = phib2006(t);
 	// GCRS黄经岁差ψ¯，as
 	var psib = psib2006(t);
-	// 先转换至GCRS：R3(0.0475") R1(-84381.4091")
-	// 再转换至GCRS与瞬时黄道交点处：R1(φ¯) R3(γ¯)
-	//	注：原GCRS岁差转换矩阵（Fukushima−Williams简化法，IAU2006）：BP(t) = R1(-εA) R3(-ψ¯) R1(φ¯) R3(γ¯)
+	// 转换至GCRS与瞬时黄道交点处：
+	//	GCRS岁差转换矩阵（Fukushima-Williams简化法，IAU2006）：BP(t) = R1(-εA) R3(-ψ¯) R1(φ¯) R3(γ¯)
 	//	由于仅取黄道坐标，第四次转动不再需要，而第三次转动以黄经直接累加岁差代替
-	p = rotx(phib * AS2RAD, rotz((0.0475 + gamb) * AS2RAD, rotx(-84381.4091 * AS2RAD, p)));
+	p = rotx(phib * AS2RAD, rotz(gamb * AS2RAD, p));
 	// 取黄经，并累加岁差
-	var l = Math.atan2(p[1], p[0]) / DEG2RAD + psib / 3600;
+	l = Math.atan2(p[1], p[0]) / DEG2RAD + psib / 3600;
+	// 取黄纬
 	var rau2 = p[0] * p[0] + p[1] * p[1];
-	var b = Math.atan2(p[2], Math.sqrt(rau2)) / DEG2RAD;
+	b = Math.atan2(p[2], Math.sqrt(rau2)) / DEG2RAD;
+	// 取日地距离
 	r = Math.sqrt(rau2 + p[2] * p[2]);
 
 	// 转换至360°以内
@@ -2145,19 +2198,21 @@ function sunva00(t){
 	return [l, b, r];
 }
 
-// 太阳视黄经
+// 太阳真黄经
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	v：视位置
 // 返回：太阳视黄经，[0°, 360°)
-function sunvl00(t){
-	// 太阳视位置（相对于瞬时平黄道）
-	var ecl = sunva00(t);
+function sunl00(t, v){
+	// 太阳平黄道坐标
+	var ecl = sunae00(t, v);
 	// 日月、行星基本变量，rad
 	var f = farg2003(t);
 	// 黄经章动Δψ，as
 	var dpsi = dpsi2006(t, f);
 	// 平黄经累加章动
 	var l = ecl[0] + dpsi / 3600;
+
 	// 转换至360°以内
 	if ((l %= 360) < 0) l += 360;
 	return l;
@@ -2167,14 +2222,15 @@ function sunvl00(t){
 // 月球位置（Moon98）
 //www.iausofa.org/current-software
 
-// 月球位置（相对于瞬时平黄道）
+// 月球平黄道坐标
 // 输入：
 //	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	v：视位置
 // 返回：
 //	[0]：月球黄经（相对于瞬时平黄道），[0°, 360°)
 //	[1]：月球黄纬（相对于瞬时平黄道），[-90°, 90°]
 //	[2]：地月距离，m
-function moon98(t){
+function moonae98(t, v){
 	//	儒略世纪的小数部分
 	var tf = t - Math.floor(t);
 	// 月球平黄经：
@@ -2192,12 +2248,12 @@ function moon98(t){
 	// 月球平近点角：
 	//	M' = 134.9633964° + (1325×360° + 198.8675055°)t + 0.0087414°t² + t³/69699.0 - t⁴/14712000.0
 	f[2] = (134.9633964 + tf * (1325 * 360) + t * (198.8675055 + t * (0.0087414 + t * ((1 / 69699.0) - t / 14712000.0)))) % 360 * DEG2RAD;
-	// 月球平升交角：
+	// 月球平升交角距：
 	//	F = 93.2720950° + (1342×360° + 82.0175233°)t - 0.0036539°t² + t³/3526000.0 + t⁴/863310000.0
 	f[3] = (93.2720950 + tf * (1342 * 360) + t * (82.0175233 + t * (-0.0036539 + t * ((1 / 3526000.0) + t / 863310000.0)))) % 360 * DEG2RAD;
 
 	var l = 0, b = 0, r = 0;
-	// 地球轨道偏心率修正因子：E = 1 − 0.002516t − 0.0000074t²
+	// 地球轨道偏心率修正因子：E = 1 - 0.002516t - 0.0000074t²
 	var e = 1 - t * (0.002516 + t * 0.0000074);
 	var e2 = e * e;
 	// 月球黄经周期摄动项：∑ᵢ[Eᵏ * s * sin(ARG)]，°
@@ -2216,6 +2272,17 @@ function moon98(t){
 		r += en * table_moon_lr[i][5] * Math.cos(arg);
 	}
 
+	// 累加地月距离常数项，m
+	r += 385000560;
+
+	// 视位置
+	if (v) {
+		// 补偿光行差，儒略世纪
+		var dt = r / (C * JC * 86400);
+		// 重新计算月球位置坐标
+		return moonae98(t - dt, false);
+	}
+	
 	// 月球黄纬周期摄动项：∑ᵢ[Eᵏ * s * sin(ARG)]，°
 //	for (var i=0; i<table_moon_b.length; ++i) {
 	for (var i=table_moon_b.length-1; i>=0; --i) {
@@ -2243,33 +2310,14 @@ function moon98(t){
 
 	// 累加月球平黄经，°
 	l += lpd;
-	// 累加地月距离常数项，m
-	r += 385000560;
 
 	// 转换至360°以内
 	if ((l %= 360) < 0) l += 360;
 	// 转换至±90°以内
 	if ((b %= 360) < -180) b += 360;
 	else if (b > 180) b -= 360;
-	return [l, b, r];
-}
 
-// 月球视位置（相对于瞬时平黄道）
-// 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
-// 返回：
-//	[0]：月球视黄经（相对于瞬时平黄道），[0°, 360°)
-//	[1]：月球视黄纬（相对于瞬时平黄道），[-90°, 90°]
-//	[2]：地月距离，m
-function moonva98(t){
-	// 月球位置（相对于瞬时平黄道）
-	var ecl = moon98(t);
-	// 地月距离，m
-	var r = ecl[2];
-	// 补偿光行差，儒略世纪
-	var dt = r / (C * JC * 86400);
-	// 重新计算月球位置
-	return moon98(t - dt);
+	return [l, b, r];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -6470,7 +6518,10 @@ var table_moon_b = [
 	[4, -1,  0, -1,  0.000115],
 	[2, -2,  0,  1,  0.000107]
 ];
-
 </script>
+</head>
+<body>
+<h1>万年历</h1>
+<script>calendar()</script>
 </body>
 </html>
