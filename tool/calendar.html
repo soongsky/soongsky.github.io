@@ -6,7 +6,7 @@
 <script>
 "use strict";
 //<!--
-// 使用说明，在html网页中插入：
+// 【使用说明】在html网页中插入：
 //	<script>calendar()</script>
 // 即可。
 //-->
@@ -507,9 +507,15 @@ function update(cal, jd, tz){
 		// 日期
 		var ld = jdk - lun.nm[im][0] + 1;
 		// 节气索引
-		var it = 0;
+		var it;
+		for (it=0; it<lun.term.length; ++it) {
+			if (lun.term[it][0] >= jdk) break;
+		}
 		// 四分月相索引
-		var ip = 0;
+		var ip;
+		for (ip=0; ip<lun.phase.length; ++ip) {
+			if (lun.phase[ip][0] >= jdk) break;
+		}
 	} else cal.lun.innerHTML = "";
 
 	// 逐行输出月历
@@ -566,14 +572,14 @@ function update(cal, jd, tz){
 					cell.innerHTML += "<div style='font-size:80%'>" + ts(hms.hr, hms.mn, hms.sc) + PHASE[lun.phase[ip][2]] + "</div>";
 					// 朔
 					if (lun.phase[ip][2] == 0) {
-						var type = secl(jdk, lun.phase[ip][1], tz);
+						var ecl = secl(jdk, lun.phase[ip][1], tz);
 						// 日食
-						if (type) cell.innerHTML += "<div style='font-size:80%'>" + SECL[type] + "</div>";
+						if (ecl != "") cell.innerHTML += "<div style='font-size:80%'>" + ecl + "</div>";
 					// 望
 					} else if (lun.phase[ip][2] == 2) {
-						var type = mecl(jdk, lun.phase[ip][1], tz);
+						var ecl = mecl(jdk, lun.phase[ip][1], tz);
 						// 月食
-						if (type) cell.innerHTML += "<div style='font-size:80%'>" + MECL[type] + "</div>";
+						if (ecl != "") cell.innerHTML += "<div style='font-size:80%'>" + ecl + "</div>";
 					}
 					++ip;
 				}
@@ -663,10 +669,6 @@ var TERM = ["春分", "清明", "谷雨",
 var PHASE = ["🌑", "☽", "🌕", "☾"];
 //var PHASE = ["🌚", "🌓", "🌝", "🌗"];
 //var PHASE = ["朔", "上弦", "望", "下弦"];
-// 日食类型
-var SECL = ["", "日偏食", "日全食", "日环食"];
-// 月食类型
-var MECL = ["", "月半影", "月偏食", "月全食"];
 
 // π
 var DPI = 3.1415926535897932384626433832795;
@@ -953,8 +955,8 @@ function tt_ut(jdn, jdf){
 }
 
 // ΔAT = TAI – UTC
-// ΔAT = d0 + (jd - jd0) * k;
 var TAI_UTC = [
+	// ΔAT = d0 + (jd - jd0) * k;
 	// jd0       d0        k
 	// 1960年1月1日
 	[2436934.5, 0.9434820, 0.0012960],
@@ -1086,16 +1088,16 @@ function ddeg(deg1, deg2){
 
 // 月相角
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	v：视位置
 // 返回：月相角，[0°, 360)
 function mphase(t, v){
 	// 太阳视位置（相对于瞬时平黄道）
-	var secl = sunae00(t, v);
+	var sae = sunae00(t, v);
 	// 月球视位置（相对于瞬时平黄道）
-	var mecl = moonae98(t, v);
+	var mae = moonae98(t, v);
 	// 黄经角距，°
-	var d = mecl[0] - secl[0];
+	var d = mae[0] - sae[0];
 	// 转换至360°以内
 	if (d < 0) d += 360;
 	return d;
@@ -1230,8 +1232,8 @@ function lunar(jdn, tz){
 //	nm：朔日儒略日及秒数，自当年前十一月起
 //	leap：十一月起算的闰月序号；无闰月为0
 //	y：正月所属年份
-//	term：月历所覆盖的节气儒略日、秒数及节气序号
-//	phase：月历所覆盖的四分月相儒略日、秒数及月相序号
+//	term：月历期间的节气儒略日、秒数及节气序号
+//	phase：月历期间的四分月相儒略日、秒数及月相序号
 function lunc(jdn, tz, nday){
 	// 农历数据
 	var lun = lunar(jdn, tz);
@@ -1258,19 +1260,15 @@ function lunc(jdn, tz, nday){
 		var term = lun.mt[i];
 		if (term[0] >= jdn + nday) break;
 		var id = (i + i + 18) % 24;
-		if (term[0] >= jdn) {
-			term.push(id)
-			lun.term.push(term);
-		}
+		term.push(id)
+		lun.term.push(term);
 		// 节气黄经
 		var deg = id * dg;
 		// 搜索后续节气
 		term = search(term[0], term[1]+ds, tz, deg+dg, sunl00, TROPICAL);
 		if (term[0] >= jdn + nday) break;
-		if (term[0] >= jdn) {
-			term.push(id + 1);
-			lun.term.push(term);
-		}
+		term.push(id + 1);
+		lun.term.push(term);
 	}
 
 	// 四分月相
@@ -1285,10 +1283,8 @@ function lunc(jdn, tz, nday){
 	for (; i<lun.nm.length; ++i) {
 		var phase = lun.nm[i];
 		if (phase[0] >= jdn + nday) break;
-		if (phase[0] >= jdn) {
-			phase.push(0);
-			lun.phase.push(phase);
-		}
+		phase.push(0);
+		lun.phase.push(phase);
 		// 朔日角距
 		var deg = 0;
 		// 搜索后续月相
@@ -1296,10 +1292,8 @@ function lunc(jdn, tz, nday){
 			deg += dg;
 			phase = search(phase[0], phase[1]+ds, tz, deg, mphase, SYNODIC);
 			if (phase[0] >= jdn + nday) break;
-			if (phase[0] >= jdn) {
-				phase.push(id);
-				lun.phase.push(phase);
-			}
+			phase.push(id);
+			lun.phase.push(phase);
 		}
 	}
 
@@ -1357,19 +1351,19 @@ function dsm2(jdn, jds, tz, spf, mpf){
 	// J2000.0起算的儒略世纪，TT
 	var t = tjc(jdn, jds, tz);
 	// 太阳视位置
-	var secl = spf(t, true);
+	var sae = spf(t, true);
 	// 月球视位置
-	var mecl = mpf(t, true);
+	var mae = mpf(t, true);
 
-	var rou = Math.cos(secl[1] * DEG2RAD);
-	var sx = rou * Math.cos(secl[0] * DEG2RAD);
-	var sy = rou * Math.sin(secl[0] * DEG2RAD);
-	var sz = Math.sin(secl[1] * DEG2RAD);
+	var rou = Math.cos(sae[1] * DEG2RAD);
+	var sx = rou * Math.cos(sae[0] * DEG2RAD);
+	var sy = rou * Math.sin(sae[0] * DEG2RAD);
+	var sz = Math.sin(sae[1] * DEG2RAD);
 
-	rou = Math.cos(mecl[1] * DEG2RAD);
-	var mx = rou * Math.cos(mecl[0] * DEG2RAD);
-	var my = rou * Math.sin(mecl[0] * DEG2RAD);
-	var mz = Math.sin(mecl[1] * DEG2RAD);
+	rou = Math.cos(mae[1] * DEG2RAD);
+	var mx = rou * Math.cos(mae[0] * DEG2RAD);
+	var my = rou * Math.sin(mae[0] * DEG2RAD);
+	var mz = Math.sin(mae[1] * DEG2RAD);
 
 	var dx = sx - mx;
 	var dy = sy - my;
@@ -1377,7 +1371,7 @@ function dsm2(jdn, jds, tz, spf, mpf){
 	// 为简化计算，以两点距离近似替代角距。其精确值为：
 	//	tg(θ/2) = √[(sx-mx)²+(sy-my)²+(sz-mz)²] / √[(sx+mx)²+(sy+my)²+(sz+mz)²]
 	var d2 = dx * dx + dy * dy + dz * dz;
-	return [d2, secl[2], mecl[2]];
+	return [d2, sae[2], mae[2]];
 }
 
 // 二分法搜索日月角距最小时刻
@@ -1456,19 +1450,19 @@ function secl(jdn, jds, tz){
 	var ma = RM / dsm[2];
 	// 地球视半径，rad
 	var ea = RE / dsm[2];
-	
+
 	// 日食类型
-	var type = 0;
+	var type = "";
 	// 进入半影区
 	if (dsm[0] < ma + sa + ea) {
 		// 进入本影区
 		if (dsm[0] < Math.abs(ma - sa) + ea) {
 			// 环食
-			if (sa > ma) type = 3;
+			if (sa > ma) type = "日环食";
 			// 全食
-			else type = 2;
+			else type = "日全食";
 			// 偏食
-		} else type = 1;
+		} else type = "日偏食";
 	}
 	return type;
 }
@@ -1476,11 +1470,11 @@ function secl(jdn, jds, tz){
 // 地球本影平黄道坐标
 function eae00(t){
 	// 太阳视位置（相对于瞬时平黄道）
-	var ecl = sunae00(t, true);
+	var sea = sunae00(t, true);
 	// 取地球本影位置
-	ecl[0] -= 180;
-	ecl[1] = -ecl[1];
-	return ecl;
+	sea[0] -= 180;
+	sea[1] = -sea[1];
+	return sea;
 }
 
 // 判断月食
@@ -1500,17 +1494,17 @@ function mecl(jdn, jds, tz){
 	var ea = RE / dsm[2];
 
 	// 月食类型
-	var type = 0;
+	var type = "";
 	// 进入半影区
 	if (dsm[0] < ea + sa + ma) {
 		// 进入本影区
 		if (dsm[0] < ea - sa + ma) {
 			// 完全进入本影区
-			if (dsm[0] < ea - sa - ma) type = 3;
+			if (dsm[0] < ea - sa - ma) type = "月全食";
 			// 偏食
-			else type = 2;
+			else type = "月偏食";
 		// 半影
-		} else type = 1;
+		} else type = "月半影";
 	}
 	return type;
 }
@@ -1729,27 +1723,25 @@ var RM = 1738000;
 
 // 日月、行星基本变量，IERS2003
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替，下同）
 // 返回：日月、行星基本变量，rad
 function farg2003(t){
-	// 儒略世纪的小数部分（似乎没这必要）
-	var tf = t - Math.floor(t);
 	var f = [14];
 	// 月球平近点角，rad
-	//	l = 134.96340251° + (1325×360° + 715923.2178")t + 31.8792"t² + 0.051635"t³ - 0.00024470"t⁴
-	f[0] = (134.96340251 + tf * (1325 * 360) + t * (715923.2178 + t * (31.8792 + t * (0.051635 - t * 0.00024470))) / 3600) % 360 * DEG2RAD;
+	//	l = 134.96340251° + 1717915923.2178"t + 31.8792"t² + 0.051635"t³ - 0.00024470"t⁴
+	f[0] = (134.96340251 + t * (1717915923.2178 + t * (31.8792 + t * (0.051635 - t * 0.00024470))) / 3600) % 360 * DEG2RAD;
 	// 太阳平近点角，rad
-	//	l' = 357.52910918° + (99×360° + 1292581.0481")t - 0.5532"t² + 0.000136"t³ - 0.00001149"t⁴
-	f[1] = (357.52910918 + tf * (99 * 360) + t * (1292581.0481 + t * (-0.5532 + t * (0.000136 - t * 0.00001149))) / 3600) % 360 * DEG2RAD;
+	//	l' = 357.52910918° + 129596581.0481"t - 0.5532"t² + 0.000136"t³ - 0.00001149"t⁴
+	f[1] = (357.52910918 + t * (129596581.0481 + t * (-0.5532 + t * (0.000136 - t * 0.00001149))) / 3600) % 360 * DEG2RAD;
 	// 月球平升交角距，rad
-	//	F = 93.27209062° + (1342×360° + 295262.8478")t - 12.7512"t² - 0.001037"t³ + 0.00000417"t⁴
-	f[2] = (93.27209062 + tf * (1342 * 360) + t * (295262.8478 + t * (-12.7512 + t * (-0.001037 + t * 0.00000417))) / 3600) % 360 * DEG2RAD;
+	//	F = 93.27209062° + 1739527262.8478"t - 12.7512"t² - 0.001037"t³ + 0.00000417"t⁴
+	f[2] = (93.27209062 + t * (1739527262.8478 + t * (-12.7512 + t * (-0.001037 + t * 0.00000417))) / 3600) % 360 * DEG2RAD;
 	// 月球平距角，rad
-	//	D = 297.85019547° + (1236×360° + 1105601.2090")t - 6.3706"t² + 0.006593"t³ - 0.00003169"t⁴
-	f[3] = (297.85019547 + tf * (1236 * 360) + t * (1105601.2090 + t * (-6.3706 + t * (0.006593 - t * 0.00003169))) / 3600) % 360 * DEG2RAD;
+	//	D = 297.85019547° + 1602961601.2090"t - 6.3706"t² + 0.006593"t³ - 0.00003169"t⁴
+	f[3] = (297.85019547 + t * (1602961601.2090 + t * (-6.3706 + t * (0.006593 - t * 0.00003169))) / 3600) % 360 * DEG2RAD;
 	// 月球轨道升交点黄经，rad
-	//	Ω = 125.04455501° - (5×360° + 482890.5431")t + 7.4722"t² + 0.007702"t³ - 0.00005939"t⁴
-	f[4] = (125.04455501 - tf * (5 * 360) + t * (-482890.5431 + t * (7.4722 + t * (0.007702 - t * 0.00005939))) / 3600) % 360 * DEG2RAD;
+	//	Ω = 125.04455501° - 6962890.5431"t + 7.4722"t² + 0.007702"t³ - 0.00005939"t⁴
+	f[4] = (125.04455501 + t * (-6962890.5431 + t * (7.4722 + t * (0.007702 - t * 0.00005939))) / 3600) % 360 * DEG2RAD;
 
 	// 水星平黄经，rad
 	//	LMe = 4.402608842 + 2608.7903141574t
@@ -1789,8 +1781,7 @@ function farg2003(t){
 // 返回：累加数据
 function get_iers(table_iers, f){
 	var sum = 0;
-//	for (var i=0; i<table_iers.length; ++i) {
-	for (var i=table_iers.length-1; i>=0; --i) {
+	for (var i=0; i<table_iers.length; ++i) {
 		// ARG = ∑(N F)
 		var arg = 0;
 		for (var j=0, k=3; j<14; ++j, ++k) arg += table_iers[i][k] * f[j];
@@ -1801,7 +1792,7 @@ function get_iers(table_iers, f){
 
 // CIO定位角，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 //	x、y：CIP天极在GCRS中的X、Y坐标
 // 返回：CIO定位角，rad
@@ -1825,7 +1816,7 @@ function cio_s2006(t, f, x, y){
 
 // CIO岁差章动矩阵Q(t)，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 //	bpn：春分点岁差章动矩阵BPN(t)，以便直接从中获取CIP天极的GCRS坐标
 // 返回：CIO岁差章动矩阵Q(t)
@@ -1875,7 +1866,7 @@ function cio_tio2006(tun, tuf){
 
 // CIO零点差，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 //	bpn：春分点岁差章动矩阵BPN(t)，以便直接从中获取(EO - s)夹角
 // 返回：零点差EO，rad
@@ -1905,7 +1896,7 @@ function eo2006(t, f, bpn){
 
 // 平黄赤交角
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：平黄赤交角εA，as
 function obl2006(t){
 	// 平黄赤交角，as：
@@ -1915,7 +1906,7 @@ function obl2006(t){
 
 // GCRS赤经岁差，Fukushima-Williams简化法，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：GCRS赤经岁差γ¯，as
 function gamb2006(t){
 	// 瞬时黄道与GCRS赤道交点的GCRS赤经，as：
@@ -1925,7 +1916,7 @@ function gamb2006(t){
 
 // GCRS瞬时黄赤交角，Fukushima-Williams简化法，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：GCRS瞬时黄赤交角φ¯，as
 function phib2006(t){
 	// 瞬时黄道与GCRS赤道的交角，as：
@@ -1935,7 +1926,7 @@ function phib2006(t){
 
 // GCRS黄经岁差，Fukushima-Williams简化法，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：GCRS黄经岁差ψ¯，as
 function psib2006(t){
 	// 参考架偏差、岁差对黄经岁差贡献总和，as：
@@ -1945,7 +1936,7 @@ function psib2006(t){
 
 // 岁差矩阵BP(t)，Fukushima-Williams简化法，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：岁差矩阵BP(t)
 function bp2006(t){
 	// 平黄赤交角εA，as
@@ -1962,7 +1953,7 @@ function bp2006(t){
 
 // 黄经章动，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 // 返回：黄经章动Δψ，as
 function dpsi2006(t, f){
@@ -1976,7 +1967,7 @@ function dpsi2006(t, f){
 
 // 交角章动，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 // 返回：交角章动Δε，as
 function deps2006(t, f){
@@ -1990,7 +1981,7 @@ function deps2006(t, f){
 
 // 岁差章动矩阵BPN(t)，Fukushima-Williams简化法，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 // 返回：岁差章动矩阵BPN(t)
 function bpn2006(t, f){
@@ -2022,7 +2013,7 @@ function bias2006(){
 
 // 岁差矩阵P(t)，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：岁差矩阵P(t)
 function prec2006(t){
 	// 赤道岁差，as：
@@ -2040,7 +2031,7 @@ function prec2006(t){
 
 // 章动矩阵N(t)，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 // 返回：章动矩阵N(t)
 function nut2006(t, f){
@@ -2056,7 +2047,7 @@ function nut2006(t, f){
 
 // 岁差章动矩阵BPN(t)，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 // 返回：岁差章动矩阵BPN(t)
 function bxpxn2006(t, f){
@@ -2067,7 +2058,7 @@ function bxpxn2006(t, f){
 
 // 格林尼治平恒星时，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	tun：J2000.0起算的儒略日整数部分，UT1
 //	tuf：J2000.0起算的儒略日小数部分，UT1
 // 返回：格林尼治平恒星时，rad
@@ -2079,7 +2070,7 @@ function gmst2006(t, tun, tuf){
 
 // 格林尼治真恒星时，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 //	tun：J2000.0起算的儒略日整数部分，UT1
 //	tuf：J2000.0起算的儒略日小数部分，UT1
@@ -2092,7 +2083,7 @@ function gst2006(t, f, tun, tuf, bpn){
 
 // 地球自转矩阵R(t)，IAU2006
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	f：日月、行星基本变量，rad
 //	tun：J2000.0起算的儒略日整数部分，UT1
 //	tuf：J2000.0起算的儒略日小数部分，UT1
@@ -2106,11 +2097,13 @@ function gst_tio2006(t, f, tun, tuf, bpn){
 ////////////////////////////////////////////////////////////////////////////////
 // 地球位置（EPV00）
 //www.iausofa.org/current-software
+// 如需更高精度可采用VSOP2010：
+//ftp.imcce.fr/pub/ephem/planets/vsop2010/
 
 // 从EPV00展开式序列表读取累加数据：∑ᵢ[a * cos(b + c * t)]
 // 输入：
 //	table_epv：EPV00展开式序列表
-//	t：J2000.0起算的儒略年，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略年，TDB
 // 返回：累加数据
 function get_ep(table_epv, t){
 	var sum = 0;
@@ -2122,7 +2115,7 @@ function get_ep(table_epv, t){
 
 // 地球位置（相对于ICRS）
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 // 返回：地球位置ICRS坐标，au
 function ep00(t){
 	// J2000.0起算的儒略年
@@ -2152,7 +2145,7 @@ function ep00(t){
 
 // 太阳平黄道坐标
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	v：视位置
 // 返回：
 //	[0]：太阳视平黄经，[0°, 360°)
@@ -2200,18 +2193,18 @@ function sunae00(t, v){
 
 // 太阳真黄经
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	v：视位置
 // 返回：太阳视黄经，[0°, 360°)
 function sunl00(t, v){
 	// 太阳平黄道坐标
-	var ecl = sunae00(t, v);
+	var sae = sunae00(t, v);
 	// 日月、行星基本变量，rad
 	var f = farg2003(t);
 	// 黄经章动Δψ，as
 	var dpsi = dpsi2006(t, f);
 	// 平黄经累加章动
-	var l = ecl[0] + dpsi / 3600;
+	var l = sae[0] + dpsi / 3600;
 
 	// 转换至360°以内
 	if ((l %= 360) < 0) l += 360;
@@ -2221,45 +2214,45 @@ function sunl00(t, v){
 ////////////////////////////////////////////////////////////////////////////////
 // 月球位置（Moon98）
 //www.iausofa.org/current-software
+// 如需更高精度可采用ELP/MPP02：
+//polac.obspm.fr/pub/2_lunar_solutions/2_elpmpp02/
 
 // 月球平黄道坐标
 // 输入：
-//	t：J2000.0起算的儒略世纪，TDB（通常可用TT代替）
+//	t：J2000.0起算的儒略世纪，TDB
 //	v：视位置
 // 返回：
 //	[0]：月球黄经（相对于瞬时平黄道），[0°, 360°)
 //	[1]：月球黄纬（相对于瞬时平黄道），[-90°, 90°]
 //	[2]：地月距离，m
 function moonae98(t, v){
-	//	儒略世纪的小数部分
-	var tf = t - Math.floor(t);
 	// 月球平黄经：
-	//	L'= 218.31665436° + (1336×360°+ 307.88123421°)t - 0.0015786°t² + t³/538841.0 - t⁴/65194000.0
-	var lpd = (218.31665436 + tf * (1336 * 360) + t * (307.88123421 + t * (-0.0015786 + t * ((1 / 538841.0) - t / 65194000.0)))) % 360;
+	//	L' = 218.31665436° + 481267.88123421°t - 0.0015786°t² + t³/538841.0 - t⁴/65194000.0
+	var lpd = (218.31665436 + t * (481267.88123421 + t * (-0.0015786 + t * ((1 / 538841.0) - t / 65194000.0)))) % 360;
 	var lp = lpd * DEG2RAD;
+
 	// 日月基本变量（D、M、M'、F），rad
 	var f = [4];
 	// 月球平距角：
-	//	D = 297.8501921° + (1236×360° + 307.1114034°)t - 0.0018819°t² + t³/545868.0 + t⁴/113065000.0
-	f[0] = (297.8501921 + tf * (1236 * 360) + t * (307.1114034 + t * (-0.0018819 + t * ((1 / 545868.0) + t / 113065000.0)))) % 360 * DEG2RAD;
+	//	D = 297.8501921° + 445267.1114034°t - 0.0018819°t² + t³/545868.0 + t⁴/113065000.0
+	f[0] = (297.8501921 + t * (445267.1114034 + t * (-0.0018819 + t * ((1 / 545868.0) + t / 113065000.0)))) % 360 * DEG2RAD;
 	// 太阳平近点角：
-	//	M = 357.5291092° + (99×360° + 359.0502909°)t - 0.0001536°t² + t³/24490000.0
-	f[1] = (357.5291092 + tf * (99 * 360) + t * (359.0502909 + t * (-0.0001536 + t / 24490000.0))) % 360 * DEG2RAD;
+	//	M = 357.5291092° + 35999.0502909°t - 0.0001536°t² + t³/24490000.0
+	f[1] = (357.5291092 + t * (35999.0502909 + t * (-0.0001536 + t / 24490000.0))) % 360 * DEG2RAD;
 	// 月球平近点角：
-	//	M' = 134.9633964° + (1325×360° + 198.8675055°)t + 0.0087414°t² + t³/69699.0 - t⁴/14712000.0
-	f[2] = (134.9633964 + tf * (1325 * 360) + t * (198.8675055 + t * (0.0087414 + t * ((1 / 69699.0) - t / 14712000.0)))) % 360 * DEG2RAD;
+	//	M' = 134.9633964° + 477198.8675055°t + 0.0087414°t² + t³/69699.0 - t⁴/14712000.0
+	f[2] = (134.9633964 + t * (477198.8675055 + t * (0.0087414 + t * ((1 / 69699.0) - t / 14712000.0)))) % 360 * DEG2RAD;
 	// 月球平升交角距：
-	//	F = 93.2720950° + (1342×360° + 82.0175233°)t - 0.0036539°t² + t³/3526000.0 + t⁴/863310000.0
-	f[3] = (93.2720950 + tf * (1342 * 360) + t * (82.0175233 + t * (-0.0036539 + t * ((1 / 3526000.0) + t / 863310000.0)))) % 360 * DEG2RAD;
+	//	F = 93.2720950° + 483202.0175233°t - 0.0036539°t² + t³/3526000.0 + t⁴/863310000.0
+	f[3] = (93.2720950 + t * (483202.0175233 + t * (-0.0036539 + t * ((1 / 3526000.0) + t / 863310000.0)))) % 360 * DEG2RAD;
 
 	var l = 0, b = 0, r = 0;
 	// 地球轨道偏心率修正因子：E = 1 - 0.002516t - 0.0000074t²
-	var e = 1 - t * (0.002516 + t * 0.0000074);
+	var e = 1 + t * (-0.002516 - t * 0.0000074);
 	var e2 = e * e;
-	// 月球黄经周期摄动项：∑ᵢ[Eᵏ * s * sin(ARG)]，°
-	// 地月距离周期摄动项：∑ᵢ[Eᵏ * c * cos(ARG)]，m
-//	for (var i=0; i<table_moon_lr.length; ++i) {
-	for (var i=table_moon_lr.length-1; i>=0; --i) {
+	// 月球黄经周期项：∑ᵢ[Eᵏ * s * sin(ARG)]，°
+	// 地月距离周期项：∑ᵢ[Eᵏ * c * cos(ARG)]，m
+	for (var i=0; i<table_moon_lr.length; ++i) {
 		// ARG = ∑(N F)
 		var arg = 0;
 		for (var j=0; j<4; ++j) arg += table_moon_lr[i][j] * f[j];
@@ -2279,13 +2272,12 @@ function moonae98(t, v){
 	if (v) {
 		// 补偿光行差，儒略世纪
 		var dt = r / (C * JC * 86400);
-		// 重新计算月球位置坐标
+		// 重新计算月球位置
 		return moonae98(t - dt, false);
 	}
 	
-	// 月球黄纬周期摄动项：∑ᵢ[Eᵏ * s * sin(ARG)]，°
-//	for (var i=0; i<table_moon_b.length; ++i) {
-	for (var i=table_moon_b.length-1; i>=0; --i) {
+	// 月球黄纬周期项：∑ᵢ[Eᵏ * s * sin(ARG)]，°
+	for (var i=0; i<table_moon_b.length; ++i) {
 		// ARG = ∑(N F)
 		var arg = 0;
 		for (var j=0; j<4; ++j) arg += table_moon_b[i][j] * f[j];
@@ -2304,9 +2296,9 @@ function moonae98(t, v){
 	// 月球黄经恒星运动摄动角：313.45°+ 481266.484°t
 	var a3 = (313.45 + t * 481266.484) * DEG2RAD;
 	// 月球黄经附加项：0.003958°sin(a1) + 0.001962°sin(l' - f) + 0.000318°sin(a2)
-	l +=  0.003958 * Math.sin(a1) + 0.001962 * Math.sin(lp - f[3]) + 0.000318 * Math.sin(a2);
-	// 月球黄纬附加项：-0.002235°sin(l') + 0.000382°sin(a3) + 0.000175°sin(a1 - f) + 0.000175°sin(a1 + f) + 0.000127°sin(l' - m') - 0.000115°sin(l' + m')
-	b += -0.002235 * Math.sin(lp) + 0.000382 * Math.sin(a3) + 0.000175 * Math.sin(a1 - f[3]) + 0.000175 * Math.sin(a1 + f[3]) + 0.000127 * Math.sin(lp - f[2]) - 0.000115 * Math.sin(lp + f[2]);
+	l += 0.003958 * Math.sin(a1) + 0.001962 * Math.sin(lp - f[3]) + 0.000318 * Math.sin(a2);
+	// 月球黄纬附加项：-0.002235°sin(l') + 0.000382°sin(a3) + 0.000175°(sin(a1 - f) + sin(a1 + f)) + 0.000127°sin(l' - m') - 0.000115°sin(l' + m')
+	b += -0.002235 * Math.sin(lp) + 0.000382 * Math.sin(a3) + 0.000175 * (Math.sin(a1 - f[3]) + Math.sin(a1 + f[3])) + 0.000127 * Math.sin(lp - f[2]) - 0.000115 * Math.sin(lp + f[2]);
 
 	// 累加月球平黄经，°
 	l += lpd;
@@ -6383,9 +6375,9 @@ var table_epv_ez2 = [
 // Moon98展开式序列表（SOFA）
 //www.iausofa.org/current-software
 
-// 月球黄经周期摄动项，°：
+// 月球黄经周期项，°：
 //	∑ᵢ[Eᵏ * s * sin(ARG)]
-// 地月距离周期摄动项，m：
+// 地月距离周期项，m：
 //	∑ᵢ[Eᵏ * c * cos(ARG)]
 //	ARG = ∑(N F)
 var table_moon_lr = [
@@ -6452,7 +6444,7 @@ var table_moon_lr = [
 	[2,  0, -1, -2,  0.000000,      8752.0]
 ];
 
-// 月球黄纬周期摄动项，°：
+// 月球黄纬周期项，°：
 //	∑ᵢ[Eᵏ * s * sin(ARG)]
 //	ARG = ∑(N F)
 var table_moon_b = [
